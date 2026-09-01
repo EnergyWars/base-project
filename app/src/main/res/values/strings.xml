@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Base project</string>
+
+    <string name="label_back">Back</string>
+    <string name="label_close">Close</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_save">Save</string>
+    <string name="label_delete">Delete</string>
+    <string name="label_edit">Edit</string>
+    <string name="label_ok">OK</string>
+    <string name="label_confirm">Confirm</string>
+    <string name="label_settings">Settings</string>
+
+    <string name="cd_open_settings">Open settings</string>
+    <string name="cd_menu">Open menu</string>
+    <string name="cd_home">Home</string>
+
+    <!-- App header & navigation -->
+    <string name="header_menu">Menu</string>
+    <string name="header_home">Home</string>
+    <string name="nav_section_pages">Pages</string>
+
+    <!-- Example pages -->
+    <string name="example_1_title">Example 1</string>
+    <string name="example_2_title">Example 2</string>
+    <string name="example_3_title">Example 3</string>
+    <string name="example_lead">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</string>
+    <string name="example_section_a">Lorem ipsum</string>
+    <string name="example_section_b">Dolor sit amet</string>
+    <string name="example_section_c">Consetetur</string>
+    <string name="lorem_1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</string>
+    <string name="lorem_2">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est lorem ipsum dolor sit amet.</string>
+    <string name="lorem_3">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros.</string>
+
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">System default</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+
+    <string name="settings_section_features">Feature files</string>
+    <string name="settings_feature_files_entry">Feature list</string>
+    <string name="settings_feature_files_count">%1$d entries</string>
+
+    <!-- Settings pages -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_row_features">Features</string>
+    <string name="settings_display_title">Display</string>
+    <string name="settings_display_sub">Theme, font sizes, colors</string>
+    <string name="settings_group_general">General</string>
+    <string name="settings_design_label">Theme</string>
+    <string name="settings_group_lorem">Lorem ipsum</string>
+    <string name="settings_group_consectetur">Consectetur</string>
+    <string name="settings_ctrl_fontsize">Font size</string>
+    <string name="settings_ctrl_contrast">Contrast</string>
+    <string name="settings_percent">%1$d %%</string>
+    <string name="settings_ratio">%1$d / %2$d</string>
+    <string name="settings_srow_a_title">Dolor sit amet</string>
+    <string name="settings_srow_a_sub">Consectetur adipiscing elit</string>
+    <string name="settings_srow_b_title">Adipiscing elit</string>
+    <string name="settings_srow_b_sub">Sed do eiusmod tempor</string>
+
+    <string name="feature_files_title">Feature list</string>
+    <string name="feature_files_show_hidden">Show hidden</string>
+    <string name="feature_files_empty">No feature files available.</string>
+    <string name="feature_files_all_hidden">All entries hidden.</string>
+
+    <!-- Showcase v2.1 -->
+    <string name="sc_appbar_title">Showcase v2.1</string>
+    <string name="sc_eyebrow">WaffleHQ · Design system v2.1 · Showcase</string>
+    <string name="sc_title">Complete token &amp; component set</string>
+    <string name="sc_lede">All tokens (color, type, shape, spacing) and every Material 3 component in one view — structured like the base project home screen. Every tinted foreground on its assigned surface meets at least WCAG 2.2 AA; the accent tones (40 light · 80 dark) are all in AAA range.</string>
+    <string name="sc_toggle_light">Light</string>
+    <string name="sc_toggle_dark">Dark</string>
+    <string name="sc_download">Download theme</string>
+
+    <!-- Section titles & descriptions -->
+    <string name="sc_s1_title">1 · Typography</string>
+    <string name="sc_s1_desc">Material 3 scale with Geist. 15 steps, each with size/line-height/weight in the meta column.</string>
+    <string name="sc_s2_title">2 · Font weights</string>
+    <string name="sc_s2_desc">Geist offers the full weight range. Body 400, title/label 600, display/headline 700.</string>
+    <string name="sc_s3_title">3 · Hue ramps</string>
+    <string name="sc_s3_desc">Seven named ramps. 40 is the on-light accent, 80 the on-dark accent, 90 the on-light container.</string>
+    <string name="sc_s4_title">4 · Surfaces &amp; outline</string>
+    <string name="sc_s4_desc">Material 3 neutral palette. Light: off-white steps; dark: Abyss → Midnight → Dusk.</string>
+    <string name="sc_s5_title">5 · Roles overview</string>
+    <string name="sc_s5_desc">Each role provides four tokens: role, on-role, role-container, on-role-container.</string>
+    <string name="sc_s6_title">6 · Buttons</string>
+    <string name="sc_s6_desc">Five variants per role: filled, tonal, elevated, outlined, text. Plus disabled state.</string>
+    <string name="sc_s7_title">7 · Floating action buttons</string>
+    <string name="sc_s7_desc">FAB sits bottom-right, 16dp inset, only for the primary „create“ action.</string>
+    <string name="sc_s8_title">8 · Icon buttons</string>
+    <string name="sc_s8_desc">Four variants: standard, filled, tonal, outlined. At least 44dp touch target.</string>
+    <string name="sc_s9_title">9 · Chips</string>
+    <string name="sc_s9_desc">Four types: assist, filter (single-choice), input (with avatar &amp; close), suggestion.</string>
+    <string name="sc_s10_title">10 · Text fields</string>
+    <string name="sc_s10_desc">Outlined is default. Leading icon, error state, filled multiline, disabled.</string>
+    <string name="sc_s11_title">11 · Cards</string>
+    <string name="sc_s11_desc">Three variants: filled (on surface variant), elevated (with tonal elevation), outlined.</string>
+    <string name="sc_s12_title">12 · List items</string>
+    <string name="sc_s12_desc">One-, two- and three-line variants. Leading avatar 44dp, trail text in monospace.</string>
+    <string name="sc_s13_title">13 · Selection controls</string>
+    <string name="sc_s13_desc">Checkbox, switch, radio group. Native replacement with AA contrast.</string>
+    <string name="sc_s14_title">14 · Segmented buttons</string>
+    <string name="sc_s14_desc">Single-choice row for mutually exclusive selection (e.g. day / week / month / year).</string>
+    <string name="sc_s15_title">15 · Slider &amp; progress</string>
+    <string name="sc_s15_desc">Slider continuous / stepped / disabled. Progress linear &amp; circular, each determinate and indeterminate.</string>
+    <string name="sc_s16_title">16 · Badges &amp; status pills</string>
+    <string name="sc_s16_desc">Number badge on icon, dot badge, status pills for all roles.</string>
+    <string name="sc_s17_title">17 · Banners</string>
+    <string name="sc_s17_desc">Inline notice strips per role. With action, prominent style and a “✕” to dismiss.</string>
+    <string name="sc_s18_title">18 · Snackbar &amp; dialog</string>
+    <string name="sc_s18_desc">Snackbar with action button. Dialog with 28dp top radius.</string>
+    <string name="sc_s19_title">19 · Icons</string>
+    <string name="sc_s19_desc">On web: Lucide (same stroke, same style as Material Symbols).</string>
+    <string name="sc_s20_title">20 · Dividers</string>
+    <string name="sc_s20_desc">Horizontal / horizontal strong / vertical.</string>
+    <string name="sc_s21_title">21 · Spacing &amp; radii</string>
+    <string name="sc_s21_desc">8dp grid. Radii per M3 shape scale.</string>
+    <string name="sc_s22_title">22 · App header (mobile)</string>
+    <string name="sc_s22_desc">Taller top bar with a hairline at its base. Three buttons, each exactly one third wide; the icon sits directly above its label, centered as a unit. Right: gear (settings); center: app icon (home); left: a third icon for 2-page apps or a burger that expands into a drawer for multi-page apps.</string>
+    <string name="sc_ah_list">List</string>
+    <string name="sc_ah_calendar">Calendar</string>
+    <string name="sc_ah_history">History</string>
+    <string name="sc_ah_cap_a">Variant A · 2-page — third icon left</string>
+    <string name="sc_ah_cap_b">Variant B · multi-page — burger left</string>
+    <string name="sc_ah_cap_default">State · default (flat)</string>
+    <string name="sc_ah_cap_elevated">State · elevated (content scrolled)</string>
+    <string name="sc_ah_cap_badge">State · active page + badge</string>
+    <string name="sc_ah_cap_drawer">State · burger expanded (navigation drawer)</string>
+    <string name="sc_s23_title">23 · Settings — list page</string>
+    <string name="sc_s23_desc">Each sub-item fills a whole, fully tappable row with an arrow on the right. Primary label with optional description below, separated by a hairline.</string>
+    <string name="sc_s24_title">24 · Settings — detail page</string>
+    <string name="sc_s24_desc">„General“ group with a theme dropdown (system / light / dark). Further headings with example controls; each group sits in a lightly tinted box, separated by a hairline before the next heading.</string>
+    <string name="sc_set_list_cap">Settings · sub-items with arrow</string>
+    <string name="sc_set_detail_cap">Display · groups + dropdown + controls</string>
+
+    <!-- Typography names & meta -->
+    <string name="sc_t_display_l">Display L</string>
+    <string name="sc_m_display_l">57 / 64 / 700</string>
+    <string name="sc_t_display_m">Display M</string>
+    <string name="sc_m_display_m">45 / 52 / 700</string>
+    <string name="sc_t_display_s">Display S</string>
+    <string name="sc_m_display_s">36 / 44 / 700</string>
+    <string name="sc_t_headline_l">Headline L</string>
+    <string name="sc_m_headline_l">32 / 40 / 700</string>
+    <string name="sc_t_headline_m">Headline M</string>
+    <string name="sc_m_headline_m">28 / 36 / 700</string>
+    <string name="sc_t_headline_s">Headline S</string>
+    <string name="sc_m_headline_s">24 / 32 / 700</string>
+    <string name="sc_t_title_l">Title L</string>
+    <string name="sc_m_title_l">22 / 28 / 600</string>
+    <string name="sc_t_title_m">Title M</string>
+    <string name="sc_m_title_m">16 / 24 / 600</string>
+    <string name="sc_t_title_s">Title S</string>
+    <string name="sc_m_title_s">14 / 20 / 600</string>
+    <string name="sc_t_body_l">Body L</string>
+    <string name="sc_m_body_l">16 / 24 / 400</string>
+    <string name="sc_t_body_m">Body M</string>
+    <string name="sc_m_body_m">14 / 20 / 400</string>
+    <string name="sc_t_body_s">Body S</string>
+    <string name="sc_m_body_s">12 / 16 / 400</string>
+    <string name="sc_t_label_l">Label L</string>
+    <string name="sc_m_label_l">14 / 20 / 600</string>
+    <string name="sc_t_label_m">Label M</string>
+    <string name="sc_m_label_m">12 / 16 / 600</string>
+    <string name="sc_t_label_s">Label S</string>
+    <string name="sc_m_label_s">11 / 16 / 600</string>
+    <string name="sc_sample_display">Aa Bb 123</string>
+    <string name="sc_sample_headline">Functional, short text.</string>
+    <string name="sc_sample_title">Title of a card or section.</string>
+    <string name="sc_sample_body">Body copy for descriptions, multiple sentences. Optimally readable.</string>
+    <string name="sc_sample_label">BUTTON LABEL</string>
+
+    <!-- Weights -->
+    <string name="sc_weight_sample">Pragmatic. Quiet. Local.</string>
+    <string name="sc_w_light">Light · 300</string>
+    <string name="sc_w_regular">Regular · 400</string>
+    <string name="sc_w_medium">Medium · 500</string>
+    <string name="sc_w_semibold">SemiBold · 600</string>
+    <string name="sc_w_bold">Bold · 700</string>
+
+    <!-- Roles, ramps, hues -->
+    <string name="sc_role_primary">Primary</string>
+    <string name="sc_role_secondary">Secondary</string>
+    <string name="sc_role_tertiary">Tertiary</string>
+    <string name="sc_role_success">Success</string>
+    <string name="sc_role_warning">Warning</string>
+    <string name="sc_role_error">Error</string>
+    <string name="sc_role_neutral">Neutral</string>
+    <string name="sc_ramp_sapphire">Sapphire</string>
+    <string name="sc_ramp_aquamarine">Aquamarine</string>
+    <string name="sc_ramp_amethyst">Amethyst</string>
+    <string name="sc_ramp_emerald">Emerald</string>
+    <string name="sc_ramp_citrine">Citrine</string>
+    <string name="sc_ramp_garnet">Garnet</string>
+    <string name="sc_ramp_graphite">Graphite</string>
+    <string name="sc_hue_sapphire">~225°</string>
+    <string name="sc_hue_aquamarine">~195°</string>
+    <string name="sc_hue_amethyst">~345°</string>
+    <string name="sc_hue_emerald">~145°</string>
+    <string name="sc_hue_citrine">~35°</string>
+    <string name="sc_hue_garnet">~350°</string>
+    <string name="sc_hue_graphite">~220° low chroma</string>
+
+    <!-- Surfaces -->
+    <string name="sc_surf_bg">Background</string>
+    <string name="sc_surf_bg_d">Page background</string>
+    <string name="sc_surf_surface">Surface</string>
+    <string name="sc_surf_surface_d">Cards, sheets</string>
+    <string name="sc_surf_variant">Surface variant</string>
+    <string name="sc_surf_variant_d">Nested cards, chip rest</string>
+    <string name="sc_surf_outline">Outline</string>
+    <string name="sc_surf_outline_d">Border / divider</string>
+    <string name="sc_surf_on">On-surface</string>
+    <string name="sc_surf_on_d">Body text on surface · ≥7.4:1 AAA</string>
+    <string name="sc_surf_onvar">On-surface variant</string>
+    <string name="sc_surf_onvar_d">Secondary text · ≥4.6:1 AA</string>
+
+    <!-- Roles overview -->
+    <string name="sc_role_card_primary">Primary · Sapphire</string>
+    <string name="sc_role_card_secondary">Secondary · Aquamarine</string>
+    <string name="sc_role_card_tertiary">Tertiary · Amethyst</string>
+    <string name="sc_role_card_success">Success · Emerald</string>
+    <string name="sc_role_card_warning">Warning · Citrine</string>
+    <string name="sc_role_card_error">Error · Garnet</string>
+    <string name="sc_role_card_neutral">Neutral · Graphite</string>
+    <string name="sc_contrast_primary">9.96:1</string>
+    <string name="sc_contrast_secondary">7.16:1</string>
+    <string name="sc_contrast_tertiary">8.81:1</string>
+    <string name="sc_contrast_success">7.29:1</string>
+    <string name="sc_contrast_warning">5.46:1</string>
+    <string name="sc_contrast_error">7.74:1</string>
+    <string name="sc_contrast_neutral">7.32:1</string>
+    <string name="sc_pass_aaa">AAA</string>
+    <string name="sc_pass_aa">AA</string>
+
+    <!-- Buttons -->
+    <string name="sc_btn_sub_primary">Primary · Sapphire</string>
+    <string name="sc_btn_sub_secondary">Secondary · Aquamarine</string>
+    <string name="sc_btn_sub_tertiary">Tertiary · Amethyst</string>
+    <string name="sc_btn_sub_success">Success · Emerald</string>
+    <string name="sc_btn_sub_warning">Warning · Citrine</string>
+    <string name="sc_btn_sub_error">Error · Garnet</string>
+    <string name="sc_btn_sub_neutral">Neutral · Graphite</string>
+    <string name="sc_b_save">Save</string>
+    <string name="sc_b_edit">Edit</string>
+    <string name="sc_b_share">Share</string>
+    <string name="sc_b_filter">Filter</string>
+    <string name="sc_b_more">More</string>
+    <string name="sc_b_disabled">Disabled</string>
+    <string name="sc_b_reminder">Reminder</string>
+    <string name="sc_b_mark">Mark</string>
+    <string name="sc_b_note">Note</string>
+    <string name="sc_b_predict">Forecast</string>
+    <string name="sc_b_cycle">Cycle</string>
+    <string name="sc_b_stats">Stats</string>
+    <string name="sc_b_options">Options</string>
+    <string name="sc_b_confirm">Confirm</string>
+    <string name="sc_b_successful">Successful</string>
+    <string name="sc_b_callable">Callable</string>
+    <string name="sc_b_active">Active</string>
+    <string name="sc_b_details">Details</string>
+    <string name="sc_b_battery">Battery note</string>
+    <string name="sc_b_holiday">Holiday</string>
+    <string name="sc_b_check">Check</string>
+    <string name="sc_b_verify">Verify</string>
+    <string name="sc_b_delete">Delete</string>
+    <string name="sc_b_error">Error</string>
+    <string name="sc_b_discard">Discard</string>
+    <string name="sc_b_stop">Stop</string>
+    <string name="sc_b_standard">Standard</string>
+    <string name="sc_b_metadata">Metadata</string>
+    <string name="sc_b_archive">Archive</string>
+    <string name="sc_b_secondary">Secondary</string>
+
+    <!-- FAB -->
+    <string name="sc_fab_small">Small · 40dp</string>
+    <string name="sc_fab_standard">Standard · 56dp</string>
+    <string name="sc_fab_large">Large · 96dp</string>
+    <string name="sc_fab_extended">Extended</string>
+    <string name="sc_fab_event">Add event</string>
+
+    <!-- Chips -->
+    <string name="sc_chip_assist_sub">Assist · Suggestion</string>
+    <string name="sc_chip_tip">Show tip</string>
+    <string name="sc_chip_addlist">Add to list</string>
+    <string name="sc_chip_callable">✓ Callable</string>
+    <string name="sc_chip_urgent">Urgent</string>
+    <string name="sc_chip_filter_sub">Filter · Single-choice</string>
+    <string name="sc_chip_all">All</string>
+    <string name="sc_chip_callable_today">Callable today</string>
+    <string name="sc_chip_capacity">With capacity</string>
+    <string name="sc_chip_nearby">Nearby</string>
+    <string name="sc_chip_input_sub">Input · selected / unselected · with avatar &amp; close</string>
+    <string name="sc_chip_anna">Anna M.</string>
+    <string name="sc_chip_jonas">Jonas B.</string>
+    <string name="sc_chip_sara">Sara F.</string>
+    <string name="sc_av_am">AM</string>
+    <string name="sc_av_jb">JB</string>
+    <string name="sc_av_sf">SF</string>
+
+    <!-- Text fields -->
+    <string name="sc_tf_name_lbl">Name</string>
+    <string name="sc_tf_name_ph">Anna Müller</string>
+    <string name="sc_tf_search_lbl">Search</string>
+    <string name="sc_tf_search_ph">Search event or note…</string>
+    <string name="sc_tf_email_lbl">E-mail · invalid</string>
+    <string name="sc_tf_email_val">anna@</string>
+    <string name="sc_tf_note_lbl">Note</string>
+    <string name="sc_tf_note_val">Filled multiline · 4dp outlined radius only on top corners (M3 default is bottom-aligned only)</string>
+    <string name="sc_tf_phone_lbl">Phone · locked</string>
+    <string name="sc_tf_phone_val">+49 30 1234567</string>
+
+    <!-- Cards -->
+    <string name="sc_card_filled">Filled</string>
+    <string name="sc_card_filled_cls">.card.filled</string>
+    <string name="sc_card_filled_meta">Uses surface-variant as background. Suitable for nested cards inside a surface container.</string>
+    <string name="sc_card_elevated">Elevated</string>
+    <string name="sc_card_elevated_cls">.card.elevated</string>
+    <string name="sc_card_elevated_meta">On surface with shadow-2. For stand-alone hero cards.</string>
+    <string name="sc_card_outlined">Outlined</string>
+    <string name="sc_card_outlined_cls">.card.outlined</string>
+    <string name="sc_card_outlined_meta">Surface + outline stroke. Weakest hierarchy — for secondary content.</string>
+
+    <!-- List items -->
+    <string name="sc_list_one">One line</string>
+    <string name="sc_list_one_trail">14:08</string>
+    <string name="sc_list_anna">Anna Müller</string>
+    <string name="sc_list_anna_sub">anna.mueller@example.de</string>
+    <string name="sc_list_anna_trail">Today</string>
+    <string name="sc_list_park">Bismarckstraße car park</string>
+    <string name="sc_list_park_sub">Auto-saved 2 hrs ago · ±12 m</string>
+    <string name="sc_list_park_x">Tap: map · Long-press: select</string>
+    <string name="sc_list_park_trail">≈ 4.2 km</string>
+
+    <!-- Selection -->
+    <string name="sc_sel_checkbox">Checkbox</string>
+    <string name="sc_sel_switch">Switch</string>
+    <string name="sc_sel_radio">Radio</string>
+    <string name="sc_sel_on">Enabled</string>
+    <string name="sc_sel_off">Disabled</string>
+    <string name="sc_sel_locked">Locked</string>
+    <string name="sc_sel_light_mode">Light mode</string>
+    <string name="sc_sel_push">Push reminder</string>
+    <string name="sc_sel_system">System default</string>
+    <string name="sc_sel_light">Light</string>
+    <string name="sc_sel_dark">Dark</string>
+
+    <!-- Segmented -->
+    <string name="sc_seg_day">Day</string>
+    <string name="sc_seg_week">Week</string>
+    <string name="sc_seg_month">Month</string>
+    <string name="sc_seg_year">Year</string>
+
+    <!-- Slider & progress -->
+    <string name="sc_slider_sub">Slider</string>
+    <string name="sc_progress_sub">Progress</string>
+    <string name="sc_slider_continuous">Continuous · 35%</string>
+    <string name="sc_slider_stepped">10 steps · 7/10</string>
+    <string name="sc_slider_disabled">Locked</string>
+    <string name="sc_prog_lin_det">Linear · determinate · 65%</string>
+    <string name="sc_prog_lin_indet">Linear · indeterminate</string>
+    <string name="sc_prog_circ">Circular · indeterminate</string>
+
+    <!-- Badges -->
+    <string name="sc_badge_saved">✓ Saved</string>
+    <string name="sc_badge_discarded">✗ Discarded</string>
+
+    <!-- Banners -->
+    <string name="sc_ban_sync_t">Syncing</string>
+    <string name="sc_ban_sync_d">3 of 12 entries transferred — keep the app open.</string>
+    <string name="sc_ban_widget_t">Tip: add a widget</string>
+    <string name="sc_ban_widget_d">Put the moon-phase trend right on your home screen.</string>
+    <string name="sc_ban_update_t">Update available</string>
+    <string name="sc_ban_update_d">Version 2.2 brings faster backups and new widgets.</string>
+    <string name="sc_ban_update_action">Load now</string>
+    <string name="sc_ban_storage_t">Storage almost full</string>
+    <string name="sc_ban_storage_d">Only 38 MB left. Delete old backups to continue.</string>
+    <string name="sc_ban_storage_action">Manage</string>
+    <string name="sc_ban_primary_t">New feature available</string>
+    <string name="sc_ban_primary_d">Full-moon calendar can now be enabled in settings.</string>
+    <string name="sc_ban_success_t">Backup saved</string>
+    <string name="sc_ban_success_d">Synced to Google Drive today at 09:12.</string>
+    <string name="sc_ban_warning_t">Battery optimization active</string>
+    <string name="sc_ban_warning_d">Reminders may be delayed.</string>
+    <string name="sc_ban_error_t">Drive token expired</string>
+    <string name="sc_ban_error_d">Please sign in again to resume backups.</string>
+    <string name="sc_ban_neutral_t">No entries yet</string>
+    <string name="sc_ban_neutral_d">Tap + to begin.</string>
+
+    <!-- Snackbar & dialog -->
+    <string name="sc_snack_sub">Snackbar</string>
+    <string name="sc_snack_deleted">Entry deleted.</string>
+    <string name="sc_snack_undo">Undo</string>
+    <string name="sc_snack_location">Location saved · ±12 m</string>
+    <string name="sc_dialog_sub">Dialog · confirmation</string>
+    <string name="sc_dialog_title">Delete entry?</string>
+    <string name="sc_dialog_body">This action cannot be undone.</string>
+    <string name="sc_dialog_cancel">Cancel</string>
+    <string name="sc_dialog_delete">Delete</string>
+
+    <!-- Dividers -->
+    <string name="sc_div_left">Left</string>
+    <string name="sc_div_mid">Center</string>
+    <string name="sc_div_right">Right</string>
+
+    <!-- Spacing & radii -->
+    <string name="sc_spacing_sub">Spacing</string>
+    <string name="sc_radii_sub">Radii</string>
+    <string name="sc_sp_xs">xs</string>
+    <string name="sc_sp_sm">sm</string>
+    <string name="sc_sp_md">md</string>
+    <string name="sc_sp_lg">lg</string>
+    <string name="sc_sp_xl">xl</string>
+    <string name="sc_sp_xxl">xxl</string>
+    <string name="sc_px_4">4 px</string>
+    <string name="sc_px_8">8 px</string>
+    <string name="sc_px_12">12 px</string>
+    <string name="sc_px_16">16 px</string>
+    <string name="sc_px_24">24 px</string>
+    <string name="sc_px_32">32 px</string>
+    <string name="sc_r_xs">xs · 4 px</string>
+    <string name="sc_r_xs_d">Outlined text field</string>
+    <string name="sc_r_s">s · 8 px</string>
+    <string name="sc_r_s_d">Snackbar, small tags</string>
+    <string name="sc_r_m">m · 12 px</string>
+    <string name="sc_r_m_d">Card / list tile</string>
+    <string name="sc_r_l">l · 16 px</string>
+    <string name="sc_r_l_d">FAB background, hero card</string>
+    <string name="sc_r_xl">xl · 28 px</string>
+    <string name="sc_r_xl_d">Dialog, bottom sheet</string>
+    <string name="sc_r_pill">pill</string>
+    <string name="sc_r_pill_d">Buttons, chips</string>
+
+    <!-- Element inspector -->
+    <string name="inspect_title">Element id</string>
+    <string name="inspect_copy">Copy</string>
+    <string name="inspect_close">Close</string>
+
+    <!-- Sections 25–33 · list patterns -->
+    <string name="sc_s25_title">25 · Filterable list</string>
+    <string name="sc_s25_desc">Search field plus filter chips above a list. Typing filters live by name/description; chips narrow to a category. Match counter top right, empty state when nothing matches.</string>
+    <string name="sc_s26_title">26 · Drag &amp; drop list</string>
+    <string name="sc_s26_desc">Sortable list — grab items by the handle and reorder. While dragging the card lifts; the target is highlighted. Rank numbers update after dropping.</string>
+    <string name="sc_s27_title">27 · List with selection &amp; delete</string>
+    <string name="sc_s27_desc">Multi-select via checkbox: selected rows turn light blue, an action bar with count and bulk delete appears on top. Each row also has its own delete button.</string>
+    <string name="sc_s28_title">28 · Plain list (no prefix)</string>
+    <string name="sc_s28_desc">List rows without an avatar/icon box — text only, optionally with a trailing value. Active or highlighted rows use light blue (primary container); one variant adds a small colored dot as a marker.</string>
+    <string name="sc_s29_title">29 · Grouped list</string>
+    <string name="sc_s29_desc">Items in sections with sticky group headers — typical for alphabetical or categorized directories. The header stays pinned while scrolling.</string>
+    <string name="sc_s30_title">30 · Expandable list</string>
+    <string name="sc_s30_desc">Items with hidden content that expands on tap — for FAQs, details or nested options. The arrow rotates when opening.</string>
+    <string name="sc_s31_title">31 · List with trailing controls</string>
+    <string name="sc_s31_desc">Rows with a control on the right — switch to toggle, checkbox as a task list, or a counter badge. Optional icon box as a leading element.</string>
+    <string name="sc_s32_title">32 · Outlined container surfaces</string>
+    <string name="sc_s32_desc">Like the section boxes on the settings page — in all six semantic colors with six steps each: outline only, faint to medium tint over the surface, full container fill, and the solid color. Each step keeps AA readability.</string>
+    <string name="sc_s33_title">33 · Combined list</string>
+    <string name="sc_s33_desc">All list capabilities in one view: live searchable and filterable by category, reorderable by handle (drag &amp; drop), with multi-select, bulk delete on top and a per-row delete button.</string>
+
+    <!-- Shared list content -->
+    <string name="sc_p_anna">Anna Meyer</string>
+    <string name="sc_p_jonas">Jonas Brandt</string>
+    <string name="sc_p_clara">Clara Voss</string>
+    <string name="sc_p_leon">Leon Faber</string>
+    <string name="sc_p_mara">Mara Sommer</string>
+    <string name="sc_p_timo">Timo Reuter</string>
+    <string name="sc_p_ali">Ali Koç</string>
+    <string name="sc_pr_lead">Project lead</string>
+    <string name="sc_pr_dev">Development</string>
+    <string name="sc_pr_design_ext">Design · Agency North</string>
+    <string name="sc_pr_backend">Backend</string>
+    <string name="sc_pr_einkauf">Purchasing · Supplier South</string>
+    <string name="sc_pr_qa">QA &amp; test</string>
+    <string name="sc_pr_marketing">Marketing</string>
+    <string name="sc_pr_design">Design</string>
+    <string name="sc_glyph_star">★</string>
+    <string name="sc_day_mon">Mon</string>
+    <string name="sc_day_tue">Tue</string>
+    <string name="sc_day_wed">Wed</string>
+    <string name="sc_day_fri">Fri</string>
+    <string name="sc_today">Today</string>
+    <string name="sc_next_week">Next week</string>
+    <string name="sc_search_ph">Search …</string>
+    <string name="sc_done">Done</string>
+    <string name="sc_open">Open</string>
+
+    <!-- 25 · filter list -->
+    <string name="sc_fl_cap">Filterable · search + category chips + live filter</string>
+    <string name="sc_fl_title">Contacts</string>
+    <string name="sc_fl_all">All</string>
+    <string name="sc_fl_team">Team</string>
+    <string name="sc_fl_extern">External</string>
+    <string name="sc_fl_fav">Favorites</string>
+    <string name="sc_fl_empty">No matches.</string>
+
+    <!-- 26 · drag &amp; drop list -->
+    <string name="sc_dnd_cap">Sortable · drag the handle to reorder</string>
+    <string name="sc_dnd_title">Priorities</string>
+    <string name="sc_dnd_hint">Drag the handle to change the order.</string>
+    <string name="sc_dnd_move_up">Move up</string>
+    <string name="sc_dnd_t1">Finalize onboarding flow</string>
+    <string name="sc_dnd_t2">Review API contract</string>
+    <string name="sc_dnd_t3">Export design tokens</string>
+    <string name="sc_dnd_t4">Write release notes</string>
+    <string name="sc_dnd_t5">Prioritize backlog</string>
+
+    <!-- 27 · selection &amp; delete -->
+    <string name="sc_del_cap">Selection + delete · bulk bar + per-row delete</string>
+    <string name="sc_del_title">Files</string>
+    <string name="sc_del_count">%1$d items</string>
+    <string name="sc_del_selected">%1$d selected</string>
+    <string name="sc_del_clear">Deselect</string>
+    <string name="sc_del_empty">All items deleted.</string>
+    <string name="sc_del_f1">Quarterly-report.pdf</string>
+    <string name="sc_del_f1_sub">2.4 MB · yesterday</string>
+    <string name="sc_del_f2">Moodboard.fig</string>
+    <string name="sc_del_f2_sub">18.1 MB · Tue</string>
+    <string name="sc_del_f3">Notes.md</string>
+    <string name="sc_del_f3_sub">12 KB · Mon</string>
+    <string name="sc_del_f4">Logo-export.zip</string>
+    <string name="sc_del_f4_sub">4.9 MB · last week</string>
+
+    <!-- 28 · plain list -->
+    <string name="sc_pl_cap_a">Plain · no prefix, light-blue highlight</string>
+    <string name="sc_pl_cap_b">Plain · with marker dot</string>
+    <string name="sc_pl_title_a">Chapters</string>
+    <string name="sc_pl_title_b">Status</string>
+    <string name="sc_pl_a1">Introduction</string>
+    <string name="sc_pl_a1_v">p. 1</string>
+    <string name="sc_pl_a2">Foundations &amp; tokens</string>
+    <string name="sc_pl_a2_v">p. 4</string>
+    <string name="sc_pl_a3">Components</string>
+    <string name="sc_pl_a3_v">p. 12</string>
+    <string name="sc_pl_a4">Patterns &amp; layout</string>
+    <string name="sc_pl_a4_v">p. 28</string>
+    <string name="sc_pl_a5">Appendix</string>
+    <string name="sc_pl_a5_v">p. 40</string>
+    <string name="sc_pl_b1">In progress</string>
+    <string name="sc_pl_b1_v">3</string>
+    <string name="sc_pl_b2">Awaiting review</string>
+    <string name="sc_pl_b2_v">5</string>
+    <string name="sc_pl_b3">Done</string>
+    <string name="sc_pl_b3_v">11</string>
+    <string name="sc_pl_b4">Archived</string>
+    <string name="sc_pl_b4_v">42</string>
+
+    <!-- 29 · grouped list -->
+    <string name="sc_gl_cap">Grouped · sticky section headers</string>
+    <string name="sc_gl_title">Directory</string>
+
+    <!-- 30 · accordion list -->
+    <string name="sc_acc_cap">Expandable · accordion</string>
+    <string name="sc_acc_title">FAQ</string>
+    <string name="sc_acc_q1">How do I export the theme?</string>
+    <string name="sc_acc_a1">Use “Download theme” at the top right to get tokens, fonts and a Compose theme as a package.</string>
+    <string name="sc_acc_q2">Which color contrasts are met?</string>
+    <string name="sc_acc_a2">Every foreground on its surface meets at least WCAG 2.2 AA; the accent tones are in the AAA range.</string>
+    <string name="sc_acc_q3">Is there a dark theme?</string>
+    <string name="sc_acc_a3">Yes — light and dark theme plus a prefers-color-scheme fallback are kept consistent.</string>
+
+    <!-- 31 · trailing controls -->
+    <string name="sc_ctl_cap_a">Trailing switch · toggle list</string>
+    <string name="sc_ctl_title_a">Notifications</string>
+    <string name="sc_ctl_a1">Push notifications</string>
+    <string name="sc_ctl_a1_sub">Instantly on device</string>
+    <string name="sc_ctl_a2">Email summary</string>
+    <string name="sc_ctl_a2_sub">Daily at 8 am</string>
+    <string name="sc_ctl_a3">Reminders</string>
+    <string name="sc_ctl_a3_sub">15 min before</string>
+    <string name="sc_ctl_cap_b">Checklist &amp; badge · tasks + counters</string>
+    <string name="sc_ctl_title_b">Inbox</string>
+    <string name="sc_ctl_b1">Check design tokens</string>
+    <string name="sc_ctl_b2">Prepare release</string>
+    <string name="sc_ctl_b3">Project updates</string>
+    <string name="sc_ctl_b4">Team chat</string>
+    <string name="sc_ctl_b_sub">New messages</string>
+
+    <!-- 32 · container boxes -->
+    <string name="sc_cb_meta_primary">Sapphire · blue</string>
+    <string name="sc_cb_meta_secondary">Aquamarine · teal</string>
+    <string name="sc_cb_meta_tertiary">Amethyst · plum</string>
+    <string name="sc_cb_meta_success">Emerald · green</string>
+    <string name="sc_cb_meta_warning">Citrine · amber</string>
+    <string name="sc_cb_meta_error">Garnet · red</string>
+    <string name="sc_cb_lv0">Outline</string>
+    <string name="sc_cb_lv1">Very light</string>
+    <string name="sc_cb_lv2">Light</string>
+    <string name="sc_cb_lv3">Medium</string>
+    <string name="sc_cb_lv4">Container</string>
+    <string name="sc_cb_lv5">Solid</string>
+    <string name="sc_cb_pct0">0 %</string>
+    <string name="sc_cb_pct1">6 %</string>
+    <string name="sc_cb_pct2">12 %</string>
+    <string name="sc_cb_pct3">22 %</string>
+    <string name="sc_cb_pct4">100 %</string>
+    <string name="sc_cb_pct5">full</string>
+
+    <!-- 33 · combined list -->
+    <string name="sc_co_cap">All combined · search + sort + select + delete</string>
+    <string name="sc_co_title">Contacts</string>
+</resources>

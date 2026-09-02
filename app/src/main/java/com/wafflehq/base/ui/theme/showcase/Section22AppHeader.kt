@@ -16,8 +16,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.FormatListBulleted
 import androidx.compose.material.icons.outlined.CalendarMonth
-import androidx.compose.material.icons.outlined.FormatListBulleted
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Schedule
@@ -54,7 +54,7 @@ fun Section22AppHeader() = Section(R.string.sc_s22_title, R.string.sc_s22_desc) 
     val menu = Icons.Outlined.Menu
     val home = Icons.Outlined.Home
     val gear = Icons.Outlined.Settings
-    val list = Icons.Outlined.FormatListBulleted
+    val list = Icons.AutoMirrored.Outlined.FormatListBulleted
     Column(verticalArrangement = Arrangement.spacedBy(AppSpacing.lg)) {
         PhoneMock(R.string.sc_ah_cap_a, "22a") {
             MockBar(

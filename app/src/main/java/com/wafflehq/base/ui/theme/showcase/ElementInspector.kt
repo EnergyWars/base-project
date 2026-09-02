@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
+import android.content.ClipData
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -25,15 +27,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.ClipEntry
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.wafflehq.base.R
 import com.wafflehq.base.ui.theme.AppSpacing
 import com.wafflehq.base.ui.theme.AppTheme
+import kotlinx.coroutines.launch
 
 val LocalElementInspector = staticCompositionLocalOf<(String) -> Unit> { {} }
 
@@ -74,7 +77,8 @@ fun InspectSection(id: String, content: @Composable () -> Unit) {
 
 @Composable
 private fun ElementIdDialog(id: String, onDismiss: () -> Unit) {
-    val clipboard = LocalClipboardManager.current
+    val clipboard = LocalClipboard.current
+    val scope = rememberCoroutineScope()
     Dialog(onDismissRequest = onDismiss) {
         Column(
             modifier = Modifier
@@ -106,7 +110,9 @@ private fun ElementIdDialog(id: String, onDismiss: () -> Unit) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(AppSpacing.sm, Alignment.End),
             ) {
-                TextButton(onClick = { clipboard.setText(AnnotatedString(id)) }) {
+                TextButton(onClick = {
+                    scope.launch { clipboard.setClipEntry(ClipEntry(ClipData.newPlainText("", id))) }
+                }) {
                     Text(stringResource(R.string.inspect_copy))
                 }
                 TextButton(onClick = onDismiss) {

@@ -27,7 +27,8 @@ Aufbau (von oben nach unten):
 - **5 · Rollen-Übersicht** – sieben Rollen-Karten (Accent-Fläche, On-Accent-
   Text, Kontrastwert + AA/AAA-Badge).
 - **6 · Buttons** – pro Rolle ein Panel mit Filled, Tonal, Elevated, Outlined,
-  Text plus Disabled-State (Custom-Pill-Buttons).
+  Text plus Disabled-State (Custom-Pill-Buttons). Tonal-Variante hat einen
+  1 dp Border in Rollenfarbe (Ramp-Ton 70 im Dark-, Ton 30 im Light-Theme).
 - **7 · Floating Action Buttons** – Small/Standard/Large/Extended.
 - **8 · Icon-Buttons** – Standard, Filled, Tonal, Outlined plus Disabled-Reihe
   und Error-/Success-/Tertiary-Beispiele.

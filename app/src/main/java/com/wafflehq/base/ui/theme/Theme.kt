@@ -76,13 +76,13 @@ data class ExtendedColors(
 )
 
 private val LightAppColors = AppColors(
-    primary   = RoleColors(Sapphire40,   Color.White, Sapphire90,   Sapphire10,   Sapphire20),
-    secondary = RoleColors(Aquamarine40, Color.White, Aquamarine90, Aquamarine10, Aquamarine20),
-    tertiary  = RoleColors(Amethyst40,   Color.White, Amethyst90,   Amethyst10,   Amethyst20),
-    success   = RoleColors(Emerald40,    Color.White, Emerald90,    Emerald10,    Emerald20),
-    warning   = RoleColors(Citrine40,    Color.White, Citrine90,    Citrine10,    Citrine20),
-    error     = RoleColors(Garnet40,     Color.White, Garnet90,     Garnet10,     Garnet20),
-    neutral   = RoleColors(Graphite40,   Color.White, Graphite90,   Graphite10,   Graphite20),
+    primary   = RoleColors(Sapphire40,   Color.White, Sapphire90,   Sapphire10,   Sapphire30),
+    secondary = RoleColors(Aquamarine40, Color.White, Aquamarine90, Aquamarine10, Aquamarine30),
+    tertiary  = RoleColors(Amethyst40,   Color.White, Amethyst90,   Amethyst10,   Amethyst30),
+    success   = RoleColors(Emerald40,    Color.White, Emerald90,    Emerald10,    Emerald30),
+    warning   = RoleColors(Citrine40,    Color.White, Citrine90,    Citrine10,    Citrine30),
+    error     = RoleColors(Garnet40,     Color.White, Garnet90,     Garnet10,     Garnet30),
+    neutral   = RoleColors(Graphite40,   Color.White, Graphite90,   Graphite10,   Graphite30),
     background       = LightBackground,
     onBackground     = OnSurfaceLight,
     surface          = LightSurface,
@@ -137,13 +137,13 @@ private val LightColorScheme = lightColorScheme(
 )
 
 private val DarkAppColors = AppColors(
-    primary   = RoleColors(Sapphire80,   Sapphire20,   Sapphire30,   Sapphire90,   Sapphire80),
-    secondary = RoleColors(Aquamarine80, Aquamarine20, Aquamarine30, Aquamarine90, Aquamarine80),
-    tertiary  = RoleColors(Amethyst80,   Amethyst20,   Amethyst30,   Amethyst90,   Amethyst80),
-    success   = RoleColors(Emerald80,    Emerald20,    Emerald30,    Emerald90,    Emerald80),
-    warning   = RoleColors(Citrine80,    Citrine20,    Citrine30,    Citrine90,    Citrine80),
-    error     = RoleColors(Garnet80,     Garnet20,     Garnet30,     Garnet90,     Garnet80),
-    neutral   = RoleColors(Graphite80,   Graphite20,   Graphite30,   Graphite90,   Graphite80),
+    primary   = RoleColors(Sapphire80,   Sapphire20,   Sapphire30,   Sapphire90,   Sapphire70),
+    secondary = RoleColors(Aquamarine80, Aquamarine20, Aquamarine30, Aquamarine90, Aquamarine70),
+    tertiary  = RoleColors(Amethyst80,   Amethyst20,   Amethyst30,   Amethyst90,   Amethyst70),
+    success   = RoleColors(Emerald80,    Emerald20,    Emerald30,    Emerald90,    Emerald70),
+    warning   = RoleColors(Citrine80,    Citrine20,    Citrine30,    Citrine90,    Citrine70),
+    error     = RoleColors(Garnet80,     Garnet20,     Garnet30,     Garnet90,     Garnet70),
+    neutral   = RoleColors(Graphite80,   Graphite20,   Graphite30,   Graphite90,   Graphite70),
     background       = DarkBackground,
     onBackground     = OnSurfaceDark,
     surface          = DarkSurface,

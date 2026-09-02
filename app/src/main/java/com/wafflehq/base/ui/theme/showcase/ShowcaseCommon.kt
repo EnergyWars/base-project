@@ -121,7 +121,10 @@ internal fun ShowcaseButton(label: String, r: AppRole, variant: BtnVariant, enab
             mod = mod.background(rc.accent.copy(alpha = alpha)); fg = rc.onAccent
         }
         BtnVariant.Tonal -> {
-            mod = mod.background(rc.container.copy(alpha = alpha)); fg = rc.onContainer
+            mod = mod
+                .background(rc.container.copy(alpha = alpha))
+                .border(1.dp, rc.tonalBorder.copy(alpha = alpha), pill)
+            fg = rc.onContainer
         }
         BtnVariant.Elevated -> {
             mod = Modifier.heightIn(min = 40.dp).shadow(2.dp, pill).clip(pill).background(surface); fg = rc.accent

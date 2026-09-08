@@ -11,10 +11,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.wafflehq.base.data.settings.ThemeMode
+import com.wafflehq.uikit.theme.ThemeMode
 import com.wafflehq.base.ui.navigation.AppNavHost
 import com.wafflehq.base.ui.settings.SettingsViewModel
-import com.wafflehq.base.ui.theme.AppTheme
+import com.wafflehq.uikit.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 ThemeMode.DARK -> true
             }
 
-            AppTheme(darkTheme = darkTheme) {
+            AppTheme(darkTheme = darkTheme, palette = settingsViewModel.paletteState.palette) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     AppNavHost()
                 }

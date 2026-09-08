@@ -18,10 +18,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.wafflehq.base.R
-import com.wafflehq.base.ui.components.AppScaffold
-import com.wafflehq.base.ui.components.HeaderItem
-import com.wafflehq.base.ui.theme.AppSpacing
-import com.wafflehq.base.ui.theme.AppTheme
+import com.wafflehq.uikit.components.AppScaffold
+import com.wafflehq.uikit.components.HeaderItem
+import com.wafflehq.uikit.theme.AppSpacing
+import com.wafflehq.uikit.theme.AppTheme
 
 @Composable
 fun ExampleScreen(

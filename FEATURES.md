@@ -2,6 +2,74 @@
 
 Das Basisprojekt ist eine Vorlage. Die folgenden Features sind als minimaler, kopierbarer Stand vorhanden.
 
+## `:uikit` – importierbares Design-System-Paket
+
+Das Projekt besteht aus zwei Gradle-Modulen: **`:uikit`** (Android-Library,
+`com.wafflehq.uikit`) enthält das komplette, eigenständig per Gradle
+importierbare Design-System; **`:app`** ist die Beispiel-App, die `:uikit`
+per `implementation(project(":uikit"))` einbindet und alle Bausteine
+vorführt. Ein anderes Projekt bindet `:uikit` ein (z. B. per `includeBuild`
+oder Modul-Kopie), ohne dessen Code anzufassen.
+
+- **Alle Elemente sind unter ihrer Showcase-ID auffindbar** (`1a.1`…`33a.*`,
+  siehe unten „Element-Inspektor“) — das gilt sowohl im Showcase selbst als
+  auch für jede Komponente, die einen optionalen `code`/`inspectCode`-
+  Parameter annimmt.
+- **Farben und Schriftgrößen sind von außen themebar, ohne den Code von
+  `:uikit` anzufassen**: `AppTheme(darkTheme, palette = WafflePalette(...),
+  typeScale = AppTypeScale(...), content)` baut Farbschema, Rollen-Tokens und
+  M3-`Typography` zur Laufzeit aus einer übergebenen `WafflePalette`
+  (7 Rollen-Ramps à 9 Tones + Light/Dark-Surfaces) und `AppTypeScale`
+  (15 M3-Textstufen mit Size/LineHeight/Weight/LetterSpacing). Wird nichts
+  übergeben, gilt `WafflePalette.Default`/`AppTypeScale.Default` (die
+  bisherigen WaffleHQ-Werte). Hausschrift bleibt fix Geist — themebar sind
+  Größen/Gewichte/Letter-Spacing, nicht die Fontfamilie.
+- **Farbeinstellung inkl. Farbpicker** (Paket `color/`, generalisierter Port
+  aus `../periodical`): `ColorCanvasPicker` (SV-Panel + Hue-/Alpha-Slider,
+  identisch zu periodical), `rampFromAccent(name, accent)` generiert aus
+  **einer** gepickten Akzentfarbe eine vollständige, kontrastsichere 9-Tone-
+  Ramp (feste Lightness-Kurve, Hue/Sat der Akzentfarbe) — dadurch bleiben
+  **alle** Showcase-Beispiele nach einer Farbänderung automatisch stimmig,
+  da sie ausnahmslos aus `AppTheme.colorRamps`/`AppTheme.colors` lesen.
+  `WafflePaletteState` hält die aktuell bearbeitete Palette hoistbar/Compose-
+  observabel (`setRoleAccent`/`resetRole`/`resetAll`/`replace`/
+  `syncFromExternal`) und meldet Änderungen über einen `onPaletteChanged`-
+  Callback an die Host-App zur Persistierung — `:uikit` selbst bleibt frei
+  von Hilt/Room/DataStore. `WafflePalette.toJson()`/`wafflePaletteFromJson()`
+  exportieren/importieren die Palette als JSON (Datei-I/O bleibt App-Sache).
+  Fertiger `ColorSettingsScreen` listet alle 7 Rollen mit Swatch, öffnet pro
+  Rolle den Picker, plus „Alle zurücksetzen“.
+- **Element-Inspektor abschaltbar**: `ElementInspectorHost(enabled = false,
+  content)` — Default **aus**, damit ein fremdes Projekt beim Importieren
+  keine Doppeltipp-ID-Popups bekommt, ohne `:uikit` anzupassen. Die
+  Beispiel-App schaltet ihn in `HomeScreen.kt` explizit mit `enabled = true`
+  ein.
+- **Portierte Periodical-Libraries** (aus `../periodical/libraries.md`, alle
+  generischen, nicht domänenspezifischen Teile): `astronomy` (Sonnen-/
+  Mondberechnungen), `qr` (`QrBitmapGenerator`), `maintenance`
+  (`MaintenanceTaskRunner`), `drafts` (`DraftAutosaveEffect`), `modules`
+  (`FeatureModule`/`FeatureModuleRegistry`-Erweiterungspunkt), `entrylock`
+  (Biometrie-Sperrbildschirm), `pdf` (`PdfPageState`/Wasserzeichen,
+  Wasserzeichentext jetzt Parameter statt periodical-String), `folders`
+  (Ordnerbaum mit Drag & Drop), `navigation` (`SettingsHomePage`/
+  `EditorScaffold`/`AppNavigationShell` — Settings-Listen-Duplikate zu
+  `components/SettingsUi.kt` bewusst nicht übernommen), `quickpicker`
+  (Ziffern-Eingabe Date-/Time-Picker), `database` (SQLCipher-verschlüsselte
+  SQLite-Öffnung/Migration), `textarea` (`KeyboardAwareTextArea`,
+  IME-bewusstes Mehrzeilen-Textfeld). Jeweils package `com.wafflehq.uikit.*`,
+  framework-frei (kein Hilt/Room/DataStore, außer `database` — dort ist
+  Verschlüsselung der eigentliche Zweck). 611 Tests, `./gradlew build` läuft
+  für beide Module fehlerfrei durch (Kompilierung, Tests, Lint, assemble).
+- **Beispiel-Einbindung**: Alle 11 portierten Libraries sind über eine neue
+  Seite „Bibliotheken“ (Drawer-Eintrag, `ui/library/LibraryExamplesScreen.kt`)
+  in der Beispiel-App eingebunden — je ein funktionierendes Beispiel pro
+  Library (u. a. lebender Sonnen-/Mondstand, QR-Code-Generator, Maintenance-
+  Task-Runner, Autosave-Textfeld, Feature-Modul-Registry mit Schaltern,
+  Biometrie-Reveal, PDF-Export, Ordnerbaum, Editor-Scaffold, Quick-Date-/Time-
+  Picker, verschlüsselte Datenbank-Öffnung, tastaturbewusstes Textfeld).
+  `./gradlew build` läuft für `:uikit` und `:app` vollständig durch
+  (Kompilierung, Tests, Lint, assembleDebug/Release).
+
 ## Home-Screen – Design-System-Showcase (v2.1)
 
 Der Home-Screen ist eine **1:1-Nachbildung** von `wafflehq-showcase-v2.1.html`

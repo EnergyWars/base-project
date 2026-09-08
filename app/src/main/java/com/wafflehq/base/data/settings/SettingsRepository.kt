@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.wafflehq.uikit.theme.ThemeMode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -20,9 +21,20 @@ class SettingsRepository @Inject constructor(
     private val themeModeKey = stringPreferencesKey("theme_mode")
     private val checkedFeatureFilesKey = stringSetPreferencesKey("checked_feature_files")
     private val showHiddenFeatureFilesKey = booleanPreferencesKey("show_hidden_feature_files")
+    private val paletteJsonKey = stringPreferencesKey("palette_json")
 
     val themeMode: Flow<ThemeMode> = context.settingsDataStore.data.map { prefs ->
         ThemeMode.fromName(prefs[themeModeKey])
+    }
+
+    val paletteJson: Flow<String?> = context.settingsDataStore.data.map { prefs ->
+        prefs[paletteJsonKey]
+    }
+
+    suspend fun setPaletteJson(json: String) {
+        context.settingsDataStore.edit { prefs ->
+            prefs[paletteJsonKey] = json
+        }
     }
 
     val checkedFeatureFiles: Flow<Set<String>> = context.settingsDataStore.data.map { prefs ->

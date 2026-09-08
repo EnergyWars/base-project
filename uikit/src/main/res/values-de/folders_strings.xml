@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folder_new">Ordner anlegen</string>
+    <string name="folder_expand">Ordner aufklappen</string>
+    <string name="folder_collapse">Ordner zuklappen</string>
+    <string name="folder_last_edited">Zuletzt bearbeitet: %1$s</string>
+    <string name="folder_rename">Ordner umbenennen</string>
+    <string name="folder_delete">Ordner löschen</string>
+    <string name="folder_name_label">Ordnername</string>
+    <string name="folder_options">Ordneroptionen</string>
+    <string name="folder_reorder_handle">Halten und ziehen, um Ordner zu sortieren</string>
+    <string name="folder_entry_options">Eintragsoptionen</string>
+    <string name="folder_delete_confirm_title">Ordner löschen?</string>
+    <string name="folder_delete_choice_message">Wähle, was mit dem Inhalt dieses Ordners passieren soll.</string>
+    <string name="folder_delete_option_move_up">Inhalt eine Ebene nach oben verschieben</string>
+    <string name="folder_delete_option_move_up_hint">Unterordner und Einträge werden in den übergeordneten Ordner verschoben.</string>
+    <string name="folder_delete_option_delete_all">Inhalt löschen</string>
+    <string name="folder_delete_option_delete_all_hint">Unterordner und alle darin enthaltenen Einträge werden endgültig gelöscht.</string>
+    <string name="folder_change_icon">Icon ändern</string>
+    <string name="folder_icon_picker_title">Ordner-Icon wählen</string>
+    <string name="folder_icon_picker_close">Schließen</string>
+    <string name="folder_save">Speichern</string>
+    <string name="folder_cancel">Abbrechen</string>
+    <string name="folder_discard_changes_title">Änderungen verwerfen?</string>
+    <string name="folder_discard_changes_message">Nicht gespeicherte Änderungen gehen verloren.</string>
+    <string name="folder_discard_changes_confirm">Verwerfen</string>
+    <plurals name="folder_item_count">
+        <item quantity="one">%d Eintrag</item>
+        <item quantity="other">%d Einträge</item>
+    </plurals>
+</resources>

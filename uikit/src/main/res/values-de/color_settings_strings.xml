@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="uikit_role_primary">Primär</string>
+    <string name="uikit_role_secondary">Sekundär</string>
+    <string name="uikit_role_tertiary">Tertiär</string>
+    <string name="uikit_role_success">Erfolg</string>
+    <string name="uikit_role_warning">Warnung</string>
+    <string name="uikit_role_error">Fehler</string>
+    <string name="uikit_role_neutral">Neutral</string>
+    <string name="uikit_color_settings_title">Farben</string>
+    <string name="uikit_color_reset_all">Alle zurücksetzen</string>
+    <string name="uikit_color_reset_all_confirm_title">Alle Farben zurücksetzen?</string>
+    <string name="uikit_color_reset_all_confirm_message">Alle sieben Rampen erhalten wieder ihre Standardfarben.</string>
+    <string name="uikit_color_done">Fertig</string>
+    <string name="uikit_color_reset_token">Zurücksetzen</string>
+</resources>

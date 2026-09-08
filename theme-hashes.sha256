@@ -1,2 +1,2 @@
-dda4d50743d49937f421bcad0a0e9493e34f0d0885c7f9e76f7174a194eb74b7  app/src/main/java/com/wafflehq/base/ui/theme/Color.kt
-8f43e396fe3eb9871201db10881ec0484d0b7021d680097a6b8123e3f5f7801f  app/src/main/java/com/wafflehq/base/ui/theme/Theme.kt
+53ba4aaaad7b22b599d65e13ba82367b7c62028b3ede60845de7cbc23b7ee13f  uikit/src/main/java/com/wafflehq/uikit/theme/Palette.kt
+66914fb5faf3a7f656477f6940415ab58407050cad567c31d67e65ccce672a3f  uikit/src/main/java/com/wafflehq/uikit/theme/Theme.kt

@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "BaseApp"
 include(":app")
+include(":uikit")

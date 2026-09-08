@@ -11,7 +11,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.wafflehq.base.R
-import com.wafflehq.base.ui.components.SettingsScaffold
+import com.wafflehq.uikit.components.SettingsScaffold
+import com.wafflehq.uikit.components.DisplaySettingsContent
 
 @Composable
 fun DisplaySettingsScreen(

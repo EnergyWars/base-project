@@ -20,6 +20,8 @@ import com.wafflehq.base.ui.example.ExampleScreen
 import com.wafflehq.base.ui.features.FeatureFileDetailScreen
 import com.wafflehq.base.ui.features.FeatureFilesListScreen
 import com.wafflehq.base.ui.home.HomeScreen
+import com.wafflehq.base.ui.library.LibraryExamplesScreen
+import com.wafflehq.base.ui.settings.ColorSettingsRoute
 import com.wafflehq.base.ui.settings.DisplaySettingsScreen
 import com.wafflehq.base.ui.settings.SettingsScreen
 import kotlinx.coroutines.launch
@@ -28,9 +30,11 @@ object Routes {
     const val HOME = "home"
     const val SETTINGS = "settings"
     const val SETTINGS_DISPLAY = "settings_display"
+    const val SETTINGS_COLORS = "settings_colors"
     const val EXAMPLE_1 = "example_1"
     const val EXAMPLE_2 = "example_2"
     const val EXAMPLE_3 = "example_3"
+    const val LIBRARY_EXAMPLES = "library_examples"
     const val FEATURE_FILES = "feature_files"
     const val FEATURE_FILE_DETAIL = "feature_file_detail/{fileName}"
 
@@ -111,15 +115,28 @@ fun AppNavHost() {
                     onOpenSettings = openSettings,
                 )
             }
+            composable(Routes.LIBRARY_EXAMPLES) {
+                LibraryExamplesScreen(
+                    onOpenMenu = openMenu,
+                    onNavigateHome = navigateHome,
+                    onOpenSettings = openSettings,
+                )
+            }
             composable(Routes.SETTINGS) {
                 SettingsScreen(
                     onBack = { navController.popBackStack() },
                     onOpenDisplay = { navController.navigate(Routes.SETTINGS_DISPLAY) },
                     onOpenFeatureFiles = { navController.navigate(Routes.FEATURE_FILES) },
+                    onOpenColors = { navController.navigate(Routes.SETTINGS_COLORS) },
                 )
             }
             composable(Routes.SETTINGS_DISPLAY) {
                 DisplaySettingsScreen(
+                    onBack = { navController.popBackStack() },
+                )
+            }
+            composable(Routes.SETTINGS_COLORS) {
+                ColorSettingsRoute(
                     onBack = { navController.popBackStack() },
                 )
             }

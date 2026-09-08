@@ -12,14 +12,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.wafflehq.base.R
-import com.wafflehq.base.ui.components.SettingsListContent
-import com.wafflehq.base.ui.components.SettingsScaffold
+import com.wafflehq.uikit.components.SettingsListContent
+import com.wafflehq.uikit.components.SettingsScaffold
 
 @Composable
 fun SettingsScreen(
     onBack: () -> Unit,
     onOpenDisplay: () -> Unit,
     onOpenFeatureFiles: () -> Unit,
+    onOpenColors: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel(),
 ) {
     val featureFilesCount by viewModel.featureFilesCount.collectAsStateWithLifecycle()
@@ -42,6 +43,10 @@ fun SettingsScreen(
                 displaySubtitle = stringResource(R.string.settings_display_sub),
                 onOpenFeatures = onOpenFeatureFiles,
                 onOpenDisplay = onOpenDisplay,
+                showColors = true,
+                colorsLabel = stringResource(R.string.settings_row_colors),
+                colorsSubtitle = stringResource(R.string.settings_row_colors_sub),
+                onOpenColors = onOpenColors,
             )
         }
     }

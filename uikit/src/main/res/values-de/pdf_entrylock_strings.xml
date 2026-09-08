@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="entry_lock_menu_select">Einträge auswählen</string>
+    <string name="entry_lock_menu_lock_all">Alle Einträge sichern</string>
+    <string name="entry_lock_menu_unlock_all">Alle Einträge entsperren</string>
+    <string name="entry_lock_menu_session_unlock">Temporär entsperren</string>
+    <string name="entry_lock_select_all">Alle auswählen</string>
+    <string name="entry_lock_bulk_lock">Ausgewählte Einträge sichern</string>
+    <string name="entry_lock_bulk_unlock">Ausgewählte Einträge entsperren</string>
+    <string name="entry_lock_relock_row">Eintrag wieder sperren</string>
+</resources>

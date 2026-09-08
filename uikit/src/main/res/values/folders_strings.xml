@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folder_new">New folder</string>
+    <string name="folder_expand">Expand folder</string>
+    <string name="folder_collapse">Collapse folder</string>
+    <string name="folder_last_edited">Last edited: %1$s</string>
+    <string name="folder_rename">Rename folder</string>
+    <string name="folder_delete">Delete folder</string>
+    <string name="folder_name_label">Folder name</string>
+    <string name="folder_options">Folder options</string>
+    <string name="folder_reorder_handle">Hold and drag to reorder folder</string>
+    <string name="folder_entry_options">Entry options</string>
+    <string name="folder_delete_confirm_title">Delete folder?</string>
+    <string name="folder_delete_choice_message">Choose what happens to the contents of this folder.</string>
+    <string name="folder_delete_option_move_up">Move contents up one level</string>
+    <string name="folder_delete_option_move_up_hint">Subfolders and items are moved to the parent folder.</string>
+    <string name="folder_delete_option_delete_all">Delete contents</string>
+    <string name="folder_delete_option_delete_all_hint">Subfolders and all items inside them are deleted permanently.</string>
+    <string name="folder_change_icon">Change icon</string>
+    <string name="folder_icon_picker_title">Choose folder icon</string>
+    <string name="folder_icon_picker_close">Close</string>
+    <string name="folder_save">Save</string>
+    <string name="folder_cancel">Cancel</string>
+    <string name="folder_discard_changes_title">Discard changes?</string>
+    <string name="folder_discard_changes_message">Unsaved changes will be lost.</string>
+    <string name="folder_discard_changes_confirm">Discard</string>
+    <plurals name="folder_item_count">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+</resources>

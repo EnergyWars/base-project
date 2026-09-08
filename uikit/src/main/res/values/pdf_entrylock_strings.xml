@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="entry_lock_menu_select">Select entries</string>
+    <string name="entry_lock_menu_lock_all">Lock all entries</string>
+    <string name="entry_lock_menu_unlock_all">Unlock all entries</string>
+    <string name="entry_lock_menu_session_unlock">Unlock temporarily</string>
+    <string name="entry_lock_select_all">Select all</string>
+    <string name="entry_lock_bulk_lock">Lock selected entries</string>
+    <string name="entry_lock_bulk_unlock">Unlock selected entries</string>
+    <string name="entry_lock_relock_row">Lock entry again</string>
+</resources>

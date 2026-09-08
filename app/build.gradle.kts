@@ -97,6 +97,8 @@ tasks.matching {
 tasks.register("testClasses")
 
 dependencies {
+    implementation(project(":uikit"))
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling.preview)

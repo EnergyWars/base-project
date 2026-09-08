@@ -48,6 +48,8 @@
     <string name="settings_row_features">Features</string>
     <string name="settings_display_title">Anzeige</string>
     <string name="settings_display_sub">Design, Schriftgrößen, Farben</string>
+    <string name="settings_row_colors">Farbpalette</string>
+    <string name="settings_row_colors_sub">Akzentfarben der 7 Rollen anpassen</string>
     <string name="settings_group_general">Allgemein</string>
     <string name="settings_design_label">Design</string>
     <string name="settings_group_lorem">Lorem Ipsum</string>
@@ -600,4 +602,77 @@
     <!-- 33 · Kombinierte Liste -->
     <string name="sc_co_cap">Alles kombiniert · Suche + Sortieren + Auswahl + Löschen</string>
     <string name="sc_co_title">Kontakte</string>
+
+    <!-- Bibliotheks-Beispiele -->
+    <string name="nav_library_examples">Bibliotheken</string>
+    <string name="library_examples_title">Bibliotheks-Beispiele</string>
+    <string name="library_examples_lead">Jedes wiederverwendbare Paket aus :uikit, hier als kleines funktionierendes Beispiel.</string>
+
+    <string name="lib_astronomy_title">Astronomie</string>
+    <string name="lib_astronomy_desc">Sonnenauf-/-untergang und Mondphase für einen festen Beispielort (Berlin).</string>
+    <string name="lib_astronomy_result">Sonnenaufgang %1$s · Sonnenuntergang %2$s · Mond %3$s</string>
+
+    <string name="lib_qr_title">QR-Code</string>
+    <string name="lib_qr_desc">Erzeugt aus eingegebenem Text ein QR-Bitmap.</string>
+    <string name="lib_qr_input_label">Text</string>
+    <string name="lib_qr_empty">Text eingeben, um einen QR-Code zu erzeugen.</string>
+
+    <string name="lib_maintenance_title">Wartungsaufgaben</string>
+    <string name="lib_maintenance_desc">Führt mehrere geordnete Wartungsaufgaben aus und zeigt Erfolg/Fehler pro Aufgabe.</string>
+    <string name="lib_maintenance_run">Aufgaben ausführen</string>
+
+    <string name="lib_drafts_title">Entwurf-Autosave</string>
+    <string name="lib_drafts_desc">Speichert den Inhalt dieses Feldes zeitgesteuert automatisch — die Library selbst kennt weder DataStore noch Room.</string>
+    <string name="lib_drafts_field_label">Entwurfstext</string>
+    <string name="lib_drafts_saved_at">Entwurf gespeichert um %1$s</string>
+    <string name="lib_drafts_not_saved_yet">Noch nicht gespeichert.</string>
+
+    <string name="lib_modules_title">Feature-Module</string>
+    <string name="lib_modules_desc">Beispiel-Module, registriert in einer FeatureModuleRegistry, einzeln ein-/ausschaltbar.</string>
+    <string name="lib_modules_entry_weather">Wetter</string>
+    <string name="lib_modules_entry_reminders">Erinnerungen</string>
+    <string name="lib_modules_entry_backup">Backup</string>
+
+    <string name="lib_entrylock_title">Zugriffssperre</string>
+    <string name="lib_entrylock_desc">Zeigt Demo-Inhalte erst nach biometrischer Bestätigung.</string>
+    <string name="lib_entrylock_unavailable">Biometrische Authentifizierung ist auf diesem Gerät nicht verfügbar.</string>
+    <string name="lib_entrylock_reveal">Anzeigen</string>
+    <string name="lib_entrylock_needs_fragment_activity">Dieses Beispiel braucht eine FragmentActivity; die MainActivity der Basis-Vorlage ist eine reine ComponentActivity.</string>
+    <string name="lib_entrylock_prompt_title">Demo-Inhalt entsperren</string>
+    <string name="lib_entrylock_success">Erfolgreich authentifiziert.</string>
+    <string name="lib_entrylock_failed">Authentifizierung fehlgeschlagen.</string>
+    <string name="lib_entrylock_cancelled">Authentifizierung abgebrochen.</string>
+
+    <string name="lib_pdf_title">PDF-Export</string>
+    <string name="lib_pdf_desc">Erstellt eine kleine einseitige PDF mit Titel, Text und Wasserzeichen.</string>
+    <string name="lib_pdf_generate">PDF erzeugen</string>
+    <string name="lib_pdf_watermark">uikit Demo</string>
+    <string name="lib_pdf_saved">Gespeichert unter %1$s</string>
+
+    <string name="lib_folders_title">Ordnerbaum</string>
+    <string name="lib_folders_desc">Eine kleine In-Memory-Ordnerliste mit Auf-/Zuklappen und Löschen.</string>
+    <string name="lib_folders_count">%1$d Einträge</string>
+
+    <string name="lib_navigation_title">Editor-Gerüst</string>
+    <string name="lib_navigation_desc">Ein Vollbild-Editor-Gerüst mit Kopfzeile und Speichern-Leiste.</string>
+    <string name="lib_navigation_open">Editor öffnen</string>
+    <string name="lib_navigation_editor_title">Demo-Editor</string>
+    <string name="lib_navigation_editor_field">Inhalt</string>
+    <string name="lib_navigation_save">Speichern</string>
+
+    <string name="lib_quickpicker_title">Schnellauswahl</string>
+    <string name="lib_quickpicker_desc">Schnelle Ziffern-Eingabe für Datum und Uhrzeit, als Alternative zum System-Picker.</string>
+    <string name="lib_quickpicker_pick_date">Datum wählen</string>
+    <string name="lib_quickpicker_pick_time">Uhrzeit wählen</string>
+
+    <string name="lib_database_title">Verschlüsselte Datenbank</string>
+    <string name="lib_database_desc">Plant das Öffnen einer SQLCipher-verschlüsselten Datenbank über DatabaseOpenPlanner.</string>
+    <string name="lib_database_plan">Datenbank-Öffnung planen</string>
+    <string name="lib_database_ready">Plan bereit für %1$s</string>
+    <string name="lib_database_error">Fehler: %1$s</string>
+
+    <string name="lib_textarea_title">Tastatur-bewusstes Textfeld</string>
+    <string name="lib_textarea_desc">Ein mehrzeiliges Textfeld, das über der Tastatur sichtbar bleibt.</string>
+    <string name="lib_textarea_label">Notizen</string>
+    <string name="lib_textarea_placeholder">Etwas eingeben…</string>
 </resources>

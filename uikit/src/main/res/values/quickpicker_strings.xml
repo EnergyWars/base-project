@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quickpicker_ok">OK</string>
+    <string name="quickpicker_cancel">Cancel</string>
+    <string name="quickpicker_all_day">All day</string>
+    <string name="quickpicker_not_now">Not now</string>
+    <string name="quickpicker_today">Today</string>
+    <string name="quickpicker_last_week">Last week</string>
+    <string name="quickpicker_next_week">Next week</string>
+    <string name="quickpicker_days_unit">days</string>
+    <string name="quickpicker_now_with">Now (%1$s)</string>
+    <string name="quickpicker_restore_date">Current value</string>
+    <string name="quickpicker_relative_toggle">± days</string>
+    <string name="quickpicker_previous_day">Previous day</string>
+    <string name="quickpicker_next_day">Next day</string>
+</resources>

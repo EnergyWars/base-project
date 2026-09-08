@@ -48,6 +48,8 @@
     <string name="settings_row_features">Features</string>
     <string name="settings_display_title">Display</string>
     <string name="settings_display_sub">Theme, font sizes, colors</string>
+    <string name="settings_row_colors">Color palette</string>
+    <string name="settings_row_colors_sub">Customize the accent color of all 7 roles</string>
     <string name="settings_group_general">General</string>
     <string name="settings_design_label">Theme</string>
     <string name="settings_group_lorem">Lorem ipsum</string>
@@ -600,4 +602,77 @@
     <!-- 33 · combined list -->
     <string name="sc_co_cap">All combined · search + sort + select + delete</string>
     <string name="sc_co_title">Contacts</string>
+
+    <!-- Library examples -->
+    <string name="nav_library_examples">Libraries</string>
+    <string name="library_examples_title">Library examples</string>
+    <string name="library_examples_lead">Every reusable package bundled in :uikit, shown here as a small working example.</string>
+
+    <string name="lib_astronomy_title">Astronomy</string>
+    <string name="lib_astronomy_desc">Sunrise/sunset and moon phase calculations for a fixed sample location (Berlin).</string>
+    <string name="lib_astronomy_result">Sunrise %1$s · Sunset %2$s · Moon %3$s</string>
+
+    <string name="lib_qr_title">QR code</string>
+    <string name="lib_qr_desc">Generates a QR bitmap from typed text.</string>
+    <string name="lib_qr_input_label">Text</string>
+    <string name="lib_qr_empty">Enter text to generate a QR code.</string>
+
+    <string name="lib_maintenance_title">Maintenance tasks</string>
+    <string name="lib_maintenance_desc">Runs a set of ordered maintenance tasks and reports pass/fail per task.</string>
+    <string name="lib_maintenance_run">Run tasks</string>
+
+    <string name="lib_drafts_title">Draft autosave</string>
+    <string name="lib_drafts_desc">Autosaves this field\'s content on a timer, without any DataStore/Room wiring in the library itself.</string>
+    <string name="lib_drafts_field_label">Draft text</string>
+    <string name="lib_drafts_saved_at">Draft saved at %1$s</string>
+    <string name="lib_drafts_not_saved_yet">Not saved yet.</string>
+
+    <string name="lib_modules_title">Feature modules</string>
+    <string name="lib_modules_desc">Sample feature modules registered in a FeatureModuleRegistry, toggled on/off.</string>
+    <string name="lib_modules_entry_weather">Weather</string>
+    <string name="lib_modules_entry_reminders">Reminders</string>
+    <string name="lib_modules_entry_backup">Backup</string>
+
+    <string name="lib_entrylock_title">Entry lock</string>
+    <string name="lib_entrylock_desc">Reveals demo content behind a biometric prompt.</string>
+    <string name="lib_entrylock_unavailable">Biometric authentication is not available on this device.</string>
+    <string name="lib_entrylock_reveal">Reveal</string>
+    <string name="lib_entrylock_needs_fragment_activity">This demo needs a FragmentActivity host; the base template\'s MainActivity is a plain ComponentActivity.</string>
+    <string name="lib_entrylock_prompt_title">Unlock demo content</string>
+    <string name="lib_entrylock_success">Authenticated successfully.</string>
+    <string name="lib_entrylock_failed">Authentication failed.</string>
+    <string name="lib_entrylock_cancelled">Authentication cancelled.</string>
+
+    <string name="lib_pdf_title">PDF export</string>
+    <string name="lib_pdf_desc">Builds a small one-page PDF with a title, body text and watermark.</string>
+    <string name="lib_pdf_generate">Generate PDF</string>
+    <string name="lib_pdf_watermark">uikit demo</string>
+    <string name="lib_pdf_saved">Saved to %1$s</string>
+
+    <string name="lib_folders_title">Folder tree</string>
+    <string name="lib_folders_desc">A small in-memory folder list with expand/collapse and delete.</string>
+    <string name="lib_folders_count">%1$d items</string>
+
+    <string name="lib_navigation_title">Editor scaffold</string>
+    <string name="lib_navigation_desc">A full-screen editor scaffold with a top bar and a save bar.</string>
+    <string name="lib_navigation_open">Open editor</string>
+    <string name="lib_navigation_editor_title">Demo editor</string>
+    <string name="lib_navigation_editor_field">Content</string>
+    <string name="lib_navigation_save">Save</string>
+
+    <string name="lib_quickpicker_title">Quick pickers</string>
+    <string name="lib_quickpicker_desc">Fast digit-entry date and time pickers, as an alternative to the system picker.</string>
+    <string name="lib_quickpicker_pick_date">Pick date</string>
+    <string name="lib_quickpicker_pick_time">Pick time</string>
+
+    <string name="lib_database_title">Encrypted database</string>
+    <string name="lib_database_desc">Plans opening a SQLCipher-encrypted database via DatabaseOpenPlanner.</string>
+    <string name="lib_database_plan">Plan database open</string>
+    <string name="lib_database_ready">Plan ready for %1$s</string>
+    <string name="lib_database_error">Error: %1$s</string>
+
+    <string name="lib_textarea_title">Keyboard-aware text area</string>
+    <string name="lib_textarea_desc">A multi-line text field that scrolls to stay visible above the keyboard.</string>
+    <string name="lib_textarea_label">Notes</string>
+    <string name="lib_textarea_placeholder">Type something…</string>
 </resources>

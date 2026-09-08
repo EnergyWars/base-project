@@ -14,49 +14,49 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.wafflehq.base.data.settings.ThemeMode
-import com.wafflehq.base.ui.components.AppScaffold
-import com.wafflehq.base.ui.components.HeaderItem
+import com.wafflehq.uikit.theme.ThemeMode
+import com.wafflehq.uikit.components.AppScaffold
+import com.wafflehq.uikit.components.HeaderItem
 import com.wafflehq.base.ui.settings.SettingsViewModel
-import com.wafflehq.base.ui.theme.AppSpacing
-import com.wafflehq.base.ui.theme.AppTheme
-import com.wafflehq.base.ui.theme.showcase.Section01Typography
-import com.wafflehq.base.ui.theme.showcase.Section02Weights
-import com.wafflehq.base.ui.theme.showcase.Section03Ramps
-import com.wafflehq.base.ui.theme.showcase.Section04Surfaces
-import com.wafflehq.base.ui.theme.showcase.Section05Roles
-import com.wafflehq.base.ui.theme.showcase.Section06Buttons
-import com.wafflehq.base.ui.theme.showcase.Section07Fab
-import com.wafflehq.base.ui.theme.showcase.Section08IconButtons
-import com.wafflehq.base.ui.theme.showcase.Section09Chips
-import com.wafflehq.base.ui.theme.showcase.Section10TextFields
-import com.wafflehq.base.ui.theme.showcase.Section11Cards
-import com.wafflehq.base.ui.theme.showcase.Section12List
-import com.wafflehq.base.ui.theme.showcase.Section13Selection
-import com.wafflehq.base.ui.theme.showcase.Section14Segmented
-import com.wafflehq.base.ui.theme.showcase.Section15SliderProgress
-import com.wafflehq.base.ui.theme.showcase.Section16Badges
-import com.wafflehq.base.ui.theme.showcase.Section17Banners
-import com.wafflehq.base.ui.theme.showcase.Section18SnackbarDialog
-import com.wafflehq.base.ui.theme.showcase.Section19Icons
-import com.wafflehq.base.ui.theme.showcase.Section20Dividers
-import com.wafflehq.base.ui.theme.showcase.Section21Spacing
-import com.wafflehq.base.ui.theme.showcase.Section22AppHeader
-import com.wafflehq.base.ui.theme.showcase.Section23SettingsList
-import com.wafflehq.base.ui.theme.showcase.Section24SettingsDetail
-import com.wafflehq.base.ui.theme.showcase.Section25FilterList
-import com.wafflehq.base.ui.theme.showcase.Section26DndList
-import com.wafflehq.base.ui.theme.showcase.Section27DeleteList
-import com.wafflehq.base.ui.theme.showcase.Section28PlainList
-import com.wafflehq.base.ui.theme.showcase.Section29GroupedList
-import com.wafflehq.base.ui.theme.showcase.Section30AccordionList
-import com.wafflehq.base.ui.theme.showcase.Section31ControlList
-import com.wafflehq.base.ui.theme.showcase.Section32ContainerBoxes
-import com.wafflehq.base.ui.theme.showcase.Section33ComboList
-import com.wafflehq.base.ui.theme.showcase.ElementInspectorHost
-import com.wafflehq.base.ui.theme.showcase.InspectSection
-import com.wafflehq.base.ui.theme.showcase.ShowcaseLede
-import com.wafflehq.base.ui.theme.showcase.ShowcaseThemeToggle
+import com.wafflehq.uikit.theme.AppSpacing
+import com.wafflehq.uikit.theme.AppTheme
+import com.wafflehq.uikit.showcase.Section01Typography
+import com.wafflehq.uikit.showcase.Section02Weights
+import com.wafflehq.uikit.showcase.Section03Ramps
+import com.wafflehq.uikit.showcase.Section04Surfaces
+import com.wafflehq.uikit.showcase.Section05Roles
+import com.wafflehq.uikit.showcase.Section06Buttons
+import com.wafflehq.uikit.showcase.Section07Fab
+import com.wafflehq.uikit.showcase.Section08IconButtons
+import com.wafflehq.uikit.showcase.Section09Chips
+import com.wafflehq.uikit.showcase.Section10TextFields
+import com.wafflehq.uikit.showcase.Section11Cards
+import com.wafflehq.uikit.showcase.Section12List
+import com.wafflehq.uikit.showcase.Section13Selection
+import com.wafflehq.uikit.showcase.Section14Segmented
+import com.wafflehq.uikit.showcase.Section15SliderProgress
+import com.wafflehq.uikit.showcase.Section16Badges
+import com.wafflehq.uikit.showcase.Section17Banners
+import com.wafflehq.uikit.showcase.Section18SnackbarDialog
+import com.wafflehq.uikit.showcase.Section19Icons
+import com.wafflehq.uikit.showcase.Section20Dividers
+import com.wafflehq.uikit.showcase.Section21Spacing
+import com.wafflehq.uikit.showcase.Section22AppHeader
+import com.wafflehq.uikit.showcase.Section23SettingsList
+import com.wafflehq.uikit.showcase.Section24SettingsDetail
+import com.wafflehq.uikit.showcase.Section25FilterList
+import com.wafflehq.uikit.showcase.Section26DndList
+import com.wafflehq.uikit.showcase.Section27DeleteList
+import com.wafflehq.uikit.showcase.Section28PlainList
+import com.wafflehq.uikit.showcase.Section29GroupedList
+import com.wafflehq.uikit.showcase.Section30AccordionList
+import com.wafflehq.uikit.showcase.Section31ControlList
+import com.wafflehq.uikit.showcase.Section32ContainerBoxes
+import com.wafflehq.uikit.showcase.Section33ComboList
+import com.wafflehq.uikit.showcase.ElementInspectorHost
+import com.wafflehq.uikit.showcase.InspectSection
+import com.wafflehq.uikit.showcase.ShowcaseLede
+import com.wafflehq.uikit.showcase.ShowcaseThemeToggle
 
 @Composable
 fun HomeScreen(
@@ -73,7 +73,7 @@ fun HomeScreen(
         ThemeMode.DARK -> true
     }
 
-    ElementInspectorHost {
+    ElementInspectorHost(enabled = true) {
         AppScaffold(
             activeItem = HeaderItem.Home,
             onOpenMenu = onOpenMenu,

@@ -22,12 +22,8 @@ Material 3, Hilt, Room, DataStore (nur im App-Modul — `:uikit` ist frei von
 Hilt/Room/DataStore, mit Ausnahme von `uikit/database`, das bewusst
 SQLCipher/androidx.sqlite nutzt, da Verschlüsselung sein eigentlicher Zweck
 ist). `gradle build`/`assembleDebug`/jeder `./gradlew`-Aufruf nie ohne
-explizite Erlaubnis ausführen. **`:uikit` läuft zuletzt sauber durch**
-(Kompilierung Debug/Release, 611+ Tests). **`:app` schlägt aktuell bei
-`kspDebugKotlin`/`kspReleaseKotlin` fehl** (`FeatureFilesRepository` wird in
-`di/AppModule.kt`/`ui/settings/SettingsViewModel.kt` referenziert, ist aber
-nirgends definiert) — vorbestehend, nicht durch die Modal-/Header-Änderungen
-verursacht, noch offen.
+explizite Erlaubnis ausführen. **`:uikit` und `:app` laufen sauber durch**
+(Kompilierung Debug/Release, Tests, Lint, assemble für beide Module).
 
 ## Modul-Struktur: `:uikit` (Library) + `:app` (Beispiel-App)
 
@@ -75,8 +71,9 @@ Editor: 7 Rollen mit Swatch → Picker-Dialog, „Alle zurücksetzen“).
   — Filled/Rolle bzw. Text/Neutral — für konsistente Modal-Buttons; alle
   Dialoge in `folders/`, `color/`, `quickpicker/` nutzen jetzt `AppDialog`
   statt roher `AlertDialog`/`TextButton`), `AppHeader`/`AppScaffold`
-  (Tab-Leiste identisch zu periodicals `AppTopNavBar`: 64×32 dp Pill-
-  Indikator statt Vollflächen-Highlight, Farben aus `navigation/AppNavColors`),
+  (delegiert intern an `navigation/AppTopNavBar`: 64×32 dp Pill-Indikator
+  statt Vollflächen-Highlight, Farben aus `navigation/AppNavColors` — kein
+  eigener Pill-Code mehr, einzige Quelle ist die Navigation-Shell),
   `AppIconButton`, `AppSlider`, `AppTextField`, `SettingsUi.kt`,
   `DisplaySettingsContent.kt`.
 - `showcase/`: alle 33 `SectionNN*.kt` (IDs `1a.1`…`33a.*`, Schema
@@ -100,7 +97,7 @@ Alle als generisch bewerteten Teile wurden nach `com.wafflehq.uikit.<name>`
 | `entrylock/` | `EntryAuthenticator` (BiometricPrompt), `EntryLockController` (State-Machine), `entrylock/ui/*` (Lock-Screen-UI) |
 | `pdf/` | `PdfPageState`/`PdfWatermark`/`PdfDrawHelpers` (Wasserzeichentext jetzt Parameter statt periodical-String-Resource) |
 | `folders/` | `FolderTree`/`FolderDrop`/`FolderDeletionAction`, `folders/ui/*` (Ordnerbaum mit Drag & Drop) |
-| `navigation/` | `SettingsHomePage`, `EditorScaffold`, `FullScreenSubPage`, `AppNavigationShell`, `AppNavColors` (redundante Settings-Listen-Primitive gegenüber `components/SettingsUi.kt` wurden bewusst NICHT übernommen) |
+| `navigation/` | `SettingsHomePage`, `EditorScaffold`, `FullScreenSubPage`, `AppNavigationShell` (`AppTopNavBar`/`AppSideNavDrawer`, jetzt von `:app`s `AppHeader`/`AppDrawer` konsumiert), `AppNavColors` (redundante Settings-Listen-Primitive gegenüber `components/SettingsUi.kt` wurden bewusst NICHT übernommen) |
 | `quickpicker/` | `QuickDateInputDialog`/`QuickTimeInputDialog`/`TimePickerField` (Ziffern-Eingabe-Picker statt System-Picker) |
 | `database/` | SQLCipher-verschlüsselte SQLite-Öffnung/Migration (`DatabaseOpenPlanner`, `crypto/*`, `conversion/*`) — einzige Ausnahme von „kein Room/Hilt/DataStore“, da Verschlüsselung der Zweck ist |
 | `textarea/` | `KeyboardAwareTextArea`/`TextAreaAutoScroll` (IME-bewusstes Mehrzeilen-Textfeld) |
@@ -122,9 +119,9 @@ und Compose-UI-Tests einen Debug-Manifest-Overlay brauchen.
 | Home-Screen – Showcase aller `:uikit`-Elemente (33 Sektionen) | fertig | `ui/home/HomeScreen.kt` |
 | Element-Inspektor eingeschaltet | fertig | `HomeScreen.kt`: `ElementInspectorHost(enabled = true)` |
 | Farbpalette-Einstellung (Settings → „Farbpalette“) | fertig | `ui/settings/ColorSettingsRoute.kt`, `SettingsViewModel.paletteState`, `SettingsRepository.paletteJson` (DataStore-persistiert), `MainActivity.kt` |
-| App-Header/Drawer/Beispielseiten 1–3 | fertig | `ui/components/AppDrawer.kt` (app-spezifisch), `ui/example/ExampleScreen.kt` |
+| App-Header/Drawer/Beispielseiten 1–3 | fertig | `ui/components/AppDrawer.kt` (delegiert an `uikit/navigation/AppSideNavDrawer` — Oval-Pill mit blauem Rahmen am aktiven Eintrag, 1:1 periodical-Stil), `ui/example/ExampleScreen.kt` |
 | Settings-Listenseite + Anzeige-Unterseite | fertig | `ui/settings/*.kt` |
-| Feature-Liste (Markdown aus `features/*.md`) | **kaputt** — `FeatureFilesRepository` (referenziert in `di/AppModule.kt`, `ui/settings/SettingsViewModel.kt`) existiert nicht im Code; `ui/features/`/`data/features/` fehlen komplett. `:app:kspDebugKotlin`/`kspReleaseKotlin` schlagen deshalb fehl. Vorbestehend, nicht Teil dieser Änderung. | — |
+| Feature-Liste (Markdown aus `features/*.md`) | fertig | `data/features/FeatureFilesRepository.kt` (liest `assets/features/*.md`, per Gradle-`Sync`-Task `syncFeatureFiles` aus `features/*.md` im Projektstamm befüllt), `ui/features/FeatureFilesViewModel.kt` (+ `FeatureFileDetailViewModel`), `ui/features/FeatureFilesListScreen.kt`, `ui/features/FeatureFileDetailScreen.kt`, Checked-/Hidden-Status in `SettingsRepository` (DataStore) |
 | Navigation | fertig | `ui/navigation/AppNavHost.kt` (Routen inkl. `settings_colors`, `library_examples`) |
 | DI / DB / App | fertig | `di/AppModule.kt`, `data/db/AppDatabase.kt`, `BaseApp.kt`, `MainActivity.kt` |
 | Bibliotheken-Beispielseite (Drawer → „Bibliotheken“) | fertig | `ui/library/LibraryExamplesScreen.kt` — je ein funktionierendes Beispiel für alle 11 portierten `:uikit`-Libraries (astronomy/qr/maintenance/drafts/modules/entrylock/pdf/folders/navigation/quickpicker/database/textarea) |
@@ -137,6 +134,6 @@ generischen Periodical-Libraries sind portiert, Farben/Schriftgrößen sind
 extern themebar, die Farbeinstellung inkl. Picker ist Teil des Pakets, alles
 ist beispielhaft in `:app` eingebunden, der Element-Inspektor ist per
 `enabled`-Flag abschaltbar (Default aus). `:uikit` baut/testet vollständig
-grün (Kompilierung Debug/Release, 611+ Unit-Tests). `:app` baut aktuell
-**nicht** durch — siehe `FeatureFilesRepository`-Lücke oben. `verify-theme.sh`/
+grün (Kompilierung Debug/Release, 611+ Unit-Tests). `:app` baut vollständig
+durch (Kompilierung Debug/Release, Lint, assemble). `verify-theme.sh`/
 `scripts/validate-colors.sh` sind an die neue Modul-Struktur angepasst.

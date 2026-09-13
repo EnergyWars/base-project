@@ -262,6 +262,7 @@ private fun MockDrawerItem(icon: ImageVector, labelRes: Int, active: Boolean = f
             .fillMaxWidth()
             .clip(pill)
             .background(bg)
+            .then(if (active) Modifier.border(1.dp, colors.primary.accent, pill) else Modifier)
             .padding(horizontal = 12.dp, vertical = 9.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(10.dp),

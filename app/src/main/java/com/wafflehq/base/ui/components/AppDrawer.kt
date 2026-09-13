@@ -1,8 +1,5 @@
 package com.wafflehq.base.ui.components
 
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Article
 import androidx.compose.material.icons.outlined.Extension
@@ -10,19 +7,14 @@ import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Layers
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.Widgets
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalDrawerSheet
-import androidx.compose.material3.NavigationDrawerItem
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.wafflehq.base.R
 import com.wafflehq.base.ui.navigation.Routes
-import com.wafflehq.uikit.theme.AppTheme
+import com.wafflehq.uikit.navigation.AppNavItem
+import com.wafflehq.uikit.navigation.AppNavSection
+import com.wafflehq.uikit.navigation.AppSideNavDrawer
 
 private data class DrawerPage(
     val route: String,
@@ -43,31 +35,20 @@ fun AppDrawer(
         DrawerPage(Routes.LIBRARY_EXAMPLES, Icons.Outlined.Extension, R.string.nav_library_examples),
         DrawerPage(Routes.SETTINGS, Icons.Outlined.Settings, R.string.label_settings),
     )
-    ModalDrawerSheet(
-        drawerContainerColor = AppTheme.colors.surface,
-    ) {
-        Spacer(Modifier.height(16.dp))
-        Text(
-            text = stringResource(R.string.app_name),
-            style = MaterialTheme.typography.titleLarge,
-            color = AppTheme.colors.onSurface,
-            modifier = Modifier.padding(horizontal = 28.dp, vertical = 16.dp),
-        )
-        Text(
-            text = stringResource(R.string.nav_section_pages),
-            style = MaterialTheme.typography.labelSmall,
-            color = AppTheme.colors.onSurfaceVariant,
-            modifier = Modifier.padding(horizontal = 28.dp, vertical = 8.dp),
-        )
-        pages.forEach { page ->
-            NavigationDrawerItem(
-                icon = { Icon(page.icon, contentDescription = null) },
-                label = { Text(stringResource(page.labelRes)) },
-                selected = currentRoute == page.route,
-                onClick = { onSelect(page.route) },
-                modifier = Modifier.padding(horizontal = 12.dp),
-            )
-        }
-        Spacer(Modifier.height(8.dp))
-    }
+    AppSideNavDrawer(
+        title = stringResource(R.string.app_name),
+        sections = listOf(
+            AppNavSection(
+                label = stringResource(R.string.nav_section_pages),
+                items = pages.map { page ->
+                    AppNavItem(
+                        label = stringResource(page.labelRes),
+                        icon = page.icon,
+                        selected = currentRoute == page.route,
+                        onClick = { onSelect(page.route) },
+                    )
+                },
+            ),
+        ),
+    )
 }

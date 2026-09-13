@@ -1,39 +1,17 @@
 package com.wafflehq.uikit.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.wafflehq.uikit.R
-import com.wafflehq.uikit.navigation.AppNavColors
-import com.wafflehq.uikit.navigation.appNavColors
+import com.wafflehq.uikit.navigation.AppNavItem
+import com.wafflehq.uikit.navigation.AppTopNavBar
 import com.wafflehq.uikit.theme.AppTheme
 
 enum class HeaderItem { Menu, Home, Settings, None }
@@ -70,96 +48,27 @@ fun AppHeader(
     onOpenSettings: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val colors = appNavColors()
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(colors.topBarBackground)
-            .statusBarsPadding(),
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(72.dp),
-        ) {
-            HeaderTab(
-                modifier = Modifier.weight(1f),
-                icon = Icons.Outlined.Menu,
+    AppTopNavBar(
+        modifier = modifier,
+        items = listOf(
+            AppNavItem(
                 label = stringResource(R.string.header_menu),
-                contentDescription = stringResource(R.string.cd_menu),
-                active = activeItem == HeaderItem.Menu,
+                icon = Icons.Outlined.Menu,
+                selected = activeItem == HeaderItem.Menu,
                 onClick = onOpenMenu,
-                colors = colors,
-            )
-            HeaderTab(
-                modifier = Modifier.weight(1f),
-                icon = Icons.Outlined.Home,
+            ),
+            AppNavItem(
                 label = stringResource(R.string.header_home),
-                contentDescription = stringResource(R.string.cd_home),
-                active = activeItem == HeaderItem.Home,
+                icon = Icons.Outlined.Home,
+                selected = activeItem == HeaderItem.Home,
                 onClick = onNavigateHome,
-                colors = colors,
-            )
-            HeaderTab(
-                modifier = Modifier.weight(1f),
-                icon = Icons.Outlined.Settings,
+            ),
+            AppNavItem(
                 label = stringResource(R.string.label_settings),
-                contentDescription = stringResource(R.string.cd_open_settings),
-                active = activeItem == HeaderItem.Settings,
+                icon = Icons.Outlined.Settings,
+                selected = activeItem == HeaderItem.Settings,
                 onClick = onOpenSettings,
-                colors = colors,
-            )
-        }
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(1.dp)
-                .background(colors.topBarDivider),
-        )
-    }
-}
-
-@Composable
-private fun HeaderTab(
-    modifier: Modifier,
-    icon: ImageVector,
-    label: String,
-    contentDescription: String,
-    active: Boolean,
-    onClick: () -> Unit,
-    colors: AppNavColors,
-) {
-    val pillColor = if (active) colors.topBarSelectedPillBackground else Color.Transparent
-    val iconColor = if (active) colors.topBarSelectedIcon else colors.topBarUnselectedIcon
-    val labelColor = if (active) colors.topBarSelectedLabel else colors.topBarUnselectedLabel
-    Column(
-        modifier = modifier
-            .fillMaxHeight()
-            .clickable(onClick = onClick)
-            .padding(vertical = 10.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Box(
-            modifier = Modifier
-                .size(width = 64.dp, height = 32.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .background(pillColor),
-            contentAlignment = Alignment.Center,
-        ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = contentDescription,
-                tint = iconColor,
-                modifier = Modifier.size(24.dp),
-            )
-        }
-        Spacer(Modifier.height(4.dp))
-        Text(
-            text = label,
-            style = MaterialTheme.typography.labelMedium,
-            color = labelColor,
-            maxLines = 1,
-        )
-    }
+            ),
+        ),
+    )
 }

@@ -190,9 +190,12 @@ mit Buttons „Kopieren“ (Zwischenablage) und „Schließen“.
 ## App-Header & Navigation
 
 - Der **App-Header** (`uikit/components/AppHeader.kt`) ist die echte,
-  persistente Kopfzeile aller Hauptseiten und entspricht optisch 1:1 dem
-  Header aus `../periodical` (`lib/navigation/.../AppTopNavBar`/
-  `AppTopNavTab`). Höhe 72 dp + Status-Bar-Inset, Trennlinie an der Unterkante.
+  persistente Kopfzeile aller Hauptseiten. Er delegiert intern an
+  `uikit/navigation/AppTopNavBar` (1:1-Port aus periodicals
+  `lib/navigation/.../AppTopNavBar`/`AppTopNavTab`) statt einer eigenen
+  Pill-Implementierung, damit Header und Navigation-Drawer dauerhaft
+  denselben periodical-Stil teilen. Höhe 72 dp + Status-Bar-Inset,
+  Trennlinie an der Unterkante.
 - Drei gleich breite Buttons (Icon über Beschriftung, zentriert):
   - **links Menü (Burger)** – öffnet den Navigation-Drawer.
   - **mittig Start** – führt zur Home/Showcase-Seite; aktiv auf Home.
@@ -206,9 +209,15 @@ mit Buttons „Kopieren“ (Zwischenablage) und „Schließen“.
     teilen.
 - `AppScaffold` kapselt Header + Inhalt und wird von Home, den Beispielseiten
   und den Einstellungen genutzt.
-- **Navigation-Drawer** (`ui/components/AppDrawer.kt`, `ModalNavigationDrawer`):
-  Einträge Start, Beispiel 1, Beispiel 2, Beispiel 3, Einstellungen; aktiver
-  Eintrag über `NavigationDrawerItem` (Secondary-Container).
+- **Navigation-Drawer** (`ui/components/AppDrawer.kt`): Einträge Start,
+  Beispiel 1, Beispiel 2, Beispiel 3, Bibliotheken, Einstellungen. Delegiert an
+  `uikit/navigation/AppSideNavDrawer` (1:1-Port aus periodicals
+  `AppSideNavDrawer`) statt eines eigenen `NavigationDrawerItem`-Aufbaus:
+  aktiver Eintrag hat Stadium-/Oval-Form (`CircleShape`), gefüllt mit
+  Secondary-Container-Farbe und zusätzlich umrandet mit einem 1 dp blauen
+  Rahmen (`AppNavColors.selectedPill` = Primary-Accent) — identisch zu
+  periodicals Drawer-Highlight, nicht mehr die reine Flächen-Füllung ohne
+  Rahmen.
 - **Beispielseiten 1–3** (`ui/example/ExampleScreen.kt`): generische
   Lorem-ipsum-Seiten (Titel, Lead, drei Karten), nur über den Burger erreichbar.
 

@@ -10,6 +10,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import com.wafflehq.uikit.theme.AppTheme
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
@@ -27,8 +28,10 @@ class TimePickerDialogTest {
     fun confirmButtonInvokesOnConfirm() {
         var confirmed = false
         rule.setContent {
-            val state = rememberTimePickerState(initialHour = 9, initialMinute = 30, is24Hour = true)
-            TimePickerDialog(state = state, onDismiss = {}, onConfirm = { confirmed = true })
+            AppTheme {
+                val state = rememberTimePickerState(initialHour = 9, initialMinute = 30, is24Hour = true)
+                TimePickerDialog(state = state, onDismiss = {}, onConfirm = { confirmed = true })
+            }
         }
 
         rule.onNodeWithTag(QuickPickerTestTags.CONFIRM_BUTTON).performClick()
@@ -40,8 +43,10 @@ class TimePickerDialogTest {
     fun cancelButtonInvokesOnDismiss() {
         var dismissed = false
         rule.setContent {
-            val state = rememberTimePickerState(initialHour = 9, initialMinute = 30, is24Hour = true)
-            TimePickerDialog(state = state, onDismiss = { dismissed = true }, onConfirm = {})
+            AppTheme {
+                val state = rememberTimePickerState(initialHour = 9, initialMinute = 30, is24Hour = true)
+                TimePickerDialog(state = state, onDismiss = { dismissed = true }, onConfirm = {})
+            }
         }
 
         rule.onNodeWithTag(QuickPickerTestTags.CANCEL_BUTTON).performClick()

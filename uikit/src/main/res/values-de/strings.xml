@@ -323,6 +323,8 @@
     <string name="sc_dialog_body">Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="sc_dialog_cancel">Abbrechen</string>
     <string name="sc_dialog_delete">Löschen</string>
+    <string name="sc_dialog_live_sub">Dialog · live (AppDialog)</string>
+    <string name="sc_dialog_live_trigger">Dialog öffnen</string>
     <string name="sc_div_left">Links</string>
     <string name="sc_div_mid">Mitte</string>
     <string name="sc_div_right">Rechts</string>

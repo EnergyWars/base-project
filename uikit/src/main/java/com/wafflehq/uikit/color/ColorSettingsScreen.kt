@@ -13,10 +13,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,6 +35,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.wafflehq.uikit.R
+import com.wafflehq.uikit.components.AppDialog
+import com.wafflehq.uikit.components.AppDialogConfirmButton
+import com.wafflehq.uikit.components.AppDialogDismissButton
 import com.wafflehq.uikit.theme.AppRole
 import com.wafflehq.uikit.theme.AppSpacing
 import com.wafflehq.uikit.theme.AppTheme
@@ -105,20 +106,15 @@ fun ColorSettingsScreen(
     }
 
     if (confirmResetAll) {
-        AlertDialog(
+        AppDialog(
             onDismissRequest = { confirmResetAll = false },
-            title = { Text(stringResource(R.string.uikit_color_reset_all_confirm_title)) },
-            text = { Text(stringResource(R.string.uikit_color_reset_all_confirm_message)) },
-            confirmButton = {
-                TextButton(onClick = { state.resetAll(); confirmResetAll = false }) {
-                    Text(stringResource(R.string.uikit_color_reset_all))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { confirmResetAll = false }) {
-                    Text(stringResource(R.string.inspect_close))
-                }
-            },
+            title = stringResource(R.string.uikit_color_reset_all_confirm_title),
+            text = stringResource(R.string.uikit_color_reset_all_confirm_message),
+            confirmText = stringResource(R.string.uikit_color_reset_all),
+            confirmRole = AppRole.Error,
+            onConfirm = { state.resetAll(); confirmResetAll = false },
+            dismissText = stringResource(R.string.inspect_close),
+            onDismiss = { confirmResetAll = false },
         )
     }
 }
@@ -158,7 +154,7 @@ private fun RampAccentPickerDialog(
     onReset: () -> Unit,
     onDismiss: () -> Unit,
 ) {
-    AlertDialog(
+    AppDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(role.labelRes())) },
         text = {
@@ -166,12 +162,11 @@ private fun RampAccentPickerDialog(
                 ColorCanvasPicker(initialColor = initialAccent, onColorChanged = onColorChanged)
             }
         },
-        shape = RoundedCornerShape(28.dp),
         confirmButton = {
-            TextButton(onClick = onDismiss) { Text(stringResource(R.string.uikit_color_done)) }
+            AppDialogConfirmButton(text = stringResource(R.string.uikit_color_done), onClick = onDismiss)
         },
         dismissButton = {
-            TextButton(onClick = { onReset(); onDismiss() }) { Text(stringResource(R.string.uikit_color_reset_token)) }
+            AppDialogDismissButton(text = stringResource(R.string.uikit_color_reset_token), onClick = { onReset(); onDismiss() })
         },
     )
 }

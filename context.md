@@ -22,8 +22,12 @@ Material 3, Hilt, Room, DataStore (nur im App-Modul — `:uikit` ist frei von
 Hilt/Room/DataStore, mit Ausnahme von `uikit/database`, das bewusst
 SQLCipher/androidx.sqlite nutzt, da Verschlüsselung sein eigentlicher Zweck
 ist). `gradle build`/`assembleDebug`/jeder `./gradlew`-Aufruf nie ohne
-explizite Erlaubnis ausführen. **`./gradlew build` (beide Module) läuft
-zuletzt erfolgreich durch** (Tests, Lint, assembleDebug, assembleRelease).
+explizite Erlaubnis ausführen. **`:uikit` läuft zuletzt sauber durch**
+(Kompilierung Debug/Release, 611+ Tests). **`:app` schlägt aktuell bei
+`kspDebugKotlin`/`kspReleaseKotlin` fehl** (`FeatureFilesRepository` wird in
+`di/AppModule.kt`/`ui/settings/SettingsViewModel.kt` referenziert, ist aber
+nirgends definiert) — vorbestehend, nicht durch die Modal-/Header-Änderungen
+verursacht, noch offen.
 
 ## Modul-Struktur: `:uikit` (Library) + `:app` (Beispiel-App)
 
@@ -65,8 +69,16 @@ Editor: 7 Rollen mit Swatch → Picker-Dialog, „Alle zurücksetzen“).
 ### `:uikit` – Komponenten & Showcase
 
 - `components/`: `AppBadge`, `AppBanner`, `AppButton`, `AppCard`, `AppChip`,
-  `AppHeader`/`AppScaffold`, `AppIconButton`, `AppSlider`, `AppTextField`,
-  `SettingsUi.kt`, `DisplaySettingsContent.kt`.
+  `AppDialog` (themed `AlertDialog`-Wrapper: `AppRadius.dialog`-Shape,
+  `AppTheme.colors.surface`/`onSurface`-Tokens; dazu
+  `AppDialogConfirmButton`/`AppDialogDismissButton` als `AppButton`-Presets
+  — Filled/Rolle bzw. Text/Neutral — für konsistente Modal-Buttons; alle
+  Dialoge in `folders/`, `color/`, `quickpicker/` nutzen jetzt `AppDialog`
+  statt roher `AlertDialog`/`TextButton`), `AppHeader`/`AppScaffold`
+  (Tab-Leiste identisch zu periodicals `AppTopNavBar`: 64×32 dp Pill-
+  Indikator statt Vollflächen-Highlight, Farben aus `navigation/AppNavColors`),
+  `AppIconButton`, `AppSlider`, `AppTextField`, `SettingsUi.kt`,
+  `DisplaySettingsContent.kt`.
 - `showcase/`: alle 33 `SectionNN*.kt` (IDs `1a.1`…`33a.*`, Schema
   `<Sektion><Gruppe>.<Nr>`), `ElementInspector.kt` mit
   **`ElementInspectorHost(enabled = false, content)`** — Default **aus** für
@@ -95,11 +107,10 @@ Alle als generisch bewerteten Teile wurden nach `com.wafflehq.uikit.<name>`
 
 ### `:uikit` – Tests
 
-`uikit/src/test/…`: 611 Tests (JUnit4 + Robolectric für Compose-UI/`org.json`/
+`uikit/src/test/…`: 611+ Tests (JUnit4 + Robolectric für Compose-UI/`org.json`/
 SQLite-Fälle), decken die komplette reine Logik sowie die wichtigsten
 Compose-Komponenten ab (inkl. `ElementInspectorHost(enabled=…)`-Verhalten).
-`./gradlew build` läuft für `:uikit` und `:app` fehlerfrei (Kompilierung,
-Tests, Lint, assembleDebug/Release). `:uikit`s `release`-Build-Variante hat
+`:uikit`s `release`-Build-Variante hat
 `enableUnitTest = false` (in `uikit/build.gradle.kts`), da
 `androidx.compose.ui:ui-test-manifest` bewusst nur `debugImplementation` ist
 und Compose-UI-Tests einen Debug-Manifest-Overlay brauchen.
@@ -113,7 +124,7 @@ und Compose-UI-Tests einen Debug-Manifest-Overlay brauchen.
 | Farbpalette-Einstellung (Settings → „Farbpalette“) | fertig | `ui/settings/ColorSettingsRoute.kt`, `SettingsViewModel.paletteState`, `SettingsRepository.paletteJson` (DataStore-persistiert), `MainActivity.kt` |
 | App-Header/Drawer/Beispielseiten 1–3 | fertig | `ui/components/AppDrawer.kt` (app-spezifisch), `ui/example/ExampleScreen.kt` |
 | Settings-Listenseite + Anzeige-Unterseite | fertig | `ui/settings/*.kt` |
-| Feature-Liste (Markdown aus `features/*.md`) | fertig | `ui/features/*.kt`, `data/features/*` |
+| Feature-Liste (Markdown aus `features/*.md`) | **kaputt** — `FeatureFilesRepository` (referenziert in `di/AppModule.kt`, `ui/settings/SettingsViewModel.kt`) existiert nicht im Code; `ui/features/`/`data/features/` fehlen komplett. `:app:kspDebugKotlin`/`kspReleaseKotlin` schlagen deshalb fehl. Vorbestehend, nicht Teil dieser Änderung. | — |
 | Navigation | fertig | `ui/navigation/AppNavHost.kt` (Routen inkl. `settings_colors`, `library_examples`) |
 | DI / DB / App | fertig | `di/AppModule.kt`, `data/db/AppDatabase.kt`, `BaseApp.kt`, `MainActivity.kt` |
 | Bibliotheken-Beispielseite (Drawer → „Bibliotheken“) | fertig | `ui/library/LibraryExamplesScreen.kt` — je ein funktionierendes Beispiel für alle 11 portierten `:uikit`-Libraries (astronomy/qr/maintenance/drafts/modules/entrylock/pdf/folders/navigation/quickpicker/database/textarea) |
@@ -125,7 +136,7 @@ ist per Gradle importierbar, Elemente sind über IDs auffindbar, alle
 generischen Periodical-Libraries sind portiert, Farben/Schriftgrößen sind
 extern themebar, die Farbeinstellung inkl. Picker ist Teil des Pakets, alles
 ist beispielhaft in `:app` eingebunden, der Element-Inspektor ist per
-`enabled`-Flag abschaltbar (Default aus). `./gradlew build` läuft für beide
-Module vollständig durch (Kompilierung, 611 Unit-Tests, Lint, assembleDebug,
-assembleRelease). `verify-theme.sh`/`scripts/validate-colors.sh` sind an die
-neue Modul-Struktur angepasst und laufen grün.
+`enabled`-Flag abschaltbar (Default aus). `:uikit` baut/testet vollständig
+grün (Kompilierung Debug/Release, 611+ Unit-Tests). `:app` baut aktuell
+**nicht** durch — siehe `FeatureFilesRepository`-Lücke oben. `verify-theme.sh`/
+`scripts/validate-colors.sh` sind an die neue Modul-Struktur angepasst.

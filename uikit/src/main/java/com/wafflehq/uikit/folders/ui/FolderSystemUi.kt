@@ -28,7 +28,6 @@ import androidx.compose.material.icons.filled.DragIndicator
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
@@ -41,7 +40,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -66,10 +64,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.wafflehq.uikit.R
+import com.wafflehq.uikit.components.AppDialog
+import com.wafflehq.uikit.components.AppDialogConfirmButton
+import com.wafflehq.uikit.components.AppDialogDismissButton
 import com.wafflehq.uikit.folders.FolderDeletionAction
 import com.wafflehq.uikit.folders.FolderNames
 import com.wafflehq.uikit.folders.FolderTreeRow
 import com.wafflehq.uikit.theme.AppRadius
+import com.wafflehq.uikit.theme.AppRole
 import com.wafflehq.uikit.theme.AppSpacing
 import com.wafflehq.uikit.theme.AppTheme
 import java.time.LocalDateTime
@@ -399,19 +401,15 @@ private fun FolderOptionsMenuContent(
 private fun rememberFolderGuardedDismiss(hasChanges: Boolean, onDismiss: () -> Unit): () -> Unit {
     var showConfirm by remember { mutableStateOf(false) }
     if (showConfirm) {
-        AlertDialog(
+        AppDialog(
             onDismissRequest = { showConfirm = false },
-            title = { Text(stringResource(R.string.folder_discard_changes_title)) },
-            text = { Text(stringResource(R.string.folder_discard_changes_message)) },
-            shape = RoundedCornerShape(AppRadius.dialog),
-            confirmButton = {
-                TextButton(onClick = { showConfirm = false; onDismiss() }) {
-                    Text(stringResource(R.string.folder_discard_changes_confirm))
-                }
-            },
-            dismissButton = {
-                TextButton(onClick = { showConfirm = false }) { Text(stringResource(R.string.folder_cancel)) }
-            },
+            title = stringResource(R.string.folder_discard_changes_title),
+            text = stringResource(R.string.folder_discard_changes_message),
+            confirmText = stringResource(R.string.folder_discard_changes_confirm),
+            confirmRole = AppRole.Error,
+            onConfirm = { showConfirm = false; onDismiss() },
+            dismissText = stringResource(R.string.folder_cancel),
+            onDismiss = { showConfirm = false },
         )
     }
     return remember(hasChanges, onDismiss) { { if (hasChanges) showConfirm = true else onDismiss() } }
@@ -431,10 +429,9 @@ fun FolderNameDialog(
     var hasChanges by remember { mutableStateOf(false) }
     val guardedDismiss = rememberFolderGuardedDismiss(hasChanges = hasChanges, onDismiss = onDismiss)
     val normalized = FolderNames.normalize(name)
-    AlertDialog(
+    AppDialog(
         onDismissRequest = guardedDismiss,
         title = { Text(title) },
-        shape = RoundedCornerShape(AppRadius.dialog),
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(AppSpacing.sm)) {
                 OutlinedTextField(
@@ -449,12 +446,10 @@ fun FolderNameDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = { normalized?.let(onConfirm) }, enabled = normalized != null) {
-                Text(confirmLabel)
-            }
+            AppDialogConfirmButton(text = confirmLabel, onClick = { normalized?.let(onConfirm) }, enabled = normalized != null)
         },
         dismissButton = {
-            TextButton(onClick = onDismiss) { Text(stringResource(R.string.folder_cancel)) }
+            AppDialogDismissButton(text = stringResource(R.string.folder_cancel), onClick = onDismiss)
         },
     )
 }
@@ -466,10 +461,9 @@ fun FolderDeleteDialog(
     title: String = stringResource(R.string.folder_delete_confirm_title),
 ) {
     var selected by remember { mutableStateOf(FolderDeletionAction.MOVE_CONTENTS_UP) }
-    AlertDialog(
+    AppDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
-        shape = RoundedCornerShape(AppRadius.dialog),
         text = {
             Column {
                 Text(stringResource(R.string.folder_delete_choice_message))
@@ -489,12 +483,10 @@ fun FolderDeleteDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = { onConfirm(selected) }) {
-                Text(stringResource(R.string.folder_delete), color = AppTheme.colors.error.accent)
-            }
+            AppDialogConfirmButton(text = stringResource(R.string.folder_delete), onClick = { onConfirm(selected) }, role = AppRole.Error)
         },
         dismissButton = {
-            TextButton(onClick = onDismiss) { Text(stringResource(R.string.folder_cancel)) }
+            AppDialogDismissButton(text = stringResource(R.string.folder_cancel), onClick = onDismiss)
         },
     )
 }
@@ -569,10 +561,9 @@ fun FolderIconPickerDialog(
     onDismiss: () -> Unit,
     title: String = stringResource(R.string.folder_icon_picker_title),
 ) {
-    AlertDialog(
+    AppDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
-        shape = RoundedCornerShape(AppRadius.dialog),
         text = {
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(56.dp),
@@ -610,7 +601,7 @@ fun FolderIconPickerDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = onDismiss) { Text(stringResource(R.string.folder_icon_picker_close)) }
+            AppDialogConfirmButton(text = stringResource(R.string.folder_icon_picker_close), onClick = onDismiss)
         },
     )
 }

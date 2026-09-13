@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.FormatListBulleted
 import androidx.compose.material.icons.outlined.CalendarMonth
@@ -162,41 +163,48 @@ private fun MockBar(tabs: List<MockTab>, elevated: Boolean = false, inspectCode:
 @Composable
 private fun MockTabCell(modifier: Modifier, tab: MockTab) {
     val colors = AppTheme.colors
-    val bg = if (tab.active) colors.secondary.container else Color.Transparent
-    val fg = if (tab.active) colors.secondary.onContainer else colors.onSurface
-    val labelColor = if (tab.active) colors.secondary.onContainer else colors.onSurfaceVariant
+    val pillBg = if (tab.active) colors.primary.container else Color.Transparent
+    val fg = if (tab.active) colors.primary.onContainer else colors.onSurfaceVariant
+    val labelColor = if (tab.active) colors.onSurface else colors.onSurfaceVariant
     Column(
         modifier = modifier
             .fillMaxHeight()
-            .background(bg)
             .padding(vertical = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Box(contentAlignment = Alignment.Center) {
-            Icon(tab.icon, null, tint = fg, modifier = Modifier.size(20.dp))
-            when (tab.badge) {
-                MockBadge.Dot -> Box(
-                    Modifier
-                        .align(Alignment.TopEnd)
-                        .offset(x = 4.dp, y = (-2).dp)
-                        .size(8.dp)
-                        .clip(CircleShape)
-                        .background(colors.error.accent)
-                        .border(1.5.dp, colors.surface, CircleShape),
-                )
-                MockBadge.Num -> Box(
-                    Modifier
-                        .align(Alignment.TopEnd)
-                        .offset(x = 9.dp, y = (-6).dp)
-                        .clip(pill)
-                        .background(colors.error.accent)
-                        .border(1.5.dp, colors.surface, pill)
-                        .padding(horizontal = 4.dp, vertical = 1.dp),
-                ) {
-                    Text("3", style = mono.copy(fontSize = 8.sp, fontWeight = FontWeight.Bold), color = colors.error.onAccent)
+        Box(
+            modifier = Modifier
+                .size(width = 44.dp, height = 22.dp)
+                .clip(RoundedCornerShape(11.dp))
+                .background(pillBg),
+            contentAlignment = Alignment.Center,
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Icon(tab.icon, null, tint = fg, modifier = Modifier.size(18.dp))
+                when (tab.badge) {
+                    MockBadge.Dot -> Box(
+                        Modifier
+                            .align(Alignment.TopEnd)
+                            .offset(x = 4.dp, y = (-2).dp)
+                            .size(8.dp)
+                            .clip(CircleShape)
+                            .background(colors.error.accent)
+                            .border(1.5.dp, colors.surface, CircleShape),
+                    )
+                    MockBadge.Num -> Box(
+                        Modifier
+                            .align(Alignment.TopEnd)
+                            .offset(x = 9.dp, y = (-6).dp)
+                            .clip(pill)
+                            .background(colors.error.accent)
+                            .border(1.5.dp, colors.surface, pill)
+                            .padding(horizontal = 4.dp, vertical = 1.dp),
+                    ) {
+                        Text("3", style = mono.copy(fontSize = 8.sp, fontWeight = FontWeight.Bold), color = colors.error.onAccent)
+                    }
+                    MockBadge.None -> Unit
                 }
-                MockBadge.None -> Unit
             }
         }
         Spacer(Modifier.height(4.dp))

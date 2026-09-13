@@ -39,6 +39,16 @@ oder Modul-Kopie), ohne dessen Code anzufassen.
   exportieren/importieren die Palette als JSON (Datei-I/O bleibt App-Sache).
   Fertiger `ColorSettingsScreen` listet alle 7 Rollen mit Swatch, öffnet pro
   Rolle den Picker, plus „Alle zurücksetzen“.
+- **Einheitliches Modal-Design** (`components/AppDialog.kt`): themed
+  `AlertDialog`-Wrapper (`AppRadius.dialog`-Shape 28 dp,
+  `AppTheme.colors.surface`/`onSurface`/`onSurfaceVariant`, 1 dp
+  Tonal-Elevation) plus `AppDialogConfirmButton`/`AppDialogDismissButton` als
+  feste `AppButton`-Presets (Filled/Rolle für Bestätigen — `AppRole.Error` bei
+  destruktiven Aktionen —, Text/Neutral für Abbrechen/Schließen). Alle
+  bisherigen rohen `AlertDialog`/`TextButton`-Dialoge im Paket
+  (`folders/ui/FolderSystemUi.kt`, `color/ColorSettingsScreen.kt`,
+  `quickpicker/TimePickerField.kt`) nutzen jetzt `AppDialog`, damit jedes
+  Modal dieselbe Form-/Farbsprache wie der Rest der App trägt.
 - **Element-Inspektor abschaltbar**: `ElementInspectorHost(enabled = false,
   content)` — Default **aus**, damit ein fremdes Projekt beim Importieren
   keine Doppeltipp-ID-Popups bekommt, ohne `:uikit` anzupassen. Die
@@ -115,7 +125,9 @@ Aufbau (von oben nach unten):
 - **17 · Banner** – Primary, Success, Warning, Error, Neutral; zusätzlich
   Dismiss-(✕)-, Inline-Action- und Filled-Variante (Codes `17a.6`–`17a.9`).
 - **18 · Snackbar & Dialog** – Snackbar mit Action; eingebetteter
-  Bestätigungs-Dialog (28 dp Top-Radius).
+  Bestätigungs-Dialog (28 dp Radius), im Mockup-Stil identisch zum echten,
+  wiederverwendbaren `components/AppDialog.kt` (siehe „`:uikit` –
+  importierbares Design-System-Paket“).
 - **19 · Icons** – 8er-Grid mit Material-Outlined-Symbols (Lucide-Pendants).
 - **20 · Trennlinien** – Horizontal, Horizontal stark, Vertikal.
 - **21 · Spacing & Radien** – 4/8/12/16/24/32 dp Grid plus Radien 4/8/12/16/28
@@ -125,7 +137,8 @@ Aufbau (von oben nach unten):
   links Burger), Default (flach), Elevated, Aktive Seite + Badge sowie Burger
   ausgeklappt (Navigation-Drawer mit Scrim). Jeder Header hat drei gleich breite
   Buttons (Icon über Beschriftung) mit Trennlinie an der Unterkante; aktiver
-  Button nutzt Secondary-Container.
+  Button zeigt eine Pill hinter dem Icon (Primary-Container) statt einer
+  Vollflächen-Highlight — gleicher Stil wie der echte `AppHeader`.
 - **23 · Einstellungen — Listenseite** – „Phone“-Mockup mit Settings-Kopfzeile
   (Zurück-Pfeil + Titel) und voll klickbaren Zeilen (Hauptbezeichnung +
   optionaler Untertitel, rechts Chevron), getrennt durch Trennlinien.
@@ -176,14 +189,21 @@ mit Buttons „Kopieren“ (Zwischenablage) und „Schließen“.
 
 ## App-Header & Navigation
 
-- Der **App-Header** (`ui/components/AppHeader.kt`) ist die echte, persistente
-  Kopfzeile aller Hauptseiten und entspricht 1:1 dem Showcase (Sektion 22,
-  Variante B). Höhe 72 dp + Status-Bar-Inset, Trennlinie an der Unterkante.
+- Der **App-Header** (`uikit/components/AppHeader.kt`) ist die echte,
+  persistente Kopfzeile aller Hauptseiten und entspricht optisch 1:1 dem
+  Header aus `../periodical` (`lib/navigation/.../AppTopNavBar`/
+  `AppTopNavTab`). Höhe 72 dp + Status-Bar-Inset, Trennlinie an der Unterkante.
 - Drei gleich breite Buttons (Icon über Beschriftung, zentriert):
   - **links Menü (Burger)** – öffnet den Navigation-Drawer.
   - **mittig Start** – führt zur Home/Showcase-Seite; aktiv auf Home.
   - **rechts Einstellungen (Zahnrad)** – führt zu den Einstellungen; aktiv dort.
-  - Aktiver Button: Secondary-Container-Fläche + On-Secondary-Container-Text.
+  - **Aktiver Button**: 64×32 dp Pill hinter dem Icon (16 dp Radius,
+    `AppNavColors.topBarSelectedPillBackground` = Primary-Container), statt
+    einer Vollflächen-Highlight über die ganze Spalte — identisch zu
+    periodicals Tab-Indikator. Farben kommen aus
+    `uikit/navigation/AppNavColors.fromAppTheme()` (bereits als 1:1-Port aus
+    periodical vorhanden), damit Header und Navigation-Shell dieselbe Palette
+    teilen.
 - `AppScaffold` kapselt Header + Inhalt und wird von Home, den Beispielseiten
   und den Einstellungen genutzt.
 - **Navigation-Drawer** (`ui/components/AppDrawer.kt`, `ModalNavigationDrawer`):

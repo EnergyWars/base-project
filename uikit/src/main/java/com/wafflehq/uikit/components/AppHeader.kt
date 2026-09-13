@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Menu
@@ -25,11 +26,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.wafflehq.uikit.R
+import com.wafflehq.uikit.navigation.AppNavColors
+import com.wafflehq.uikit.navigation.appNavColors
 import com.wafflehq.uikit.theme.AppTheme
 
 enum class HeaderItem { Menu, Home, Settings, None }
@@ -66,11 +70,11 @@ fun AppHeader(
     onOpenSettings: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val colors = AppTheme.colors
+    val colors = appNavColors()
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(colors.surface)
+            .background(colors.topBarBackground)
             .statusBarsPadding(),
     ) {
         Row(
@@ -85,6 +89,7 @@ fun AppHeader(
                 contentDescription = stringResource(R.string.cd_menu),
                 active = activeItem == HeaderItem.Menu,
                 onClick = onOpenMenu,
+                colors = colors,
             )
             HeaderTab(
                 modifier = Modifier.weight(1f),
@@ -93,6 +98,7 @@ fun AppHeader(
                 contentDescription = stringResource(R.string.cd_home),
                 active = activeItem == HeaderItem.Home,
                 onClick = onNavigateHome,
+                colors = colors,
             )
             HeaderTab(
                 modifier = Modifier.weight(1f),
@@ -101,13 +107,14 @@ fun AppHeader(
                 contentDescription = stringResource(R.string.cd_open_settings),
                 active = activeItem == HeaderItem.Settings,
                 onClick = onOpenSettings,
+                colors = colors,
             )
         }
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(1.dp)
-                .background(colors.outline),
+                .background(colors.topBarDivider),
         )
     }
 }
@@ -120,27 +127,34 @@ private fun HeaderTab(
     contentDescription: String,
     active: Boolean,
     onClick: () -> Unit,
+    colors: AppNavColors,
 ) {
-    val colors = AppTheme.colors
-    val background = if (active) colors.secondary.container else Color.Transparent
-    val foreground = if (active) colors.secondary.onContainer else colors.onSurface
-    val labelColor = if (active) colors.secondary.onContainer else colors.onSurfaceVariant
+    val pillColor = if (active) colors.topBarSelectedPillBackground else Color.Transparent
+    val iconColor = if (active) colors.topBarSelectedIcon else colors.topBarUnselectedIcon
+    val labelColor = if (active) colors.topBarSelectedLabel else colors.topBarUnselectedLabel
     Column(
         modifier = modifier
             .fillMaxHeight()
-            .background(background)
             .clickable(onClick = onClick)
             .padding(vertical = 10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = contentDescription,
-            tint = foreground,
-            modifier = Modifier.size(26.dp),
-        )
-        Spacer(Modifier.height(6.dp))
+        Box(
+            modifier = Modifier
+                .size(width = 64.dp, height = 32.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(pillColor),
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = contentDescription,
+                tint = iconColor,
+                modifier = Modifier.size(24.dp),
+            )
+        }
+        Spacer(Modifier.height(4.dp))
         Text(
             text = label,
             style = MaterialTheme.typography.labelMedium,

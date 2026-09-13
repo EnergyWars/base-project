@@ -14,6 +14,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -21,6 +25,11 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.wafflehq.uikit.R
+import com.wafflehq.uikit.components.AppButton
+import com.wafflehq.uikit.components.AppDialog
+import com.wafflehq.uikit.components.AppDialogConfirmButton
+import com.wafflehq.uikit.components.AppDialogDismissButton
+import com.wafflehq.uikit.components.ButtonVariant
 import com.wafflehq.uikit.theme.AppRadius
 import com.wafflehq.uikit.theme.AppRole
 import com.wafflehq.uikit.theme.AppSpacing
@@ -44,6 +53,44 @@ fun Section18SnackbarDialog() = Section(R.string.sc_s18_title, R.string.sc_s18_d
         Column(modifier = Modifier.inspectTap("18b")) {
             DialogPreview("18b.1")
         }
+        Subhead(stringResource(R.string.sc_dialog_live_sub))
+        Column(modifier = Modifier.inspectTap("18c")) {
+            LiveDialogDemo("18c.1", "18c.2", "18c.3")
+        }
+    }
+}
+
+@Composable
+private fun LiveDialogDemo(triggerCode: String, cancelCode: String, confirmCode: String) {
+    var open by remember { mutableStateOf(false) }
+    AppButton(
+        text = stringResource(R.string.sc_dialog_live_trigger),
+        role = AppRole.Error,
+        variant = ButtonVariant.Outlined,
+        onClick = { open = true },
+        modifier = Modifier.inspectId(triggerCode),
+    )
+    if (open) {
+        AppDialog(
+            onDismissRequest = { open = false },
+            title = { Text(stringResource(R.string.sc_dialog_title)) },
+            text = { Text(stringResource(R.string.sc_dialog_body)) },
+            confirmButton = {
+                AppDialogConfirmButton(
+                    text = stringResource(R.string.sc_dialog_delete),
+                    onClick = { open = false },
+                    role = AppRole.Error,
+                    modifier = Modifier.inspectId(confirmCode),
+                )
+            },
+            dismissButton = {
+                AppDialogDismissButton(
+                    text = stringResource(R.string.sc_dialog_cancel),
+                    onClick = { open = false },
+                    modifier = Modifier.inspectId(cancelCode),
+                )
+            },
+        )
     }
 }
 

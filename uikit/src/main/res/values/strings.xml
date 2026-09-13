@@ -323,6 +323,8 @@
     <string name="sc_dialog_body">This action cannot be undone.</string>
     <string name="sc_dialog_cancel">Cancel</string>
     <string name="sc_dialog_delete">Delete</string>
+    <string name="sc_dialog_live_sub">Dialog · live (AppDialog)</string>
+    <string name="sc_dialog_live_trigger">Open dialog</string>
     <string name="sc_div_left">Left</string>
     <string name="sc_div_mid">Center</string>
     <string name="sc_div_right">Right</string>

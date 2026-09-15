@@ -42,10 +42,10 @@ data class AppNavColors(
                 drawerTitle = colors.onSurface,
                 drawerSectionLabel = colors.onSurfaceVariant,
                 selectedPill = colors.primary.accent,
-                drawerSelectedContainer = colors.secondary.container,
+                drawerSelectedContainer = colors.success.container,
                 drawerUnselectedContainer = Color.Transparent,
-                drawerSelectedIcon = colors.secondary.onContainer,
-                drawerSelectedLabel = colors.secondary.onContainer,
+                drawerSelectedIcon = colors.success.onContainer,
+                drawerSelectedLabel = colors.success.onContainer,
                 drawerUnselectedIcon = colors.onSurfaceVariant,
                 drawerUnselectedLabel = colors.onSurfaceVariant,
             )

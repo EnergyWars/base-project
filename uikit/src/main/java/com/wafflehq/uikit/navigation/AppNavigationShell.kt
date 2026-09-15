@@ -41,6 +41,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
+import com.wafflehq.uikit.showcase.inspectId
 
 object AppNavigationTestTags {
     const val TOP_BAR = "app_nav_top_bar"
@@ -56,6 +57,7 @@ data class AppNavItem(
     val selected: Boolean,
     val enabled: Boolean = true,
     val onClick: () -> Unit,
+    val inspectCode: String? = null,
 )
 
 @Immutable
@@ -211,6 +213,13 @@ fun AppSideNavDrawer(
                             .then(
                                 if (item.selected) {
                                     Modifier.border(1.dp, colors.selectedPill, pillShape)
+                                } else {
+                                    Modifier
+                                },
+                            )
+                            .then(
+                                if (item.inspectCode != null) {
+                                    Modifier.inspectId(item.inspectCode)
                                 } else {
                                     Modifier
                                 },

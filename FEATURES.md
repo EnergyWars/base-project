@@ -124,8 +124,10 @@ Aufbau (von oben nach unten):
 - **16 · Badges & Status-Pills** – Number-/Dot-Badge, Pills für alle Rollen.
 - **17 · Banner** – Primary, Success, Warning, Error, Neutral; zusätzlich
   Dismiss-(✕)-, Inline-Action- und Filled-Variante (Codes `17a.6`–`17a.9`).
-- **18 · Snackbar & Dialog** – Snackbar mit Action; eingebetteter
-  Bestätigungs-Dialog (28 dp Radius), im Mockup-Stil identisch zum echten,
+- **18 · Snackbar & Dialog** – Snackbar mit Action; statischer
+  Bestätigungs-Dialog-Mockup (28 dp Radius, Delete-Icon in Error-Tonal-Kreis,
+  beide Buttons mit Background – Abbrechen Neutral/Tonal, Löschen
+  Error/Filled) sowie ein echter, live öffenbarer Dialog auf Basis des
   wiederverwendbaren `components/AppDialog.kt` (siehe „`:uikit` –
   importierbares Design-System-Paket“).
 - **19 · Icons** – 8er-Grid mit Material-Outlined-Symbols (Lucide-Pendants).
@@ -139,6 +141,12 @@ Aufbau (von oben nach unten):
   Buttons (Icon über Beschriftung) mit Trennlinie an der Unterkante; aktiver
   Button zeigt eine Pill hinter dem Icon (Primary-Container) statt einer
   Vollflächen-Highlight — gleicher Stil wie der echte `AppHeader`.
+  Zusätzlich **22g · Seitenmenü** — kein Mock-Nachbau, sondern die **echte**
+  `uikit/navigation/AppSideNavDrawer`-Komponente live im Showcase (Titel +
+  Sektion „Seiten“ mit vier Einträgen, aktiver Eintrag Success-Container +
+  blauer Rahmen). Jeder Eintrag trägt einen eigenen `inspectCode`
+  (`22g.1`…`22g.4`) über das neue optionale `AppNavItem.inspectCode`-Feld —
+  dadurch kann Mock und Realität nie wieder auseinanderlaufen.
 - **23 · Einstellungen — Listenseite** – „Phone“-Mockup mit Settings-Kopfzeile
   (Zurück-Pfeil + Titel) und voll klickbaren Zeilen (Hauptbezeichnung +
   optionaler Untertitel, rechts Chevron), getrennt durch Trennlinien.
@@ -171,7 +179,7 @@ mit Buttons „Kopieren“ (Zwischenablage) und „Schließen“.
   - **Gruppen** (wo der Showcase Gruppen-Badges hat) tragen den Code ohne Punkt,
     z. B. `3a`…`3g` (Hue-Rampen), `6a`…`6g` (Button-Panels), `8a`…`8d`
     (Icon-Button-Panels), `13a`–`13c`, `15a`/`15b`, `16a`–`16c`, `18a`/`18b`,
-    `21a`/`21b`, `22a`–`22f`, `23a`/`24a`, `25a`–`33a`, `31a`/`31b`, `32a`–`32f`.
+    `21a`/`21b`, `22a`–`22g`, `23a`/`24a`, `25a`–`33a`, `31a`/`31b`, `32a`–`32f`.
   - **Elemente** tragen den vollen Code, z. B. `1a.1`…`1a.15` (Typografie),
     `3a.1`…`3a.9` (Tones einer Rampe), `6a.1`…`6a.7` (Buttons), `19a.1`…`19a.16`
     (Icons), `25a.1`…`25a.6` (Listenzeilen).
@@ -181,9 +189,11 @@ mit Buttons „Kopieren“ (Zwischenablage) und „Schließen“.
   `weight.light` …) wurde dadurch ersetzt. `verify-theme.sh` bleibt erfüllt, da die
   Codes keine Farb-Token-Namen enthalten.
 - Geteilte Komponenten (`SettingsListContent`/`SettingsListRow`/`SettingsGroup` in
-  `ui/components/SettingsUi.kt`, `DisplaySettingsContent`) erhielten **optionale**
-  Code-Parameter (Default `null`); die echten Settings-Screens bleiben dadurch
-  unverändert, nur die Showcase-Mockups (Sektion 23/24) setzen Codes.
+  `ui/components/SettingsUi.kt`, `DisplaySettingsContent`, sowie `AppNavItem`
+  in `uikit/navigation/AppNavigationShell.kt`) erhielten **optionale**
+  Code-Parameter (Default `null`); die echten Settings-/Navigation-Screens
+  bleiben dadurch unverändert, nur die Showcase-Beispiele (Sektion 22g/23/24)
+  setzen Codes.
 - Sektions-Container behalten zusätzlich den Fallback-Code `"section.<slug>"`
   (z. B. `section.typography`) für Doppeltipp außerhalb konkreter Elemente.
 
@@ -214,10 +224,16 @@ mit Buttons „Kopieren“ (Zwischenablage) und „Schließen“.
   `uikit/navigation/AppSideNavDrawer` (1:1-Port aus periodicals
   `AppSideNavDrawer`) statt eines eigenen `NavigationDrawerItem`-Aufbaus:
   aktiver Eintrag hat Stadium-/Oval-Form (`CircleShape`), gefüllt mit
-  Secondary-Container-Farbe und zusätzlich umrandet mit einem 1 dp blauen
-  Rahmen (`AppNavColors.selectedPill` = Primary-Accent) — identisch zu
-  periodicals Drawer-Highlight, nicht mehr die reine Flächen-Füllung ohne
-  Rahmen.
+  **Success-Container-Farbe** (= echte Emerald-Rampe, dunkelgrün in Light wie
+  Dark) und zusätzlich umrandet mit einem 1 dp blauen Rahmen
+  (`AppNavColors.selectedPill` = Primary-Accent) — identisch zu periodicals
+  Drawer-Highlight, nicht mehr die reine Flächen-Füllung ohne Rahmen.
+  **Wichtig:** Die Rolle „Secondary“ heißt in `WafflePalette.Default` intern
+  „Aquamarine“ (Türkis) und ist NICHT dieselbe Rampe wie periodicals Emerald —
+  die echte Emerald-Rampe (identische Hex-Werte wie periodical) liegt hier
+  unter der Rolle **Success**. `AppNavColors.fromAppTheme()` nutzt deshalb
+  bewusst `colors.success.*` statt `colors.secondary.*` für den
+  Drawer-Highlight.
 - **Beispielseiten 1–3** (`ui/example/ExampleScreen.kt`): generische
   Lorem-ipsum-Seiten (Titel, Lead, drei Karten), nur über den Burger erreichbar.
 

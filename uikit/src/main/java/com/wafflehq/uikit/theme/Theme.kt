@@ -196,6 +196,7 @@ fun AppTheme(
         MaterialTheme(
             colorScheme = colorScheme,
             typography = typography,
+            shapes = WaffleHQShapes,
             content = content,
         )
     }

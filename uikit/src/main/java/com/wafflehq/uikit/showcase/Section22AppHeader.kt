@@ -38,6 +38,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wafflehq.uikit.R
+import com.wafflehq.uikit.navigation.AppNavItem
+import com.wafflehq.uikit.navigation.AppNavSection
+import com.wafflehq.uikit.navigation.AppSideNavDrawer
 import com.wafflehq.uikit.theme.AppSpacing
 import com.wafflehq.uikit.theme.AppTheme
 
@@ -117,6 +120,46 @@ fun Section22AppHeader() = Section(R.string.sc_s22_title, R.string.sc_s22_desc) 
                 ),
                 elevated = true,
                 inspectCode = "22f.1",
+            )
+        }
+        SettingsMock(R.string.sc_ah_cap_side_menu, groupCode = "22g") {
+            AppSideNavDrawer(
+                title = stringResource(R.string.sc_ah_drawer_app_name),
+                sections = listOf(
+                    AppNavSection(
+                        label = stringResource(R.string.sc_ah_pages_section),
+                        items = listOf(
+                            AppNavItem(
+                                label = stringResource(R.string.header_home),
+                                icon = home,
+                                selected = true,
+                                onClick = {},
+                                inspectCode = "22g.1",
+                            ),
+                            AppNavItem(
+                                label = stringResource(R.string.sc_ah_calendar),
+                                icon = Icons.Outlined.CalendarMonth,
+                                selected = false,
+                                onClick = {},
+                                inspectCode = "22g.2",
+                            ),
+                            AppNavItem(
+                                label = stringResource(R.string.sc_ah_history),
+                                icon = Icons.Outlined.Schedule,
+                                selected = false,
+                                onClick = {},
+                                inspectCode = "22g.3",
+                            ),
+                            AppNavItem(
+                                label = stringResource(R.string.label_settings),
+                                icon = gear,
+                                selected = false,
+                                onClick = {},
+                                inspectCode = "22g.4",
+                            ),
+                        ),
+                    ),
+                ),
             )
         }
     }
@@ -255,8 +298,8 @@ private fun BoxScope.MockDrawerOverlay() {
 @Composable
 private fun MockDrawerItem(icon: ImageVector, labelRes: Int, active: Boolean = false) {
     val colors = AppTheme.colors
-    val bg = if (active) colors.secondary.container else Color.Transparent
-    val fg = if (active) colors.secondary.onContainer else colors.onSurface
+    val bg = if (active) colors.success.container else Color.Transparent
+    val fg = if (active) colors.success.onContainer else colors.onSurface
     Row(
         modifier = Modifier
             .fillMaxWidth()

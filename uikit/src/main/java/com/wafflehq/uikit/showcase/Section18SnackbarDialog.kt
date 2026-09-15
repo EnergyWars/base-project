@@ -4,13 +4,19 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.DeleteOutline
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -112,6 +118,7 @@ private fun SnackbarBox(inspectCode: String, content: @Composable RowScope.() ->
 
 @Composable
 private fun DialogPreview(inspectCode: String) {
+    val error = role(AppRole.Error)
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -123,10 +130,19 @@ private fun DialogPreview(inspectCode: String) {
             .padding(AppSpacing.xl),
         verticalArrangement = Arrangement.spacedBy(AppSpacing.md),
     ) {
+        Box(
+            modifier = Modifier
+                .size(48.dp)
+                .clip(CircleShape)
+                .background(error.container),
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(Icons.Outlined.DeleteOutline, contentDescription = null, tint = error.accent)
+        }
         Text(stringResource(R.string.sc_dialog_title), style = MaterialTheme.typography.titleLarge, color = AppTheme.colors.onSurface)
         Text(stringResource(R.string.sc_dialog_body), style = MaterialTheme.typography.bodyMedium, color = AppTheme.colors.onSurfaceVariant)
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(AppSpacing.sm, Alignment.End)) {
-            ShowcaseButton(stringResource(R.string.sc_dialog_cancel), AppRole.Neutral, BtnVariant.Text)
+            ShowcaseButton(stringResource(R.string.sc_dialog_cancel), AppRole.Neutral, BtnVariant.Tonal)
             ShowcaseButton(stringResource(R.string.sc_dialog_delete), AppRole.Error, BtnVariant.Filled)
         }
     }

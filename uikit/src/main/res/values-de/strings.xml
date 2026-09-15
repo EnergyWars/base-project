@@ -86,6 +86,9 @@
     <string name="sc_ah_cap_elevated">State · Elevated (Inhalt gescrollt)</string>
     <string name="sc_ah_cap_badge">State · Aktive Seite + Badge</string>
     <string name="sc_ah_cap_drawer">State · Burger ausgeklappt (Navigation-Drawer)</string>
+    <string name="sc_ah_cap_side_menu">22g · Seitenmenü (echte Komponente, AppSideNavDrawer)</string>
+    <string name="sc_ah_drawer_app_name">App</string>
+    <string name="sc_ah_pages_section">Seiten</string>
     <string name="sc_s23_title">23 · Einstellungen — Listenseite</string>
     <string name="sc_s23_desc">Jeder Unterpunkt nimmt eine ganze, komplett klickbare Zeile ein; rechts ein Pfeil. Hauptbezeichnung mit optionalem Beschreibungstext darunter, dazwischen eine Trennlinie.</string>
     <string name="sc_s24_title">24 · Einstellungen — Unterseite</string>

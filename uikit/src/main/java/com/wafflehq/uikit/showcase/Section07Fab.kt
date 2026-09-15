@@ -41,8 +41,8 @@ fun Section07Fab() = Section(R.string.sc_s7_title, R.string.sc_s7_desc) {
                 Row(
                     modifier = Modifier
                         .height(56.dp)
-                        .shadow(6.dp, radiusL)
-                        .clip(radiusL)
+                        .shadow(6.dp, pill)
+                        .clip(pill)
                         .background(rc.container)
                         .inspectId("7a.4")
                         .padding(horizontal = 20.dp),
@@ -73,8 +73,8 @@ private fun FabBox(size: Dp, icon: Dp, rc: RoleColors, inspectCode: String) {
     Box(
         modifier = Modifier
             .size(size)
-            .shadow(6.dp, radiusL)
-            .clip(radiusL)
+            .shadow(6.dp, pill)
+            .clip(pill)
             .background(rc.container)
             .inspectId(inspectCode),
         contentAlignment = Alignment.Center,

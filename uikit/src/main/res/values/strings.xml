@@ -86,6 +86,9 @@
     <string name="sc_ah_cap_elevated">State · elevated (content scrolled)</string>
     <string name="sc_ah_cap_badge">State · active page + badge</string>
     <string name="sc_ah_cap_drawer">State · burger expanded (navigation drawer)</string>
+    <string name="sc_ah_cap_side_menu">22g · Side menu (real component, AppSideNavDrawer)</string>
+    <string name="sc_ah_drawer_app_name">App</string>
+    <string name="sc_ah_pages_section">Pages</string>
     <string name="sc_s23_title">23 · Settings — list page</string>
     <string name="sc_s23_desc">Each sub-item fills a whole, fully tappable row with an arrow on the right. Primary label with optional description below, separated by a hairline.</string>
     <string name="sc_s24_title">24 · Settings — detail page</string>

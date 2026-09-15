@@ -80,7 +80,10 @@ Editor: 7 Rollen mit Swatch → Picker-Dialog, „Alle zurücksetzen“).
   `<Sektion><Gruppe>.<Nr>`), `ElementInspector.kt` mit
   **`ElementInspectorHost(enabled = false, content)`** — Default **aus** für
   fremde Importeure; die Beispiel-App schaltet es in `HomeScreen.kt` mit
-  `enabled = true` ein.
+  `enabled = true` ein. Vollständige, selbstpflegende ID→Zweck-Registry aller
+  Showcase-Elemente: `SHOWCASE-ELEMENT-IDS.md` im Projektstamm (vom
+  `/base-project`-Skill referenziert; bei jeder ID-Änderung im Showcase
+  zwingend nachziehen).
 
 ### `:uikit` – Portierte Periodical-Libraries (`../periodical/libraries.md`)
 
@@ -97,7 +100,7 @@ Alle als generisch bewerteten Teile wurden nach `com.wafflehq.uikit.<name>`
 | `entrylock/` | `EntryAuthenticator` (BiometricPrompt), `EntryLockController` (State-Machine), `entrylock/ui/*` (Lock-Screen-UI) |
 | `pdf/` | `PdfPageState`/`PdfWatermark`/`PdfDrawHelpers` (Wasserzeichentext jetzt Parameter statt periodical-String-Resource) |
 | `folders/` | `FolderTree`/`FolderDrop`/`FolderDeletionAction`, `folders/ui/*` (Ordnerbaum mit Drag & Drop) |
-| `navigation/` | `SettingsHomePage`, `EditorScaffold`, `FullScreenSubPage`, `AppNavigationShell` (`AppTopNavBar`/`AppSideNavDrawer`, jetzt von `:app`s `AppHeader`/`AppDrawer` konsumiert), `AppNavColors` (redundante Settings-Listen-Primitive gegenüber `components/SettingsUi.kt` wurden bewusst NICHT übernommen) |
+| `navigation/` | `SettingsHomePage`, `EditorScaffold`, `FullScreenSubPage`, `AppNavigationShell` (`AppTopNavBar`/`AppSideNavDrawer`, jetzt von `:app`s `AppHeader`/`AppDrawer` konsumiert; `AppNavItem` hat optionales `inspectCode`-Feld für Showcase-Doppeltipp-IDs), `AppNavColors` (redundante Settings-Listen-Primitive gegenüber `components/SettingsUi.kt` wurden bewusst NICHT übernommen) |
 | `quickpicker/` | `QuickDateInputDialog`/`QuickTimeInputDialog`/`TimePickerField` (Ziffern-Eingabe-Picker statt System-Picker) |
 | `database/` | SQLCipher-verschlüsselte SQLite-Öffnung/Migration (`DatabaseOpenPlanner`, `crypto/*`, `conversion/*`) — einzige Ausnahme von „kein Room/Hilt/DataStore“, da Verschlüsselung der Zweck ist |
 | `textarea/` | `KeyboardAwareTextArea`/`TextAreaAutoScroll` (IME-bewusstes Mehrzeilen-Textfeld) |
@@ -119,7 +122,7 @@ und Compose-UI-Tests einen Debug-Manifest-Overlay brauchen.
 | Home-Screen – Showcase aller `:uikit`-Elemente (33 Sektionen) | fertig | `ui/home/HomeScreen.kt` |
 | Element-Inspektor eingeschaltet | fertig | `HomeScreen.kt`: `ElementInspectorHost(enabled = true)` |
 | Farbpalette-Einstellung (Settings → „Farbpalette“) | fertig | `ui/settings/ColorSettingsRoute.kt`, `SettingsViewModel.paletteState`, `SettingsRepository.paletteJson` (DataStore-persistiert), `MainActivity.kt` |
-| App-Header/Drawer/Beispielseiten 1–3 | fertig | `ui/components/AppDrawer.kt` (delegiert an `uikit/navigation/AppSideNavDrawer` — Oval-Pill mit blauem Rahmen am aktiven Eintrag, 1:1 periodical-Stil), `ui/example/ExampleScreen.kt` |
+| App-Header/Drawer/Beispielseiten 1–3 | fertig | `ui/components/AppDrawer.kt` (delegiert an `uikit/navigation/AppSideNavDrawer` — Oval-Pill mit blauem Rahmen am aktiven Eintrag, gefüllt mit `colors.success.container` = echtes Emerald-Dunkelgrün statt der türkisen „Secondary“-Rolle (`Aquamarine`); 1:1 periodical-Stil), `ui/example/ExampleScreen.kt` |
 | Settings-Listenseite + Anzeige-Unterseite | fertig | `ui/settings/*.kt` |
 | Feature-Liste (Markdown aus `features/*.md`) | fertig | `data/features/FeatureFilesRepository.kt` (liest `assets/features/*.md`, per Gradle-`Sync`-Task `syncFeatureFiles` aus `features/*.md` im Projektstamm befüllt), `ui/features/FeatureFilesViewModel.kt` (+ `FeatureFileDetailViewModel`), `ui/features/FeatureFilesListScreen.kt`, `ui/features/FeatureFileDetailScreen.kt`, Checked-/Hidden-Status in `SettingsRepository` (DataStore) |
 | Navigation | fertig | `ui/navigation/AppNavHost.kt` (Routen inkl. `settings_colors`, `library_examples`) |

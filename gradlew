@@ -1,23 +1,14 @@
-#!/bin/sh
-set -eu
+#!/usr/bin/env bash
+set -euo pipefail
 
-LOCK_DIR="$HOME/.gradlew-locks"
-mkdir -p "$LOCK_DIR"
+here=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-while :; do
-    exec 3>"$LOCK_DIR/slot0.lock"
-    if flock -n 3; then
-        break
-    fi
-    exec 3>&-
+if [[ -x "$here/gradlew_" ]]; then
+  runner="$here/gradlew_"
+elif [[ -x ./gradlew_ ]]; then
+  runner=./gradlew_
+else
+  runner=$(command -v gradle) || { echo "gradlew: neither gradlew_ nor gradle found" >&2; exit 127; }
+fi
 
-    exec 4>"$LOCK_DIR/slot1.lock"
-    if flock -n 4; then
-        break
-    fi
-    exec 4>&-
-
-    sleep 0.2
-done
-
-exec ./gradlew_ "$@"
+exec systemd-run --user --scope --quiet --slice=gradle.slice -p OOMPolicy=continue "$runner" "$@"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_navigate_back">Back</string>
+    <string name="navigation_pin_item">Pin %1$s</string>
+    <string name="navigation_unpin_item">Unpin %1$s</string>
+    <string name="navigation_pin_hint">Tap the pin next to an entry or long-press it to pin it here.</string>
+    <string name="navigation_search_clear">Clear search</string>
+    <string name="navigation_search_no_results">No matches.</string>
+    <string name="navigation_section_expand">Expand %1$s</string>
+    <string name="navigation_section_collapse">Collapse %1$s</string>
+    <string name="navigation_hide_item">Hide %1$s</string>
+    <string name="navigation_unhide_item">Show %1$s again</string>
+    <string name="navigation_show_hidden">Show hidden entries</string>
+</resources>

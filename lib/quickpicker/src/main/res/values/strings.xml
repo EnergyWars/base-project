@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quickpicker_ok">OK</string>
+    <string name="quickpicker_all_day">All day</string>
+    <string name="quickpicker_not_now">Not now</string>
+    <string name="quickpicker_today">Today</string>
+    <string name="quickpicker_last_week">Last week</string>
+    <string name="quickpicker_next_week">Next week</string>
+    <string name="quickpicker_days_unit">days</string>
+    <string name="quickpicker_now_with">Now (%1$s)</string>
+    <string name="quickpicker_restore_date">Current value</string>
+    <string name="quickpicker_relative_toggle">± days</string>
+    <string name="quickpicker_previous_day">Previous day</string>
+    <string name="quickpicker_next_day">Next day</string>
+    <string name="quickpicker_previous_year">Previous year</string>
+    <string name="quickpicker_next_year">Next year</string>
+    <string name="quickpicker_year_picker_title">Select Year</string>
+    <string name="quickpicker_relative_time_toggle">± min/h</string>
+    <string name="quickpicker_minutes_unit">min</string>
+    <string name="quickpicker_hours_unit">h</string>
+    <string name="quickpicker_relative_result">→ %1$s</string>
+    <string name="quickpicker_toggle_sign">Toggle sign</string>
+</resources>

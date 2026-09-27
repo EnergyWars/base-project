@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_navigate_back">Zurück</string>
+    <string name="navigation_pin_item">%1$s anheften</string>
+    <string name="navigation_unpin_item">%1$s nicht mehr anheften</string>
+    <string name="navigation_pin_hint">Tippe auf die Nadel neben einem Eintrag oder halte ihn gedrückt, um ihn hier anzuheften.</string>
+    <string name="navigation_search_clear">Suche leeren</string>
+    <string name="navigation_search_no_results">Keine Treffer.</string>
+    <string name="navigation_section_expand">%1$s aufklappen</string>
+    <string name="navigation_section_collapse">%1$s zuklappen</string>
+    <string name="navigation_hide_item">%1$s ausblenden</string>
+    <string name="navigation_unhide_item">%1$s wieder einblenden</string>
+    <string name="navigation_show_hidden">Ausgeblendete anzeigen</string>
+</resources>

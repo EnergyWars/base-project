@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pdf_watermark">Erstellt mit AllInOneCalendar</string>
+    <string name="pdf_generated_on">Erstellt am %1$s</string>
+    <string name="pdf_export_preview">Vorschau</string>
+    <string name="pdf_export_share">Teilen</string>
+    <string name="pdf_export_save">Speichern</string>
+    <string name="pdf_export_open_in_reader">Im PDF-Reader öffnen</string>
+    <string name="pdf_export_save_success">PDF gespeichert.</string>
+    <string name="pdf_export_save_error">Speichern fehlgeschlagen.</string>
+    <string name="pdf_preview_title">PDF-Vorschau</string>
+    <string name="pdf_preview_share">Teilen</string>
+    <string name="pdf_preview_error">Die PDF-Vorschau konnte nicht geladen werden.</string>
+    <string name="pdf_page_label">Seite %d</string>
+    <string name="pdf_camera_permission_denied_title">Kamera nicht erlaubt</string>
+    <string name="pdf_camera_permission_denied_message">Ohne Kamera-Berechtigung kann kein Foto aufgenommen werden. Du kannst sie in den Systemeinstellungen der App erteilen.</string>
+    <string name="pdf_camera_permission_open_settings">Einstellungen öffnen</string>
+</resources>

@@ -4,24 +4,15 @@
 
     <string name="label_back">Zurück</string>
     <string name="label_close">Schließen</string>
-    <string name="label_cancel">Abbrechen</string>
-    <string name="label_save">Speichern</string>
-    <string name="label_delete">Löschen</string>
-    <string name="label_edit">Bearbeiten</string>
-    <string name="label_ok">OK</string>
-    <string name="label_confirm">Bestätigen</string>
     <string name="label_settings">Einstellungen</string>
 
     <string name="cd_open_settings">Einstellungen öffnen</string>
     <string name="cd_menu">Menü öffnen</string>
     <string name="cd_home">Start</string>
 
-    <!-- App-Header &amp; Navigation -->
-    <string name="header_menu">Menü</string>
     <string name="header_home">Start</string>
     <string name="nav_section_pages">Seiten</string>
 
-    <!-- Beispiel-Seiten -->
     <string name="example_1_title">Beispiel 1</string>
     <string name="example_2_title">Beispiel 2</string>
     <string name="example_3_title">Beispiel 3</string>
@@ -33,43 +24,26 @@
     <string name="lorem_2">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est lorem ipsum dolor sit amet.</string>
     <string name="lorem_3">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros.</string>
 
-    <string name="settings_section_appearance">Darstellung</string>
-    <string name="settings_theme">Erscheinungsbild</string>
     <string name="settings_theme_system">Systemstandard</string>
     <string name="settings_theme_light">Hell</string>
     <string name="settings_theme_dark">Dunkel</string>
 
-    <string name="settings_section_features">Feature-Dateien</string>
-    <string name="settings_feature_files_entry">Feature-Liste</string>
     <string name="settings_feature_files_count">%1$d Einträge</string>
 
-    <!-- Einstellungs-Seiten -->
     <string name="settings_title">Einstellungen</string>
     <string name="settings_row_features">Features</string>
     <string name="settings_display_title">Anzeige</string>
-    <string name="settings_display_sub">Design, Schriftgrößen, Farben</string>
-    <string name="settings_row_colors">Farbpalette</string>
-    <string name="settings_row_colors_sub">Akzentfarben der 7 Rollen anpassen</string>
+    <string name="settings_display_sub">Design</string>
+    <string name="settings_row_colors">Farben</string>
+    <string name="settings_row_colors_sub">Farbrollen, Themes, Import und Export</string>
     <string name="settings_group_general">Allgemein</string>
     <string name="settings_design_label">Design</string>
-    <string name="settings_group_lorem">Lorem Ipsum</string>
-    <string name="settings_group_consectetur">Consectetur</string>
-    <string name="settings_ctrl_fontsize">Schriftgröße</string>
-    <string name="settings_ctrl_contrast">Kontrast</string>
-    <string name="settings_percent">%1$d %%</string>
-    <string name="settings_ratio">%1$d / %2$d</string>
-    <string name="settings_srow_a_title">Dolor sit amet</string>
-    <string name="settings_srow_a_sub">Consectetur adipiscing elit</string>
-    <string name="settings_srow_b_title">Adipiscing elit</string>
-    <string name="settings_srow_b_sub">Sed do eiusmod tempor</string>
 
     <string name="feature_files_title">Feature-Liste</string>
     <string name="feature_files_show_hidden">Ausgeblendete anzeigen</string>
     <string name="feature_files_empty">Keine Feature-Dateien vorhanden.</string>
     <string name="feature_files_all_hidden">Alle Einträge ausgeblendet.</string>
 
-    <!-- Showcase v2.1 -->
-    <string name="sc_appbar_title">Showcase v2.1</string>
     <string name="sc_eyebrow">WaffleHQ · Design-System v2.1 · Showcase</string>
     <string name="sc_title">Vollständiges Token- &amp; Komponenten-Set</string>
     <string name="sc_lede">Alle Tokens (Farben, Typografie, Form, Spacing) und alle Material-3-Komponenten in einer Ansicht — gleich strukturiert wie der Home-Screen des Basisprojekts. Jeder eingefärbte Vordergrund auf seiner zugewiesenen Surface erfüllt mindestens WCAG 2.2 AA; die Akzent-Töne (40 hell · 80 dunkel) liegen ausnahmslos im AAA-Bereich.</string>
@@ -77,7 +51,6 @@
     <string name="sc_toggle_dark">Dunkel</string>
     <string name="sc_download">Theme herunterladen</string>
 
-    <!-- Section titles & descriptions -->
     <string name="sc_s1_title">1 · Typografie</string>
     <string name="sc_s1_desc">Material-3-Skala mit Geist. 15 Stufen, jeweils mit Größe/Line-Height/Weight in der Meta-Spalte.</string>
     <string name="sc_s2_title">2 · Schrift-Gewichte</string>
@@ -138,7 +111,6 @@
     <string name="sc_set_list_cap">Einstellungen · Unterpunkte mit Pfeil</string>
     <string name="sc_set_detail_cap">Anzeige · Gruppen + Dropdown + Regler</string>
 
-    <!-- Typography names & meta -->
     <string name="sc_t_display_l">Display L</string>
     <string name="sc_m_display_l">57 / 64 / 700</string>
     <string name="sc_t_display_m">Display M</string>
@@ -175,7 +147,6 @@
     <string name="sc_sample_body">Lauftext für Beschreibungen, mehrere Sätze. Optimal lesbar.</string>
     <string name="sc_sample_label">SCHALTFLÄCHEN-LABEL</string>
 
-    <!-- Weights -->
     <string name="sc_weight_sample">Pragmatisch. Quiet. Local.</string>
     <string name="sc_w_light">Light · 300</string>
     <string name="sc_w_regular">Regular · 400</string>
@@ -183,7 +154,6 @@
     <string name="sc_w_semibold">SemiBold · 600</string>
     <string name="sc_w_bold">Bold · 700</string>
 
-    <!-- Roles, ramps, hues -->
     <string name="sc_role_primary">Primary</string>
     <string name="sc_role_secondary">Secondary</string>
     <string name="sc_role_tertiary">Tertiary</string>
@@ -206,7 +176,6 @@
     <string name="sc_hue_garnet">~350°</string>
     <string name="sc_hue_graphite">~220° low chroma</string>
 
-    <!-- Surfaces -->
     <string name="sc_surf_bg">Background</string>
     <string name="sc_surf_bg_d">Page-Hintergrund</string>
     <string name="sc_surf_surface">Surface</string>
@@ -220,7 +189,6 @@
     <string name="sc_surf_onvar">On-Surface variant</string>
     <string name="sc_surf_onvar_d">Sekundär-Text · ≥4.6:1 AA</string>
 
-    <!-- Roles overview -->
     <string name="sc_role_card_primary">Primary · Sapphire</string>
     <string name="sc_role_card_secondary">Secondary · Aquamarine</string>
     <string name="sc_role_card_tertiary">Tertiary · Amethyst</string>
@@ -238,7 +206,6 @@
     <string name="sc_pass_aaa">AAA</string>
     <string name="sc_pass_aa">AA</string>
 
-    <!-- Buttons -->
     <string name="sc_btn_sub_primary">Primary · Sapphire</string>
     <string name="sc_btn_sub_secondary">Secondary · Aquamarine</string>
     <string name="sc_btn_sub_tertiary">Tertiary · Amethyst</string>
@@ -277,14 +244,12 @@
     <string name="sc_b_archive">Archiv</string>
     <string name="sc_b_secondary">Sekundär</string>
 
-    <!-- FAB -->
     <string name="sc_fab_small">Small · 40dp</string>
     <string name="sc_fab_standard">Standard · 56dp</string>
     <string name="sc_fab_large">Large · 96dp</string>
     <string name="sc_fab_extended">Extended</string>
     <string name="sc_fab_event">Termin hinzufügen</string>
 
-    <!-- Chips -->
     <string name="sc_chip_assist_sub">Assist · Suggestion</string>
     <string name="sc_chip_tip">Tipp anzeigen</string>
     <string name="sc_chip_addlist">Zur Liste hinzufügen</string>
@@ -303,7 +268,6 @@
     <string name="sc_av_jb">JB</string>
     <string name="sc_av_sf">SF</string>
 
-    <!-- Text fields -->
     <string name="sc_tf_name_lbl">Name</string>
     <string name="sc_tf_name_ph">Anna Müller</string>
     <string name="sc_tf_search_lbl">Suche</string>
@@ -315,7 +279,6 @@
     <string name="sc_tf_phone_lbl">Telefon · gesperrt</string>
     <string name="sc_tf_phone_val">+49 30 1234567</string>
 
-    <!-- Cards -->
     <string name="sc_card_filled">Filled</string>
     <string name="sc_card_filled_cls">.card.filled</string>
     <string name="sc_card_filled_meta">Nutzt surface-variant als Hintergrund. Geeignet für nested cards in einem Surface-Container.</string>
@@ -326,7 +289,6 @@
     <string name="sc_card_outlined_cls">.card.outlined</string>
     <string name="sc_card_outlined_meta">Surface + Outline-Stroke. Schwächste Hierarchie — für Sekundär-Inhalte.</string>
 
-    <!-- List items -->
     <string name="sc_list_one">Einzeilig</string>
     <string name="sc_list_one_trail">14:08</string>
     <string name="sc_list_anna">Anna Müller</string>
@@ -337,7 +299,6 @@
     <string name="sc_list_park_x">Tap: Karte · Long-press: Auswählen</string>
     <string name="sc_list_park_trail">≈ 4,2 km</string>
 
-    <!-- Selection -->
     <string name="sc_sel_checkbox">Checkbox</string>
     <string name="sc_sel_switch">Switch</string>
     <string name="sc_sel_radio">Radio</string>
@@ -350,13 +311,11 @@
     <string name="sc_sel_light">Hell</string>
     <string name="sc_sel_dark">Dunkel</string>
 
-    <!-- Segmented -->
     <string name="sc_seg_day">Tag</string>
     <string name="sc_seg_week">Woche</string>
     <string name="sc_seg_month">Monat</string>
     <string name="sc_seg_year">Jahr</string>
 
-    <!-- Slider & progress -->
     <string name="sc_slider_sub">Slider</string>
     <string name="sc_progress_sub">Fortschritt</string>
     <string name="sc_slider_continuous">Stufenlos · 35%</string>
@@ -366,11 +325,9 @@
     <string name="sc_prog_lin_indet">Linear · indeterminate</string>
     <string name="sc_prog_circ">Circular · indeterminate</string>
 
-    <!-- Badges -->
     <string name="sc_badge_saved">✓ Gespeichert</string>
     <string name="sc_badge_discarded">✗ Verworfen</string>
 
-    <!-- Banners -->
     <string name="sc_ban_sync_t">Synchronisierung läuft</string>
     <string name="sc_ban_sync_d">3 von 12 Einträgen übertragen — bitte App geöffnet lassen.</string>
     <string name="sc_ban_widget_t">Tipp: Widget hinzufügen</string>
@@ -392,7 +349,6 @@
     <string name="sc_ban_neutral_t">Noch keine Einträge</string>
     <string name="sc_ban_neutral_d">Tippe auf + um zu beginnen.</string>
 
-    <!-- Snackbar & dialog -->
     <string name="sc_snack_sub">Snackbar</string>
     <string name="sc_snack_deleted">Eintrag gelöscht.</string>
     <string name="sc_snack_undo">Rückgängig</string>
@@ -403,12 +359,10 @@
     <string name="sc_dialog_cancel">Abbrechen</string>
     <string name="sc_dialog_delete">Löschen</string>
 
-    <!-- Dividers -->
     <string name="sc_div_left">Links</string>
     <string name="sc_div_mid">Mitte</string>
     <string name="sc_div_right">Rechts</string>
 
-    <!-- Spacing & radii -->
     <string name="sc_spacing_sub">Spacing</string>
     <string name="sc_radii_sub">Radien</string>
     <string name="sc_sp_xs">xs</string>
@@ -436,12 +390,10 @@
     <string name="sc_r_pill">pill</string>
     <string name="sc_r_pill_d">Buttons, Chips</string>
 
-    <!-- Element-Inspektor -->
     <string name="inspect_title">Element-ID</string>
     <string name="inspect_copy">Kopieren</string>
     <string name="inspect_close">Schließen</string>
 
-    <!-- Sektionen 25–33 · Listen-Muster -->
     <string name="sc_s25_title">25 · Filterbare Liste</string>
     <string name="sc_s25_desc">Suchfeld plus Filter-Chips über einer Listenansicht. Tippen filtert live nach Name/Beschreibung; die Chips schränken auf eine Kategorie ein. Trefferzähler oben rechts, Leerzustand wenn nichts passt.</string>
     <string name="sc_s26_title">26 · Liste mit Drag &amp; Drop</string>
@@ -461,7 +413,6 @@
     <string name="sc_s33_title">33 · Kombinierte Liste</string>
     <string name="sc_s33_desc">Alle Listen-Fähigkeiten in einer Ansicht: live durchsuchbar und nach Kategorie filterbar, per Griff neu sortierbar (Drag &amp; Drop), mit Mehrfachauswahl, Sammel-Löschen oben und einem eigenen Lösch-Button je Zeile.</string>
 
-    <!-- Geteilte Listen-Inhalte -->
     <string name="sc_p_anna">Anna Meyer</string>
     <string name="sc_p_jonas">Jonas Brandt</string>
     <string name="sc_p_clara">Clara Voss</string>
@@ -478,6 +429,7 @@
     <string name="sc_pr_marketing">Marketing</string>
     <string name="sc_pr_design">Design</string>
     <string name="sc_glyph_star">★</string>
+    <string name="sc_glyph_close">✕</string>
     <string name="sc_day_mon">Mo</string>
     <string name="sc_day_tue">Di</string>
     <string name="sc_day_wed">Mi</string>
@@ -488,7 +440,6 @@
     <string name="sc_done">Erledigt</string>
     <string name="sc_open">Offen</string>
 
-    <!-- 25 · Filterbare Liste -->
     <string name="sc_fl_cap">Filterbar · Suche + Kategorie-Chips + Live-Filter</string>
     <string name="sc_fl_title">Kontakte</string>
     <string name="sc_fl_all">Alle</string>
@@ -497,7 +448,6 @@
     <string name="sc_fl_fav">Favoriten</string>
     <string name="sc_fl_empty">Keine Treffer.</string>
 
-    <!-- 26 · Drag &amp; Drop -->
     <string name="sc_dnd_cap">Sortierbar · Griff ziehen zum Neuordnen</string>
     <string name="sc_dnd_title">Prioritäten</string>
     <string name="sc_dnd_hint">Am Griff ziehen, um die Reihenfolge zu ändern.</string>
@@ -508,7 +458,6 @@
     <string name="sc_dnd_t4">Release-Notes schreiben</string>
     <string name="sc_dnd_t5">Backlog priorisieren</string>
 
-    <!-- 27 · Auswahl &amp; Löschen -->
     <string name="sc_del_cap">Auswahl + Löschen · Bulk-Bar + Zeilen-Delete</string>
     <string name="sc_del_title">Dateien</string>
     <string name="sc_del_count">%1$d Einträge</string>
@@ -524,7 +473,6 @@
     <string name="sc_del_f4">Logo-export.zip</string>
     <string name="sc_del_f4_sub">4,9 MB · letzte Woche</string>
 
-    <!-- 28 · Schlichte Liste -->
     <string name="sc_pl_cap_a">Schlicht · ohne Präfix, hellblaue Markierung</string>
     <string name="sc_pl_cap_b">Schlicht · mit Marker-Punkt</string>
     <string name="sc_pl_title_a">Kapitel</string>
@@ -548,11 +496,9 @@
     <string name="sc_pl_b4">Archiviert</string>
     <string name="sc_pl_b4_v">42</string>
 
-    <!-- 29 · Gruppierte Liste -->
     <string name="sc_gl_cap">Gruppiert · klebende Section-Header</string>
     <string name="sc_gl_title">Verzeichnis</string>
 
-    <!-- 30 · Ausklappbare Liste -->
     <string name="sc_acc_cap">Ausklappbar · Accordion</string>
     <string name="sc_acc_title">Häufige Fragen</string>
     <string name="sc_acc_q1">Wie exportiere ich das Theme?</string>
@@ -562,7 +508,6 @@
     <string name="sc_acc_q3">Gibt es ein Dunkel-Theme?</string>
     <string name="sc_acc_a3">Ja — Hell- und Dunkel-Theme plus ein prefers-color-scheme-Fallback sind konsistent gepflegt.</string>
 
-    <!-- 31 · Trailing-Steuerelemente -->
     <string name="sc_ctl_cap_a">Trailing-Switch · Schalter-Liste</string>
     <string name="sc_ctl_title_a">Benachrichtigungen</string>
     <string name="sc_ctl_a1">Push-Mitteilungen</string>
@@ -579,7 +524,6 @@
     <string name="sc_ctl_b4">Team-Chat</string>
     <string name="sc_ctl_b_sub">Neue Nachrichten</string>
 
-    <!-- 32 · Container-Flächen -->
     <string name="sc_cb_meta_primary">Sapphire · Blau</string>
     <string name="sc_cb_meta_secondary">Aquamarine · Türkis</string>
     <string name="sc_cb_meta_tertiary">Amethyst · Pflaume</string>
@@ -599,80 +543,81 @@
     <string name="sc_cb_pct4">100 %</string>
     <string name="sc_cb_pct5">voll</string>
 
-    <!-- 33 · Kombinierte Liste -->
     <string name="sc_co_cap">Alles kombiniert · Suche + Sortieren + Auswahl + Löschen</string>
     <string name="sc_co_title">Kontakte</string>
 
-    <!-- Bibliotheks-Beispiele -->
     <string name="nav_library_examples">Bibliotheken</string>
-    <string name="library_examples_title">Bibliotheks-Beispiele</string>
-    <string name="library_examples_lead">Jedes wiederverwendbare Paket aus :uikit, hier als kleines funktionierendes Beispiel.</string>
 
-    <string name="lib_astronomy_title">Astronomie</string>
-    <string name="lib_astronomy_desc">Sonnenauf-/-untergang und Mondphase für einen festen Beispielort (Berlin).</string>
-    <string name="lib_astronomy_result">Sonnenaufgang %1$s · Sonnenuntergang %2$s · Mond %3$s</string>
+    <string name="nav_search_placeholder">Seiten suchen</string>
 
-    <string name="lib_qr_title">QR-Code</string>
-    <string name="lib_qr_desc">Erzeugt aus eingegebenem Text ein QR-Bitmap.</string>
-    <string name="lib_qr_input_label">Text</string>
-    <string name="lib_qr_empty">Text eingeben, um einen QR-Code zu erzeugen.</string>
-
-    <string name="lib_maintenance_title">Wartungsaufgaben</string>
-    <string name="lib_maintenance_desc">Führt mehrere geordnete Wartungsaufgaben aus und zeigt Erfolg/Fehler pro Aufgabe.</string>
-    <string name="lib_maintenance_run">Aufgaben ausführen</string>
-
-    <string name="lib_drafts_title">Entwurf-Autosave</string>
-    <string name="lib_drafts_desc">Speichert den Inhalt dieses Feldes zeitgesteuert automatisch — die Library selbst kennt weder DataStore noch Room.</string>
-    <string name="lib_drafts_field_label">Entwurfstext</string>
-    <string name="lib_drafts_saved_at">Entwurf gespeichert um %1$s</string>
-    <string name="lib_drafts_not_saved_yet">Noch nicht gespeichert.</string>
-
-    <string name="lib_modules_title">Feature-Module</string>
-    <string name="lib_modules_desc">Beispiel-Module, registriert in einer FeatureModuleRegistry, einzeln ein-/ausschaltbar.</string>
-    <string name="lib_modules_entry_weather">Wetter</string>
-    <string name="lib_modules_entry_reminders">Erinnerungen</string>
-    <string name="lib_modules_entry_backup">Backup</string>
-
-    <string name="lib_entrylock_title">Zugriffssperre</string>
-    <string name="lib_entrylock_desc">Zeigt Demo-Inhalte erst nach biometrischer Bestätigung.</string>
-    <string name="lib_entrylock_unavailable">Biometrische Authentifizierung ist auf diesem Gerät nicht verfügbar.</string>
-    <string name="lib_entrylock_reveal">Anzeigen</string>
-    <string name="lib_entrylock_needs_fragment_activity">Dieses Beispiel braucht eine FragmentActivity; die MainActivity der Basis-Vorlage ist eine reine ComponentActivity.</string>
-    <string name="lib_entrylock_prompt_title">Demo-Inhalt entsperren</string>
-    <string name="lib_entrylock_success">Erfolgreich authentifiziert.</string>
-    <string name="lib_entrylock_failed">Authentifizierung fehlgeschlagen.</string>
-    <string name="lib_entrylock_cancelled">Authentifizierung abgebrochen.</string>
-
-    <string name="lib_pdf_title">PDF-Export</string>
-    <string name="lib_pdf_desc">Erstellt eine kleine einseitige PDF mit Titel, Text und Wasserzeichen.</string>
-    <string name="lib_pdf_generate">PDF erzeugen</string>
-    <string name="lib_pdf_watermark">uikit Demo</string>
-    <string name="lib_pdf_saved">Gespeichert unter %1$s</string>
-
-    <string name="lib_folders_title">Ordnerbaum</string>
-    <string name="lib_folders_desc">Eine kleine In-Memory-Ordnerliste mit Auf-/Zuklappen und Löschen.</string>
-    <string name="lib_folders_count">%1$d Einträge</string>
-
-    <string name="lib_navigation_title">Editor-Gerüst</string>
-    <string name="lib_navigation_desc">Ein Vollbild-Editor-Gerüst mit Kopfzeile und Speichern-Leiste.</string>
-    <string name="lib_navigation_open">Editor öffnen</string>
-    <string name="lib_navigation_editor_title">Demo-Editor</string>
-    <string name="lib_navigation_editor_field">Inhalt</string>
-    <string name="lib_navigation_save">Speichern</string>
-
-    <string name="lib_quickpicker_title">Schnellauswahl</string>
-    <string name="lib_quickpicker_desc">Schnelle Ziffern-Eingabe für Datum und Uhrzeit, als Alternative zum System-Picker.</string>
-    <string name="lib_quickpicker_pick_date">Datum wählen</string>
-    <string name="lib_quickpicker_pick_time">Uhrzeit wählen</string>
-
-    <string name="lib_database_title">Verschlüsselte Datenbank</string>
-    <string name="lib_database_desc">Plant das Öffnen einer SQLCipher-verschlüsselten Datenbank über DatabaseOpenPlanner.</string>
-    <string name="lib_database_plan">Datenbank-Öffnung planen</string>
-    <string name="lib_database_ready">Plan bereit für %1$s</string>
-    <string name="lib_database_error">Fehler: %1$s</string>
-
-    <string name="lib_textarea_title">Tastatur-bewusstes Textfeld</string>
-    <string name="lib_textarea_desc">Ein mehrzeiliges Textfeld, das über der Tastatur sichtbar bleibt.</string>
-    <string name="lib_textarea_label">Notizen</string>
-    <string name="lib_textarea_placeholder">Etwas eingeben…</string>
+    <string name="color_token_global_primary">Primärfarbe</string>
+    <string name="color_token_global_primary_desc">Primärfarbe: Haupt-Buttons, aktive Icons und ausgewählte Elemente in der gesamten App.</string>
+    <string name="color_token_global_on_primary">Primärfarbe (Text)</string>
+    <string name="color_token_global_on_primary_desc">Textfarbe auf Elementen in Primärfarbe, etwa Beschriftung gefüllter Haupt-Buttons.</string>
+    <string name="color_token_global_primary_container">Primärfarbe (Fläche)</string>
+    <string name="color_token_global_primary_container_desc">Flächenfarbe für abgesetzte Primär-Container wie Tonal-Buttons und hervorgehobene Karten.</string>
+    <string name="color_token_global_on_primary_container">Primärfarbe (Text auf Fläche)</string>
+    <string name="color_token_global_on_primary_container_desc">Textfarbe auf Primär-Containerflächen, etwa Beschriftung von Tonal-Buttons.</string>
+    <string name="color_token_global_secondary">Sekundärfarbe</string>
+    <string name="color_token_global_secondary_desc">Sekundärfarbe: weniger betonte Buttons, Chips und Akzente in der gesamten App.</string>
+    <string name="color_token_global_on_secondary">Sekundärfarbe (Text)</string>
+    <string name="color_token_global_on_secondary_desc">Textfarbe auf Elementen in Sekundärfarbe.</string>
+    <string name="color_token_global_secondary_container">Sekundärfarbe (Fläche)</string>
+    <string name="color_token_global_secondary_container_desc">Flächenfarbe für abgesetzte Sekundär-Container wie Chips und Tonal-Flächen.</string>
+    <string name="color_token_global_on_secondary_container">Sekundärfarbe (Text auf Fläche)</string>
+    <string name="color_token_global_on_secondary_container_desc">Textfarbe auf Sekundär-Containerflächen.</string>
+    <string name="color_token_global_tertiary">Tertiärfarbe</string>
+    <string name="color_token_global_tertiary_desc">Tertiärfarbe: zusätzliche Akzente und Hinweis-Elemente in der gesamten App.</string>
+    <string name="color_token_global_on_tertiary">Tertiärfarbe (Text)</string>
+    <string name="color_token_global_on_tertiary_desc">Textfarbe auf Elementen in Tertiärfarbe.</string>
+    <string name="color_token_global_tertiary_container">Tertiärfarbe (Fläche)</string>
+    <string name="color_token_global_tertiary_container_desc">Flächenfarbe für abgesetzte Tertiär-Container.</string>
+    <string name="color_token_global_on_tertiary_container">Tertiärfarbe (Text auf Fläche)</string>
+    <string name="color_token_global_on_tertiary_container_desc">Textfarbe auf Tertiär-Containerflächen.</string>
+    <string name="color_token_global_error">Fehlerfarbe</string>
+    <string name="color_token_global_error_desc">Fehlerfarbe: Fehler-Icons, Lösch-Aktionen und Fehlermeldungen in der gesamten App.</string>
+    <string name="color_token_global_on_error">Fehlerfarbe (Text)</string>
+    <string name="color_token_global_on_error_desc">Textfarbe auf Elementen in Fehlerfarbe.</string>
+    <string name="color_token_global_error_container">Fehlerfarbe (Fläche)</string>
+    <string name="color_token_global_error_container_desc">Flächenfarbe für Fehler-Banner und -Hinweise.</string>
+    <string name="color_token_global_on_error_container">Fehlerfarbe (Text auf Fläche)</string>
+    <string name="color_token_global_on_error_container_desc">Textfarbe auf Fehler-Containerflächen.</string>
+    <string name="color_token_global_background">Hintergrund</string>
+    <string name="color_token_global_background_desc">Hintergrundfarbe: App-Hintergrund, Karten und alle Oberflächen-Varianten in der gesamten App.</string>
+    <string name="color_token_global_on_background">Schrift</string>
+    <string name="color_token_global_on_background_desc">Schriftfarbe: Standardtext auf Hintergrund und Oberflächen in der gesamten App.</string>
+    <string name="color_token_global_outline">Rahmenlinie</string>
+    <string name="color_token_global_outline_desc">Rahmenlinienfarbe: Kartenränder, Trennlinien und Rahmen in der gesamten App.</string>
+    <string name="color_token_global_warning">Warnfarbe</string>
+    <string name="color_token_global_warning_desc">Warnfarbe: Warnungs-Buttons und -Hinweise in der gesamten App.</string>
+    <string name="color_token_global_on_warning">Warnfarbe (Text)</string>
+    <string name="color_token_global_on_warning_desc">Textfarbe auf Warnungs-Buttons.</string>
+    <string name="color_token_global_warning_container">Warnfarbe (Fläche)</string>
+    <string name="color_token_global_warning_container_desc">Flächenfarbe für abgetönte Warnungs-Buttons und -Hinweise.</string>
+    <string name="color_token_global_on_warning_container">Warnfarbe (Text auf Fläche)</string>
+    <string name="color_token_global_on_warning_container_desc">Textfarbe auf Warnungs-Containerflächen.</string>
+    <string name="color_category_global">Allgemein</string>
+    <string name="color_category_global_desc">Primär-, Sekundär-, Tertiär-, Warn- und Fehlerfarbe mit ihren Text- und Flächen-Varianten, sowie Hintergrund, Schrift und Rahmenlinie</string>
+    <string name="color_category_success">Erfolg</string>
+    <string name="color_category_success_desc">Erfolgsfarbe mit ihren Text- und Flächen-Varianten</string>
+    <string name="color_token_success_success">Erfolgsfarbe</string>
+    <string name="color_token_success_success_desc">Erfolgsfarbe: Bestätigungen, abgeschlossene Zustände und positive Hinweise in der gesamten App.</string>
+    <string name="color_token_success_on_success">Erfolgsfarbe (Text)</string>
+    <string name="color_token_success_on_success_desc">Textfarbe auf Elementen, die mit der Erfolgsfarbe gefüllt sind.</string>
+    <string name="color_token_success_container">Erfolgsfarbe (Fläche)</string>
+    <string name="color_token_success_container_desc">Flächenfarbe für abgetönte Erfolgs-Flächen und -Hinweise.</string>
+    <string name="color_token_success_on_container">Erfolgsfarbe (Flächentext)</string>
+    <string name="color_token_success_on_container_desc">Textfarbe auf Erfolgs-Flächen.</string>
+    <string name="header_menu">Menü</string>
+    <string name="label_delete">Löschen</string>
+    <string name="settings_ctrl_contrast">Kontrast</string>
+    <string name="settings_ctrl_fontsize">Schriftgröße</string>
+    <string name="settings_group_consectetur">Consectetur</string>
+    <string name="settings_group_lorem">Lorem Ipsum</string>
+    <string name="settings_percent">%1$d %%</string>
+    <string name="settings_ratio">%1$d / %2$d</string>
+    <string name="settings_srow_a_sub">Consectetur adipiscing elit</string>
+    <string name="settings_srow_a_title">Dolor sit amet</string>
+    <string name="settings_srow_b_sub">Sed do eiusmod tempor</string>
+    <string name="settings_srow_b_title">Adipiscing elit</string>
 </resources>

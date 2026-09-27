@@ -9,20 +9,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Checkbox
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.wafflehq.base.R
-import com.wafflehq.uikit.components.SettingsScaffold
-import com.wafflehq.uikit.components.SettingsSwitchRow
-import com.wafflehq.uikit.theme.AppTheme
+import com.wafflehq.lib.navigation.settings.SettingsScaffold
+import com.wafflehq.lib.navigation.settings.SettingsSwitchRow
+import com.wafflehq.lib.uicore.components.AppCheckbox
+import com.wafflehq.lib.uicore.theme.AppSpacing
 
 @Composable
 fun FeatureFilesListScreen(
@@ -42,9 +42,9 @@ fun FeatureFilesListScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(16.dp)
+                .padding(AppSpacing.lg)
                 .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(AppSpacing.lg),
         ) {
             SettingsSwitchRow(
                 title = stringResource(R.string.feature_files_show_hidden),
@@ -58,11 +58,11 @@ fun FeatureFilesListScreen(
             when {
                 viewModel.totalFileCount == 0 -> Text(
                     text = stringResource(R.string.feature_files_empty),
-                    color = AppTheme.colors.onSurfaceVariant,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 items.isEmpty() -> Text(
                     text = stringResource(R.string.feature_files_all_hidden),
-                    color = AppTheme.colors.onSurfaceVariant,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 else -> items.forEach { item ->
                     Row(
@@ -70,13 +70,13 @@ fun FeatureFilesListScreen(
                             .fillMaxWidth()
                             .clickable { onOpenFile(item.fileName) },
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                        horizontalArrangement = Arrangement.spacedBy(AppSpacing.md),
                     ) {
-                        Checkbox(
+                        AppCheckbox(
                             checked = item.checked,
                             onCheckedChange = { checked -> viewModel.onCheckedChange(item.fileName, checked) },
                         )
-                        Text(text = item.title, color = AppTheme.colors.onSurface)
+                        Text(text = item.title, color = MaterialTheme.colorScheme.onSurface)
                     }
                 }
             }

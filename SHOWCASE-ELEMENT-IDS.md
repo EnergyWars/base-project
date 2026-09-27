@@ -1,7 +1,7 @@
 # Showcase-Element-IDs (Inspector-IDs)
 
 Diese Datei ist die **vollständige Registry** aller Inspector-IDs, die im
-`:uikit`-Showcase (`uikit/src/main/java/com/wafflehq/uikit/showcase/Section*.kt`)
+Showcase der App (`app/src/main/java/com/wafflehq/base/ui/showcase/Section*.kt`)
 vergeben sind. Der Element-Inspektor (`ElementInspector.kt`,
 `ElementInspectorHost(enabled = true)` in der Beispiel-App) zeigt beim
 Doppeltipp auf ein Element genau diese ID in einem Dialog an (kopierbar) —
@@ -25,7 +25,7 @@ Vorgehen zum Aktualisieren:
 1. Alle Vorkommen von IDs im Showcase-Verzeichnis auflisten:
    ```
    grep -rn 'inspectId(\|inspectTap(\|inspectCode\s*=\|code\s*=' \
-     uikit/src/main/java/com/wafflehq/uikit/showcase/*.kt
+     app/src/main/java/com/wafflehq/base/ui/showcase/*.kt
    ```
 2. Für dynamisch gebaute IDs (String-Templates wie `"$groupCode.${i + 1}"`,
    `"32" + ('a' + index)`, `"29a.$memberIndex"`) den umgebenden Code lesen und
@@ -34,7 +34,7 @@ Vorgehen zum Aktualisieren:
 3. Zweck-Beschreibung kurz halten (Komponente + Variante/Zustand + ggf.
    Label/Text), auf Deutsch, analog zu den bestehenden Einträgen unten.
    String-Ressourcen (`R.string.sc_*`) ggf. in
-   `uikit/src/main/res/values/strings.xml` nachschlagen.
+   `app/src/main/res/values/strings.xml` bzw. `showcase_strings.xml` nachschlagen.
 4. Abschnitt der betroffenen `SectionNN*.kt`-Datei unten ersetzen (nicht die
    ganze Datei neu schreiben).
 5. Bei Widerspruch zwischen dieser Datei und dem tatsächlichen Code hat **der
@@ -60,7 +60,7 @@ Format: `{Sektionsnummer}{Gruppe a/b/c/…}.{laufende Nummer}`, z. B. `13a.1`,
   (Primary/Secondary/…) oder eine thematische Untergruppe innerhalb der
   Sektion; die laufende Nummer zählt die Kinder der Gruppe durch.
 
-Mechanismus-Quelle: `uikit/src/main/java/com/wafflehq/uikit/showcase/ElementInspector.kt`
+Mechanismus-Quelle: `app/src/main/java/com/wafflehq/base/ui/showcase/ElementInspector.kt`
 (`inspectId`, `inspectTap`, `InspectSection`, `ElementInspectorHost`).
 
 ---

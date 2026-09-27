@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="uicore_ok">OK</string>
+    <string name="uicore_save">Save</string>
+    <string name="uicore_back">Back</string>
+    <string name="uicore_cancel">Cancel</string>
+    <string name="uicore_delete">Delete</string>
+    <string name="uicore_close">Close</string>
+    <string name="uicore_edit">Edit</string>
+    <string name="uicore_date">Date</string>
+    <string name="uicore_time">Time</string>
+    <string name="uicore_discard_changes_title">Discard changes?</string>
+    <string name="uicore_discard_changes_message">Unsaved changes will be lost.</string>
+    <string name="uicore_discard_changes_confirm">Discard</string>
+    <string name="uicore_save_changes_title">Save changes?</string>
+    <string name="uicore_save_changes_message">You have unsaved changes. They will be lost if you leave this page.</string>
+    <string name="uicore_draft_banner_discard">Discard draft</string>
+    <string name="uicore_top_bar_expand_cd">Expand navigation bar</string>
+    <string name="uicore_csv_export_action">Export as CSV</string>
+    <string name="uicore_csv_export_error">Export failed.</string>
+    <string name="uicore_csv_export_save_success">CSV saved.</string>
+    <string name="uicore_csv_export_save_error">Save failed.</string>
+    <string name="uicore_csv_export_preview">Preview</string>
+    <string name="uicore_csv_export_share">Share</string>
+    <string name="uicore_csv_export_save">Save</string>
+    <string name="uicore_csv_preview_title">CSV preview</string>
+    <string name="uicore_csv_preview_close">Back</string>
+    <string name="uicore_csv_preview_share">Share</string>
+    <string name="uicore_csv_preview_empty">No data to preview.</string>
+    <string name="uicore_search_clear">Clear search</string>
+    <string name="uicore_stepper_decrease">Decrease</string>
+    <string name="uicore_stepper_increase">Increase</string>
+</resources>

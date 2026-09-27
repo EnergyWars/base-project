@@ -1,142 +1,59 @@
 # context.md – Basisprojekt
 
-Diese Datei beschreibt den **aktuellen Stand** (keine Historie). Bei
-Widersprüchen hat `FEATURES.md` Vorrang. Nach jeder Funktions-Änderung pflegen.
+Nur aktueller Stand, keine Historie. Bei Widersprüchen hat `CLAUDE.md` Vorrang. Nach jeder Funktions-Änderung pflegen.
 
 ## Aufbau jedes Projektes
 
-- **FEATURES.md**: im Projektstamm, selbstpflegend; enthält alle Features
-  vollständig. Bei jeder Feature-Änderung nach Abschluss aktualisieren. Nur bei
-  Bedarf nachschlagen.
-- **.gitignore**: im Projektstamm; enthält immer `dev/*`, `java_pid*`, `*.hprof`.
-  Laufend befüllen.
-- **context.md**: zuerst lesen; nur aktueller Stand, kein Verlauf; Features aus
-  `FEATURES.md` mit Status + zugehörigen Dateien; nach jeder Änderung kürzen.
-- **CLAUDE.md**: klein halten; Hinweise zur Pflege von FEATURES.md, .gitignore
-  und context.md.
+- `FEATURES.md` im Projektstamm: alle Features, nach Abschluss eines Features aktualisieren, nur bei Bedarf nachschlagen.
+- `.gitignore` im Projektstamm, laufend befüllen (enthält `dev/*`, `java_pid*`, `*.hprof`).
+- `context.md`: zuerst lesen, nur aktueller Stand, nach jeder Änderung kürzen.
+- `CLAUDE.md`: klein halten, keine Feature-Beschreibungen.
 
 ## Stack
 
-Kotlin 2.0, AGP 8.9, JVM 17, compileSdk 35, minSdk 26. Jetpack Compose
-Material 3, Hilt, Room, DataStore (nur im App-Modul — `:uikit` ist frei von
-Hilt/Room/DataStore, mit Ausnahme von `uikit/database`, das bewusst
-SQLCipher/androidx.sqlite nutzt, da Verschlüsselung sein eigentlicher Zweck
-ist). `gradle build`/`assembleDebug`/jeder `./gradlew`-Aufruf nie ohne
-explizite Erlaubnis ausführen. **`:uikit` und `:app` laufen sauber durch**
-(Kompilierung Debug/Release, Tests, Lint, assemble für beide Module).
+Kotlin 2.3, AGP 8.13, JVM 17, compileSdk/targetSdk 36, minSdk 26. Compose Material 3, Hilt, Room, DataStore (nur `:app`). Versionen in `gradle/libs.versions.toml` (Kopie aus Periodical). Gradle nie ohne ausdrückliche Erlaubnis ausführen.
 
-## Modul-Struktur: `:uikit` (Library) + `:app` (Beispiel-App)
+## Module
 
-**`:uikit`** (`com.wafflehq.uikit`, Android-Library) ist das eigenständig
-importierbare Design-System- und Utility-Paket; **`:app`** ist die
-Beispiel-App, die `:uikit` per `implementation(project(":uikit"))` konsumiert
-und alle Bausteine vorführt. Ein fremdes Projekt bindet `:uikit` per
-`includeBuild`/Modul-Kopie ein, ohne dessen Code anzufassen.
+- `:app` (`com.wafflehq.base`): Beispiel-App.
+- `:lib:*` (20 Module, `com.wafflehq.lib.*`): 1:1-Kopie von `../periodical/lib` ohne `domaincore`/`todocore`, kommentarfrei. Erzeugt durch `scripts/sync-lib.sh` (rsync, `scripts/strip_comments.py`, Katalog, `settings.gradle.kts`, `theme-hashes.sha256`). Nie von Hand ändern.
+- Einbindung in andere Projekte: `docs/LIB-IMPORT.md`, `lib-modules.settings.gradle.kts`.
 
-### `:uikit` – Theme (extern themebar ohne Code-Änderung)
+Lib-Modul-Abhängigkeiten: `ui-core` ← `navigation`, `folders`, `entrylock`, `quickpicker`, `textarea`, `pdf`, `settings`; `settings` ← `navigation`, `database`, `backupcore`. Alle übrigen Module sind eigenständig.
 
-- `theme/Palette.kt`: `ColorRamp` (9 Tones "10".."90"), `WafflePalette`
-  (7 Rollen-Ramps + Light/Dark-Surfaces), `WafflePalette.Default`.
-- `theme/TypeScale.kt`: `AppTypeScale`/`TypeStyleSpec` (15 M3-Stufen),
-  `AppTypeScale.Default`, `buildTypography(scale, fontFamily)`.
-- `theme/Theme.kt`: `AppTheme(darkTheme, palette = LocalWafflePalette.current,
-  typeScale = LocalAppTypeScale.current, content)` baut `AppColors`/
-  `AppTokens`/M3-`ColorScheme`/`Typography` zur Laufzeit. `AppTheme`-Objekt:
-  `.colors`/`.tokens`/`.extendedColors`/`.palette`/`.typeScale`/`.colorRamps`.
-  Hausschrift bleibt Geist (`Type.kt`, TTFs in `uikit/src/main/res/font/`) —
-  themebar sind Größen/Gewichte, nicht die Fontfamilie.
-- `theme/AppTokens.kt`/`AppShapes.kt`/`ThemeMode.kt`: Button/Chip/Card/
-  TextField/Banner/Badge-Tokens, Radius/Spacing, `ThemeMode`-Enum
-  (persistenzfrei).
+## Skripte
 
-### `:uikit` – Farbeinstellung inkl. Farbpicker (`color/`)
-
-Generalisierter Port aus `../periodical`: `ColorCanvasPicker.kt` (SV-Panel +
-Hue-/Alpha-Slider), `ColorSpaceConversions.kt` (RGB/HSL/Hex),
-`RampGenerator.kt` (`rampFromAccent` — eine Akzentfarbe → vollständige
-9-Tone-Ramp über feste Lightness-Kurve, dadurch bleiben alle Showcase-
-Beispiele nach Farbänderung automatisch stimmig, da sie aus
-`AppTheme.colorRamps` lesen), `WafflePaletteState.kt` (hoistbarer Halter mit
-`setRoleAccent`/`resetRole`/`resetAll`/`replace`/`syncFromExternal`,
-`onPaletteChanged`-Callback für Persistenz durch die Host-App),
-`PaletteJson.kt` (Export/Import als JSON), `ColorSettingsScreen.kt` (fertiger
-Editor: 7 Rollen mit Swatch → Picker-Dialog, „Alle zurücksetzen“).
-
-### `:uikit` – Komponenten & Showcase
-
-- `components/`: `AppBadge`, `AppBanner`, `AppButton`, `AppCard`, `AppChip`,
-  `AppDialog` (themed `AlertDialog`-Wrapper: `AppRadius.dialog`-Shape,
-  `AppTheme.colors.surface`/`onSurface`-Tokens; dazu
-  `AppDialogConfirmButton`/`AppDialogDismissButton` als `AppButton`-Presets
-  — Filled/Rolle bzw. Text/Neutral — für konsistente Modal-Buttons; alle
-  Dialoge in `folders/`, `color/`, `quickpicker/` nutzen jetzt `AppDialog`
-  statt roher `AlertDialog`/`TextButton`), `AppHeader`/`AppScaffold`
-  (delegiert intern an `navigation/AppTopNavBar`: 64×32 dp Pill-Indikator
-  statt Vollflächen-Highlight, Farben aus `navigation/AppNavColors` — kein
-  eigener Pill-Code mehr, einzige Quelle ist die Navigation-Shell),
-  `AppIconButton`, `AppSlider`, `AppTextField`, `SettingsUi.kt`,
-  `DisplaySettingsContent.kt`.
-- `showcase/`: alle 33 `SectionNN*.kt` (IDs `1a.1`…`33a.*`, Schema
-  `<Sektion><Gruppe>.<Nr>`), `ElementInspector.kt` mit
-  **`ElementInspectorHost(enabled = false, content)`** — Default **aus** für
-  fremde Importeure; die Beispiel-App schaltet es in `HomeScreen.kt` mit
-  `enabled = true` ein. Vollständige, selbstpflegende ID→Zweck-Registry aller
-  Showcase-Elemente: `SHOWCASE-ELEMENT-IDS.md` im Projektstamm (vom
-  `/base-project`-Skill referenziert; bei jeder ID-Änderung im Showcase
-  zwingend nachziehen).
-
-### `:uikit` – Portierte Periodical-Libraries (`../periodical/libraries.md`)
-
-Alle als generisch bewerteten Teile wurden nach `com.wafflehq.uikit.<name>`
-übernommen (Domänenspezifisches aus periodicals Kalender-App blieb dort):
-
-| Paket | Inhalt |
+| Datei | Zweck |
 |---|---|
-| `astronomy/` | Sonnen-/Mond-Berechnungen (Golden/Blue Hour, Mondphasen) |
-| `qr/` | `QrBitmapGenerator` (zxing-Wrapper) |
-| `maintenance/` | `MaintenanceTaskRunner`/`MaintenanceTask` (geordnete Task-Ausführung mit Fehlerbehandlung) |
-| `drafts/` | `DraftRepository`/`DraftAutosaveEffect` (Autosave-Mechanismus, framework-frei) |
-| `modules/` | `FeatureModule`/`FeatureModuleRegistry`/`ModulePermissionSpec`/`CalendarDayMarker` (Plugin-Erweiterungspunkt-Muster) |
-| `entrylock/` | `EntryAuthenticator` (BiometricPrompt), `EntryLockController` (State-Machine), `entrylock/ui/*` (Lock-Screen-UI) |
-| `pdf/` | `PdfPageState`/`PdfWatermark`/`PdfDrawHelpers` (Wasserzeichentext jetzt Parameter statt periodical-String-Resource) |
-| `folders/` | `FolderTree`/`FolderDrop`/`FolderDeletionAction`, `folders/ui/*` (Ordnerbaum mit Drag & Drop) |
-| `navigation/` | `SettingsHomePage`, `EditorScaffold`, `FullScreenSubPage`, `AppNavigationShell` (`AppTopNavBar`/`AppSideNavDrawer`, jetzt von `:app`s `AppHeader`/`AppDrawer` konsumiert; `AppNavItem` hat optionales `inspectCode`-Feld für Showcase-Doppeltipp-IDs), `AppNavColors` (redundante Settings-Listen-Primitive gegenüber `components/SettingsUi.kt` wurden bewusst NICHT übernommen) |
-| `quickpicker/` | `QuickDateInputDialog`/`QuickTimeInputDialog`/`TimePickerField` (Ziffern-Eingabe-Picker statt System-Picker) |
-| `database/` | SQLCipher-verschlüsselte SQLite-Öffnung/Migration (`DatabaseOpenPlanner`, `crypto/*`, `conversion/*`) — einzige Ausnahme von „kein Room/Hilt/DataStore“, da Verschlüsselung der Zweck ist |
-| `textarea/` | `KeyboardAwareTextArea`/`TextAreaAutoScroll` (IME-bewusstes Mehrzeilen-Textfeld) |
+| `scripts/sync-lib.sh` | Lib aus Periodical neu übernehmen |
+| `scripts/strip_comments.py` | Kommentare aus `.kt`/`.kts`/`.xml` entfernen |
+| `scripts/check_imports.py` | `com.wafflehq.*`-Imports gegen `lib/` und `app/` prüfen (Ersatz für Compiler-Lauf; Fehlalarm bei Extension-Funktionen mit Receiver-Typ möglich) |
+| `verify-theme.sh`, `theme-hashes.sha256` | Theme-Regeln und Prüfsummen von `ColorPalette.kt`/`Theme.kt` |
+| `scripts/validate-colors.sh` | Farbregeln-Prüfung |
 
-### `:uikit` – Tests
+## `:app`
 
-`uikit/src/test/…`: 611+ Tests (JUnit4 + Robolectric für Compose-UI/`org.json`/
-SQLite-Fälle), decken die komplette reine Logik sowie die wichtigsten
-Compose-Komponenten ab (inkl. `ElementInspectorHost(enabled=…)`-Verhalten).
-`:uikit`s `release`-Build-Variante hat
-`enableUnitTest = false` (in `uikit/build.gradle.kts`), da
-`androidx.compose.ui:ui-test-manifest` bewusst nur `debugImplementation` ist
-und Compose-UI-Tests einen Debug-Manifest-Overlay brauchen.
-
-### `:app` – Beispiel-App (Konsument von `:uikit`)
-
-| Feature | Status | Dateien |
+| Bereich | Status | Dateien (unter `app/src/main/java/com/wafflehq/base/`) |
 |---|---|---|
-| Home-Screen – Showcase aller `:uikit`-Elemente (33 Sektionen) | fertig | `ui/home/HomeScreen.kt` |
-| Element-Inspektor eingeschaltet | fertig | `HomeScreen.kt`: `ElementInspectorHost(enabled = true)` |
-| Farbpalette-Einstellung (Settings → „Farbpalette“) | fertig | `ui/settings/ColorSettingsRoute.kt`, `SettingsViewModel.paletteState`, `SettingsRepository.paletteJson` (DataStore-persistiert), `MainActivity.kt` |
-| App-Header/Drawer/Beispielseiten 1–3 | fertig | `ui/components/AppDrawer.kt` (delegiert an `uikit/navigation/AppSideNavDrawer` — Oval-Pill mit blauem Rahmen am aktiven Eintrag, gefüllt mit `colors.success.container` = echtes Emerald-Dunkelgrün statt der türkisen „Secondary“-Rolle (`Aquamarine`); 1:1 periodical-Stil), `ui/example/ExampleScreen.kt` |
-| Settings-Listenseite + Anzeige-Unterseite | fertig | `ui/settings/*.kt` |
-| Feature-Liste (Markdown aus `features/*.md`) | fertig | `data/features/FeatureFilesRepository.kt` (liest `assets/features/*.md`, per Gradle-`Sync`-Task `syncFeatureFiles` aus `features/*.md` im Projektstamm befüllt), `ui/features/FeatureFilesViewModel.kt` (+ `FeatureFileDetailViewModel`), `ui/features/FeatureFilesListScreen.kt`, `ui/features/FeatureFileDetailScreen.kt`, Checked-/Hidden-Status in `SettingsRepository` (DataStore) |
-| Navigation | fertig | `ui/navigation/AppNavHost.kt` (Routen inkl. `settings_colors`, `library_examples`) |
-| DI / DB / App | fertig | `di/AppModule.kt`, `data/db/AppDatabase.kt`, `BaseApp.kt`, `MainActivity.kt` |
-| Bibliotheken-Beispielseite (Drawer → „Bibliotheken“) | fertig | `ui/library/LibraryExamplesScreen.kt` — je ein funktionierendes Beispiel für alle 11 portierten `:uikit`-Libraries (astronomy/qr/maintenance/drafts/modules/entrylock/pdf/folders/navigation/quickpicker/database/textarea) |
+| Theme, Rollenfarben, Typografie | fertig | `ui/theme/` (`Theme.kt` = `BaseAppTheme`, `AppTheme.kt` = 7 Rollen + `colorRamps`, `AppThemedContent.kt`, `ColorTokenAccess.kt`, `Type.kt`, `Shape.kt`) |
+| Farb-Token-Katalog (Global, Success) | fertig | `domain/colortheme/` |
+| Farb-Persistenz | fertig | `di/ColorThemeModule.kt` (Override-Store, Registry, Export) |
+| Einstellungen (Liste, Anzeige, Farben, Farb-Kategorien) | fertig | `ui/settings/` |
+| Feature-Liste (Markdown aus `features/*.md`) | fertig | `data/features/FeatureFilesRepository.kt`, `ui/features/`, Gradle-Task `syncFeatureFiles` |
+| Navigation, Seitenmenü, Titelleiste | fertig | `ui/navigation/AppNavHost.kt`, `ui/components/AppDrawer.kt`, `AppHeaderScaffold.kt` |
+| Showcase (33 Sektionen) + Element-Inspektor | fertig | `ui/home/HomeScreen.kt`, `ui/showcase/` (IDs: `SHOWCASE-ELEMENT-IDS.md`) |
+| Beispielseiten 1–3 | fertig | `ui/example/ExampleScreen.kt` |
+| Bibliotheken-Beispiele (24 Demos, alle Lib-Module) | fertig | `ui/library/LibraryExamplesScreen.kt`, `ui/library/demos/` |
+| DI, DB, Activity | fertig | `di/AppModule.kt`, `data/db/AppDatabase.kt`, `data/settings/SettingsRepository.kt`, `BaseApp.kt`, `MainActivity.kt` |
 
-## Status
+Strings: `res/values*/strings.xml` (App), `showcase_strings.xml`, `library_examples_strings.xml` (`libex_*`). Fonts: `res/font/geist_*.ttf`, `geist_mono_*.ttf`.
 
-Alle Punkte aus dem ursprünglichen `/goal`-Auftrag sind umgesetzt: `:uikit`
-ist per Gradle importierbar, Elemente sind über IDs auffindbar, alle
-generischen Periodical-Libraries sind portiert, Farben/Schriftgrößen sind
-extern themebar, die Farbeinstellung inkl. Picker ist Teil des Pakets, alles
-ist beispielhaft in `:app` eingebunden, der Element-Inspektor ist per
-`enabled`-Flag abschaltbar (Default aus). `:uikit` baut/testet vollständig
-grün (Kompilierung Debug/Release, 611+ Unit-Tests). `:app` baut vollständig
-durch (Kompilierung Debug/Release, Lint, assemble). `verify-theme.sh`/
-`scripts/validate-colors.sh` sind an die neue Modul-Struktur angepasst.
+## Tests
+
+`app/src/test/` (JUnit4, Robolectric, Compose-Test) für Katalog, Theme, Repositories, ViewModels, Navigation, Showcase-Bausteine und alle Library-Demos; Lib-Module bringen ihre eigenen Tests mit. Bisher nicht ausgeführt (Gradle-Lauf steht aus).
+
+## Offene Punkte
+
+- Alter Ordner `uikit/` liegt noch im Projekt (nicht in `settings.gradle.kts` eingebunden, ersetzt durch `lib/` + `app/ui/showcase`); zum Löschen freigeben.
+- Entry-Lock-Demo: `MainActivity` ist `ComponentActivity`, echte Biometrie bräuchte `FragmentActivity`.
+- PDF-Teilen in der Demo braucht einen `FileProvider` im Manifest.

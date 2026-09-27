@@ -21,6 +21,7 @@ import com.wafflehq.base.ui.features.FeatureFileDetailScreen
 import com.wafflehq.base.ui.features.FeatureFilesListScreen
 import com.wafflehq.base.ui.home.HomeScreen
 import com.wafflehq.base.ui.library.LibraryExamplesScreen
+import com.wafflehq.base.ui.settings.ColorCategoryRoute
 import com.wafflehq.base.ui.settings.ColorSettingsRoute
 import com.wafflehq.base.ui.settings.DisplaySettingsScreen
 import com.wafflehq.base.ui.settings.SettingsScreen
@@ -31,6 +32,7 @@ object Routes {
     const val SETTINGS = "settings"
     const val SETTINGS_DISPLAY = "settings_display"
     const val SETTINGS_COLORS = "settings_colors"
+    const val SETTINGS_COLOR_CATEGORY = "settings_color_category/{categoryKey}"
     const val EXAMPLE_1 = "example_1"
     const val EXAMPLE_2 = "example_2"
     const val EXAMPLE_3 = "example_3"
@@ -40,6 +42,9 @@ object Routes {
 
     fun featureFileDetail(fileName: String): String =
         "feature_file_detail/${Uri.encode(fileName)}"
+
+    fun colorCategory(categoryKey: String): String =
+        "settings_color_category/${Uri.encode(categoryKey)}"
 }
 
 private fun NavController.switchTo(route: String) {
@@ -69,6 +74,7 @@ fun AppNavHost() {
         drawerContent = {
             AppDrawer(
                 currentRoute = currentRoute,
+                onClose = { scope.launch { drawerState.close() } },
                 onSelect = { route ->
                     scope.launch { drawerState.close() }
                     if (route == Routes.SETTINGS) {
@@ -137,6 +143,18 @@ fun AppNavHost() {
             }
             composable(Routes.SETTINGS_COLORS) {
                 ColorSettingsRoute(
+                    onBack = { navController.popBackStack() },
+                    onNavigateToCategory = { categoryKey ->
+                        navController.navigate(Routes.colorCategory(categoryKey))
+                    },
+                )
+            }
+            composable(
+                route = Routes.SETTINGS_COLOR_CATEGORY,
+                arguments = listOf(navArgument("categoryKey") { type = NavType.StringType }),
+            ) { entry ->
+                ColorCategoryRoute(
+                    categoryKey = checkNotNull(entry.arguments?.getString("categoryKey")),
                     onBack = { navController.popBackStack() },
                 )
             }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="uicore_ok">OK</string>
+    <string name="uicore_save">Speichern</string>
+    <string name="uicore_back">Zurück</string>
+    <string name="uicore_cancel">Abbrechen</string>
+    <string name="uicore_delete">Löschen</string>
+    <string name="uicore_close">Schließen</string>
+    <string name="uicore_edit">Bearbeiten</string>
+    <string name="uicore_date">Datum</string>
+    <string name="uicore_time">Uhrzeit</string>
+    <string name="uicore_discard_changes_title">Änderungen verwerfen?</string>
+    <string name="uicore_discard_changes_message">Nicht gespeicherte Änderungen gehen verloren.</string>
+    <string name="uicore_discard_changes_confirm">Verwerfen</string>
+    <string name="uicore_save_changes_title">Änderungen speichern?</string>
+    <string name="uicore_save_changes_message">Du hast ungespeicherte Änderungen. Wenn du die Seite verlässt, gehen sie verloren.</string>
+    <string name="uicore_draft_banner_discard">Entwurf verwerfen</string>
+    <string name="uicore_top_bar_expand_cd">Navigationsleiste ausklappen</string>
+    <string name="uicore_csv_export_action">Als CSV exportieren</string>
+    <string name="uicore_csv_export_error">Export fehlgeschlagen.</string>
+    <string name="uicore_csv_export_save_success">CSV gespeichert.</string>
+    <string name="uicore_csv_export_save_error">Speichern fehlgeschlagen.</string>
+    <string name="uicore_csv_export_preview">Vorschau</string>
+    <string name="uicore_csv_export_share">Teilen</string>
+    <string name="uicore_csv_export_save">Speichern</string>
+    <string name="uicore_csv_preview_title">CSV-Vorschau</string>
+    <string name="uicore_csv_preview_close">Zurück</string>
+    <string name="uicore_csv_preview_share">Teilen</string>
+    <string name="uicore_csv_preview_empty">Keine Daten für die Vorschau.</string>
+    <string name="uicore_search_clear">Suche löschen</string>
+    <string name="uicore_stepper_decrease">Verringern</string>
+    <string name="uicore_stepper_increase">Erhöhen</string>
+</resources>

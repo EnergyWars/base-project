@@ -1,7 +1,5 @@
 package com.wafflehq.base.ui.home
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -10,53 +8,53 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.wafflehq.uikit.theme.ThemeMode
-import com.wafflehq.uikit.components.AppScaffold
-import com.wafflehq.uikit.components.HeaderItem
+import com.wafflehq.base.data.model.ThemeMode
+import com.wafflehq.base.R
+import com.wafflehq.base.ui.components.AppHeaderScaffold
+import com.wafflehq.base.ui.components.HeaderItem
 import com.wafflehq.base.ui.settings.SettingsViewModel
-import com.wafflehq.uikit.theme.AppSpacing
-import com.wafflehq.uikit.theme.AppTheme
-import com.wafflehq.uikit.showcase.Section01Typography
-import com.wafflehq.uikit.showcase.Section02Weights
-import com.wafflehq.uikit.showcase.Section03Ramps
-import com.wafflehq.uikit.showcase.Section04Surfaces
-import com.wafflehq.uikit.showcase.Section05Roles
-import com.wafflehq.uikit.showcase.Section06Buttons
-import com.wafflehq.uikit.showcase.Section07Fab
-import com.wafflehq.uikit.showcase.Section08IconButtons
-import com.wafflehq.uikit.showcase.Section09Chips
-import com.wafflehq.uikit.showcase.Section10TextFields
-import com.wafflehq.uikit.showcase.Section11Cards
-import com.wafflehq.uikit.showcase.Section12List
-import com.wafflehq.uikit.showcase.Section13Selection
-import com.wafflehq.uikit.showcase.Section14Segmented
-import com.wafflehq.uikit.showcase.Section15SliderProgress
-import com.wafflehq.uikit.showcase.Section16Badges
-import com.wafflehq.uikit.showcase.Section17Banners
-import com.wafflehq.uikit.showcase.Section18SnackbarDialog
-import com.wafflehq.uikit.showcase.Section19Icons
-import com.wafflehq.uikit.showcase.Section20Dividers
-import com.wafflehq.uikit.showcase.Section21Spacing
-import com.wafflehq.uikit.showcase.Section22AppHeader
-import com.wafflehq.uikit.showcase.Section23SettingsList
-import com.wafflehq.uikit.showcase.Section24SettingsDetail
-import com.wafflehq.uikit.showcase.Section25FilterList
-import com.wafflehq.uikit.showcase.Section26DndList
-import com.wafflehq.uikit.showcase.Section27DeleteList
-import com.wafflehq.uikit.showcase.Section28PlainList
-import com.wafflehq.uikit.showcase.Section29GroupedList
-import com.wafflehq.uikit.showcase.Section30AccordionList
-import com.wafflehq.uikit.showcase.Section31ControlList
-import com.wafflehq.uikit.showcase.Section32ContainerBoxes
-import com.wafflehq.uikit.showcase.Section33ComboList
-import com.wafflehq.uikit.showcase.ElementInspectorHost
-import com.wafflehq.uikit.showcase.InspectSection
-import com.wafflehq.uikit.showcase.ShowcaseLede
-import com.wafflehq.uikit.showcase.ShowcaseThemeToggle
+import com.wafflehq.lib.settings.colors.LocalIsDarkTheme
+import com.wafflehq.lib.uicore.theme.AppSpacing
+import com.wafflehq.base.ui.showcase.Section01Typography
+import com.wafflehq.base.ui.showcase.Section02Weights
+import com.wafflehq.base.ui.showcase.Section03Ramps
+import com.wafflehq.base.ui.showcase.Section04Surfaces
+import com.wafflehq.base.ui.showcase.Section05Roles
+import com.wafflehq.base.ui.showcase.Section06Buttons
+import com.wafflehq.base.ui.showcase.Section07Fab
+import com.wafflehq.base.ui.showcase.Section08IconButtons
+import com.wafflehq.base.ui.showcase.Section09Chips
+import com.wafflehq.base.ui.showcase.Section10TextFields
+import com.wafflehq.base.ui.showcase.Section11Cards
+import com.wafflehq.base.ui.showcase.Section12List
+import com.wafflehq.base.ui.showcase.Section13Selection
+import com.wafflehq.base.ui.showcase.Section14Segmented
+import com.wafflehq.base.ui.showcase.Section15SliderProgress
+import com.wafflehq.base.ui.showcase.Section16Badges
+import com.wafflehq.base.ui.showcase.Section17Banners
+import com.wafflehq.base.ui.showcase.Section18SnackbarDialog
+import com.wafflehq.base.ui.showcase.Section19Icons
+import com.wafflehq.base.ui.showcase.Section20Dividers
+import com.wafflehq.base.ui.showcase.Section21Spacing
+import com.wafflehq.base.ui.showcase.Section22AppHeader
+import com.wafflehq.base.ui.showcase.Section23SettingsList
+import com.wafflehq.base.ui.showcase.Section24SettingsDetail
+import com.wafflehq.base.ui.showcase.Section25FilterList
+import com.wafflehq.base.ui.showcase.Section26DndList
+import com.wafflehq.base.ui.showcase.Section27DeleteList
+import com.wafflehq.base.ui.showcase.Section28PlainList
+import com.wafflehq.base.ui.showcase.Section29GroupedList
+import com.wafflehq.base.ui.showcase.Section30AccordionList
+import com.wafflehq.base.ui.showcase.Section31ControlList
+import com.wafflehq.base.ui.showcase.Section32ContainerBoxes
+import com.wafflehq.base.ui.showcase.Section33ComboList
+import com.wafflehq.base.ui.showcase.ElementInspectorHost
+import com.wafflehq.base.ui.showcase.InspectSection
+import com.wafflehq.base.ui.showcase.ShowcaseLede
+import com.wafflehq.base.ui.showcase.ShowcaseThemeToggle
 
 @Composable
 fun HomeScreen(
@@ -65,16 +63,11 @@ fun HomeScreen(
     onOpenSettings: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel(),
 ) {
-    val themeMode by viewModel.themeMode.collectAsStateWithLifecycle()
-    val systemDark = isSystemInDarkTheme()
-    val dark = when (themeMode) {
-        ThemeMode.SYSTEM -> systemDark
-        ThemeMode.LIGHT -> false
-        ThemeMode.DARK -> true
-    }
+    val dark = LocalIsDarkTheme.current
 
     ElementInspectorHost(enabled = true) {
-        AppScaffold(
+        AppHeaderScaffold(
+            title = stringResource(R.string.app_name),
             activeItem = HeaderItem.Home,
             onOpenMenu = onOpenMenu,
             onNavigateHome = onNavigateHome,
@@ -83,7 +76,6 @@ fun HomeScreen(
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(AppTheme.colors.background)
                     .padding(padding),
                 contentPadding = PaddingValues(horizontal = AppSpacing.lg, vertical = AppSpacing.lg),
                 verticalArrangement = Arrangement.spacedBy(AppSpacing.xxl),

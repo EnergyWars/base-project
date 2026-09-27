@@ -1,67 +1,54 @@
 package com.wafflehq.base.data.settings
 
 import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.wafflehq.uikit.theme.ThemeMode
+import com.wafflehq.base.data.model.ThemeMode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
-import javax.inject.Singleton
 
 private val Context.settingsDataStore by preferencesDataStore(name = "settings")
 
-@Singleton
-class SettingsRepository @Inject constructor(
-    private val context: Context
-) {
-    private val themeModeKey = stringPreferencesKey("theme_mode")
-    private val checkedFeatureFilesKey = stringSetPreferencesKey("checked_feature_files")
-    private val showHiddenFeatureFilesKey = booleanPreferencesKey("show_hidden_feature_files")
-    private val paletteJsonKey = stringPreferencesKey("palette_json")
+class SettingsRepository(private val dataStore: DataStore<Preferences>) {
 
-    val themeMode: Flow<ThemeMode> = context.settingsDataStore.data.map { prefs ->
-        ThemeMode.fromName(prefs[themeModeKey])
+    constructor(context: Context) : this(context.settingsDataStore)
+
+    val themeMode: Flow<ThemeMode> = dataStore.data.map { prefs ->
+        ThemeMode.fromName(prefs[THEME_MODE_KEY])
     }
 
-    val paletteJson: Flow<String?> = context.settingsDataStore.data.map { prefs ->
-        prefs[paletteJsonKey]
+    val checkedFeatureFiles: Flow<Set<String>> = dataStore.data.map { prefs ->
+        prefs[CHECKED_FEATURE_FILES_KEY].orEmpty()
     }
 
-    suspend fun setPaletteJson(json: String) {
-        context.settingsDataStore.edit { prefs ->
-            prefs[paletteJsonKey] = json
-        }
-    }
-
-    val checkedFeatureFiles: Flow<Set<String>> = context.settingsDataStore.data.map { prefs ->
-        prefs[checkedFeatureFilesKey].orEmpty()
-    }
-
-    val showHiddenFeatureFiles: Flow<Boolean> = context.settingsDataStore.data.map { prefs ->
-        prefs[showHiddenFeatureFilesKey] ?: false
+    val showHiddenFeatureFiles: Flow<Boolean> = dataStore.data.map { prefs ->
+        prefs[SHOW_HIDDEN_FEATURE_FILES_KEY] ?: false
     }
 
     suspend fun setThemeMode(mode: ThemeMode) {
-        context.settingsDataStore.edit { prefs ->
-            prefs[themeModeKey] = mode.name
-        }
+        dataStore.edit { prefs -> prefs[THEME_MODE_KEY] = mode.name }
     }
 
     suspend fun setFeatureFileChecked(fileName: String, checked: Boolean) {
-        context.settingsDataStore.edit { prefs ->
-            val current = prefs[checkedFeatureFilesKey].orEmpty().toMutableSet()
+        dataStore.edit { prefs ->
+            val current = prefs[CHECKED_FEATURE_FILES_KEY].orEmpty().toMutableSet()
             if (checked) current.add(fileName) else current.remove(fileName)
-            prefs[checkedFeatureFilesKey] = current
+            prefs[CHECKED_FEATURE_FILES_KEY] = current
         }
     }
 
     suspend fun setShowHiddenFeatureFiles(show: Boolean) {
-        context.settingsDataStore.edit { prefs ->
-            prefs[showHiddenFeatureFilesKey] = show
-        }
+        dataStore.edit { prefs -> prefs[SHOW_HIDDEN_FEATURE_FILES_KEY] = show }
+    }
+
+    private companion object {
+        val THEME_MODE_KEY = stringPreferencesKey("theme_mode")
+        val CHECKED_FEATURE_FILES_KEY = stringSetPreferencesKey("checked_feature_files")
+        val SHOW_HIDDEN_FEATURE_FILES_KEY = booleanPreferencesKey("show_hidden_feature_files")
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="entry_lock_menu_select">Select entries</string>
+    <string name="entry_lock_menu_lock_all">Lock all entries</string>
+    <string name="entry_lock_menu_unlock_all">Unlock all entries</string>
+    <string name="entry_lock_menu_session_unlock">Unlock temporarily</string>
+    <string name="entry_lock_select_all">Select all</string>
+    <string name="entry_lock_bulk_lock">Lock selected entries</string>
+    <string name="entry_lock_bulk_unlock">Unlock selected entries</string>
+    <string name="entry_lock_relock_row">Lock entry again</string>
+    <string name="entry_lock_date_time_format">%1$s · %2$s</string>
+    <string name="entry_lock_view_title">View</string>
+    <string name="entry_lock_entry_label">Lock this entry</string>
+    <string name="entry_lock_entry_locked">Entry is locked</string>
+    <string name="entry_lock_unavailable_hint">No screen lock set up. Enable a screen lock or biometrics in system settings to lock entries.</string>
+    <string name="entry_lock_auth_prompt_title">Confirm access</string>
+    <string name="entry_lock_menu_description">More security options</string>
+    <string name="entry_lock_selection_count">%1$d selected</string>
+    <string name="entry_lock_selection_cancel">Cancel selection</string>
+    <string name="entry_lock_temporary_unlock_row">Temporarily unlock entry</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="entry_lock_menu_select">Einträge auswählen</string>
+    <string name="entry_lock_menu_lock_all">Alle Einträge sichern</string>
+    <string name="entry_lock_menu_unlock_all">Alle Einträge entsperren</string>
+    <string name="entry_lock_menu_session_unlock">Temporär entsperren</string>
+    <string name="entry_lock_select_all">Alle auswählen</string>
+    <string name="entry_lock_bulk_lock">Ausgewählte Einträge sichern</string>
+    <string name="entry_lock_bulk_unlock">Ausgewählte Einträge entsperren</string>
+    <string name="entry_lock_relock_row">Eintrag wieder sperren</string>
+    <string name="entry_lock_date_time_format">%1$s · %2$s</string>
+    <string name="entry_lock_view_title">Ansehen</string>
+    <string name="entry_lock_entry_label">Diesen Eintrag sichern</string>
+    <string name="entry_lock_entry_locked">Eintrag ist gesperrt</string>
+    <string name="entry_lock_unavailable_hint">Kein Sperrbildschirm eingerichtet. Aktiviere Bildschirmsperre oder Biometrie in den Systemeinstellungen, um Einträge zu sichern.</string>
+    <string name="entry_lock_auth_prompt_title">Zugriff bestätigen</string>
+    <string name="entry_lock_menu_description">Weitere Sicherheitsoptionen</string>
+    <string name="entry_lock_selection_count">%1$d ausgewählt</string>
+    <string name="entry_lock_selection_cancel">Auswahl abbrechen</string>
+    <string name="entry_lock_temporary_unlock_row">Eintrag temporär entsperren</string>
+</resources>

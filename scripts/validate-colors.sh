@@ -9,11 +9,11 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-UIKIT_SRC="$PROJECT_ROOT/uikit/src/main/java/com/wafflehq/uikit"
+UIKIT_SRC="$PROJECT_ROOT/lib/settings/src/main/kotlin/com/wafflehq/lib/settings"
 APP_SRC="$PROJECT_ROOT/app/src/main/java/com/wafflehq/base"
-PALETTE_KT="$UIKIT_SRC/theme/Palette.kt"
-THEME_KT="$UIKIT_SRC/theme/Theme.kt"
-TYPE_KT="$UIKIT_SRC/theme/Type.kt"
+PALETTE_KT="$UIKIT_SRC/colors/ColorPalette.kt"
+THEME_KT="$APP_SRC/ui/theme/Theme.kt"
+TYPE_KT="$APP_SRC/ui/theme/Type.kt"
 
 ERRORS=0
 WARNINGS=0
@@ -25,8 +25,8 @@ echo ""
 echo "1. Checking direct color token usage..."
 TOKEN_USAGE=$(grep -r "\(Sapphire\|Aquamarine\|Amethyst\|Citrine\|Garnet\|Graphite\|DarkBackground\|LightBackground\|OnSurface\(Dark\|Light\)\|OutlineDark\|OutlineLight\)" \
   "$UIKIT_SRC" "$APP_SRC" --include="*.kt" \
-  | grep -v "$PALETTE_KT" | grep -v "$THEME_KT" | grep -v "/test/" \
-  | grep -v "Section03Ramps.kt" || true)
+  | grep -v "$PALETTE_KT" | grep -v "$THEME_KT" | grep -v "/test/" | grep -v "/domain/colortheme/tokens/" \
+  | grep -v "Section03Ramps.kt" | grep -v "ColorRampTable.kt" || true)
 
 if [ -z "$TOKEN_USAGE" ]; then
   echo -e "${GREEN}✓${NC} No direct color token usage outside Palette.kt/Theme.kt"
@@ -58,7 +58,7 @@ REQUIRED_HUES=("Sapphire" "Aquamarine" "Amethyst" "Emerald" "Citrine" "Garnet" "
 
 MISSING=0
 for HUE in "${REQUIRED_HUES[@]}"; do
-  if ! grep -q "\"${HUE}\"" "$PALETTE_KT"; then
+  if ! grep -q "${HUE}10" "$PALETTE_KT"; then
     echo -e "${RED}✗${NC} Missing ramp: ${HUE}"
     MISSING=$((MISSING + 1))
   fi

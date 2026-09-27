@@ -1,2 +1,2 @@
-53ba4aaaad7b22b599d65e13ba82367b7c62028b3ede60845de7cbc23b7ee13f  uikit/src/main/java/com/wafflehq/uikit/theme/Palette.kt
-66914fb5faf3a7f656477f6940415ab58407050cad567c31d67e65ccce672a3f  uikit/src/main/java/com/wafflehq/uikit/theme/Theme.kt
+4b3c7e4a17e32a867f3082cd70a0d14006593e34bd418a1fb5b27f6a4ceae2c5  lib/settings/src/main/kotlin/com/wafflehq/lib/settings/colors/ColorPalette.kt
+bb246cb14c7ac03d9952d9f3303a3ce6e487b0a225cd4c33c57ffa330a8dda76  app/src/main/java/com/wafflehq/base/ui/theme/Theme.kt

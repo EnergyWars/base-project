@@ -22,3 +22,7 @@ dev/*
 
 /features
 /features/*
+
+__pycache__/
+*.pyc
+**/build/
